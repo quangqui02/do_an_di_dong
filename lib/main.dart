@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      //long sua ne
+      // long sua ne
+      // tao la qui
       home: const LoginEmail(),
     );
   }
