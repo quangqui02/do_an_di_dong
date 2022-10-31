@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //long sua ne
+      //long sua 2
       home: const LoginEmail(),
     );
   }
