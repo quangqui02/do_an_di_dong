@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
       // long sua ne
       // tao la qui
-      //long sua 2
+      // long sua 2
       home: const LoginEmail(),
     );
   }
