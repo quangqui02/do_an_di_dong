@@ -1,20 +1,9 @@
-// import 'package:do_an/screens/login_screens/components/top_text.dart';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'dart:math' as math;
 
-// import 'center_widget/center_widget.dart';
-// import 'login_content.dart';
-
-// enum lsScreens {
-//   createAccount,
-//   welcomback,
-// }
-
-class LoginEmail extends StatelessWidget {
-  const LoginEmail({Key? key}) : super(key: key);
+class LoginPhone extends StatelessWidget {
+  const LoginPhone({Key? key}) : super(key: key);
 
   Widget inputField(String hint, IconData iconData) {
     return Padding(
@@ -43,6 +32,40 @@ class LoginEmail extends StatelessWidget {
               hintText: hint,
               // hiển thị chữ
 
+              prefixIcon: Icon(
+                iconData,
+                // color: Color.fromARGB(255, 38, 0, 255),
+              ), //icon
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget inputPhone(String hint, IconData iconData) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
+      child: SizedBox(
+        height: 50,
+        child: Material(
+          elevation: 8, // góc đổ bóng
+          shadowColor: Colors.black87,
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(30), // bo tròn bóng
+          child: TextField(
+            textAlignVertical: TextAlignVertical.bottom, // gạch chân input
+            keyboardType: TextInputType.phone,
+            decoration: InputDecoration(
+              // tạo input
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30), // bo tròn
+                borderSide: BorderSide.none, // bỏ đường viền
+              ),
+              filled: true,
+              fillColor: Color.fromARGB(255, 255, 255, 255),
+              hintText: hint,
+              // hiển thị chữ
               prefixIcon: Icon(
                 iconData,
                 // color: Color.fromARGB(255, 38, 0, 255),
@@ -191,7 +214,7 @@ class LoginEmail extends StatelessWidget {
                       ),
                     ),
                     inputField('Tên Đăng Nhập', Icons.person_outline),
-                    inputField('Email', Icons.email),
+                    inputPhone('Phone', Icons.phone),
                     InputBorder('Password', Icons.password),
                     Column(
                       children: [
