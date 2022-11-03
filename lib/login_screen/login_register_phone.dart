@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:doan_didong/login_screen/login_register_email.dart';
+import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPhone extends StatelessWidget {
@@ -77,7 +79,7 @@ class LoginPhone extends StatelessWidget {
     );
   }
 
-  Widget logos() {
+  Widget logos(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
@@ -97,7 +99,13 @@ class LoginPhone extends StatelessWidget {
                   Container(
                     child: Row(children: [
                       TextButton(
-                        onPressed: () {}, //bo sung 3
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginAccount()),
+                          );
+                        }, //bo sung 3
                         child: const Text(
                           'Đăng nhập',
                           style: TextStyle(
@@ -201,6 +209,28 @@ class LoginPhone extends StatelessWidget {
                     // borderRadius: BorderRadius.circular(12),
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20, right: 20),
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginEmail()),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.email,
+                          color: Color.fromARGB(255, 0, 247, 255),
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -233,7 +263,7 @@ class LoginPhone extends StatelessWidget {
                     ),
                     InputBorder('Re-Password', Icons.password),
                     loginButton('Đăng Ký'),
-                    logos(),
+                    logos(context),
                   ],
                 ),
               ],

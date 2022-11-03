@@ -1,3 +1,4 @@
+import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
 enum Screens {
@@ -17,13 +18,11 @@ class LoginAccount extends StatelessWidget {
           elevation: 8, // góc đổ bóng
           shadowColor: Colors.black87,
           color: Colors.transparent,
-
           borderRadius: BorderRadius.circular(30), // bo tròn bóng
           child: TextField(
             textAlignVertical: TextAlignVertical.bottom, // gạch chân input
             decoration: InputDecoration(
               // tạo input
-
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30), // bo tròn
                 borderSide: BorderSide.none, // bỏ đường viền
@@ -73,7 +72,7 @@ class LoginAccount extends StatelessWidget {
 
   Widget loginButton(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 10),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
@@ -96,7 +95,7 @@ class LoginAccount extends StatelessWidget {
 
   Widget orDivider() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 5),
       child: Row(children: [
         Flexible(
           child: Container(
@@ -124,9 +123,9 @@ class LoginAccount extends StatelessWidget {
     );
   }
 
-  Widget logos() {
+  Widget logos(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -152,7 +151,6 @@ class LoginAccount extends StatelessWidget {
             ],
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -167,7 +165,13 @@ class LoginAccount extends StatelessWidget {
                   Container(
                     child: Row(children: [
                       TextButton(
-                        onPressed: () {}, //bo sung 3
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginRegister()),
+                          );
+                        }, //bo sung 3
                         child: const Text(
                           'Đăng kí',
                           style: TextStyle(
@@ -215,11 +219,21 @@ class LoginAccount extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, bottom: 16),
+                      child: Text(
+                        'Đăng Nhập',
+                        style: TextStyle(
+                          fontSize: 60,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
                     inputField('Name', Icons.person_outline),
                     InputBorder('Password', Icons.password_outlined),
                     loginButton('Sign Up'),
                     orDivider(),
-                    logos(),
+                    logos(context),
                   ],
                 ),
               ],

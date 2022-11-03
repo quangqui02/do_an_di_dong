@@ -1,4 +1,7 @@
 // import 'package:do_an/screens/login_screens/components/top_text.dart';
+import 'package:doan_didong/login_screen/login_register_email.dart';
+import 'package:doan_didong/login_screen/login_register_phone.dart';
+import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/cupertino.dart';
 // import 'dart:math' as math;
@@ -14,11 +17,16 @@ import 'package:flutter/material.dart';
 class LoginRegister extends StatelessWidget {
   const LoginRegister({Key? key}) : super(key: key);
 
-  Widget loginButton(String title) {
+  Widget loginButtonEmail(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginEmail()),
+          );
+        },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 20),
           shape: const StadiumBorder(),
@@ -38,7 +46,36 @@ class LoginRegister extends StatelessWidget {
     );
   }
 
-  Widget logos() {
+  Widget loginButtonPhone(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPhone()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          shape: const StadiumBorder(),
+          primary: Color.fromARGB(255, 255, 255, 255),
+          elevation: 8, // đổ bóng
+          shadowColor: Color.fromARGB(221, 0, 0, 0),
+        ),
+        child: Text(
+          title,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget logos(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
@@ -58,7 +95,13 @@ class LoginRegister extends StatelessWidget {
                   Container(
                     child: Row(children: [
                       TextButton(
-                        onPressed: () {}, //bo sung 3
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginAccount()),
+                          );
+                        }, //bo sung 3
                         child: const Text(
                           'Đăng nhập',
                           style: TextStyle(
@@ -111,9 +154,9 @@ class LoginRegister extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    loginButton('Đăng Ký Số Điện Thoại'),
-                    loginButton('Đăng Ký Email'),
-                    logos(),
+                    loginButtonPhone('Đăng Ký Số Điện Thoại', context),
+                    loginButtonEmail('Đăng Ký Email', context),
+                    logos(context),
                   ],
                 ),
               ],

@@ -1,4 +1,5 @@
 // import 'package:do_an/screens/login_screens/components/top_text.dart';
+import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/cupertino.dart';
 // import 'dart:math' as math;
@@ -45,7 +46,7 @@ class LoginForget extends StatelessWidget {
     );
   }
 
-  Widget logos() {
+  Widget logos(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
@@ -67,7 +68,13 @@ class LoginForget extends StatelessWidget {
                   Container(
                     child: Row(children: [
                       TextButton(
-                        onPressed: () {}, //bo sung 3
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginAccount()),
+                          );
+                        }, //bo sung 3
                         child: const Text(
                           'Đăng nhập',
                           style: TextStyle(
@@ -146,7 +153,7 @@ class LoginForget extends StatelessWidget {
                     inputField('Tên Đăng Nhập', Icons.person_outline),
                     inputField('Email', Icons.email),
                     loginButton('Lấy Mật Khẩu'),
-                    logos(),
+                    logos(context),
                   ],
                 ),
               ],
