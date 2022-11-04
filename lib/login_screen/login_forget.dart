@@ -50,7 +50,7 @@ class LoginForget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -153,9 +153,9 @@ class LoginForget extends StatelessWidget {
                     inputField('Tên Đăng Nhập', Icons.person_outline),
                     inputField('Email', Icons.email),
                     loginButton('Lấy Mật Khẩu'),
-                    logos(context),
                   ],
                 ),
+                logos(context),
               ],
             ),
           ),

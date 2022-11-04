@@ -83,6 +83,7 @@ class LoginPhone extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Column(
             children: [
@@ -263,9 +264,9 @@ class LoginPhone extends StatelessWidget {
                     ),
                     InputBorder('Re-Password', Icons.password),
                     loginButton('Đăng Ký'),
-                    logos(context),
                   ],
                 ),
+                logos(context),
               ],
             ),
           ),

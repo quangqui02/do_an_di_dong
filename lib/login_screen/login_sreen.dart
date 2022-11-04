@@ -1,3 +1,4 @@
+import 'package:doan_didong/login_screen/login_forget.dart';
 import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
@@ -72,20 +73,20 @@ class LoginAccount extends StatelessWidget {
 
   Widget loginButton(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 10),
+      padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 14),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           shape: const StadiumBorder(),
           primary: Colors.blue[900],
-          elevation: 8, // đổ bóng
+          elevation: 12, // đổ bóng
           shadowColor: Colors.black87,
         ),
         child: Text(
           title,
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -125,9 +126,8 @@ class LoginAccount extends StatelessWidget {
 
   Widget logos(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 1),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -150,75 +150,12 @@ class LoginAccount extends StatelessWidget {
               ),
             ],
           ),
-          // Column(
-          //   children: [
-          //     Row(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         Container(
-          //           child: Text("Bạn chưa có tài khoản ?",
-          //               style: TextStyle(
-          //                 color: Color.fromARGB(255, 0, 0, 0),
-          //                 fontSize: 15,
-          //               )),
-          //         ),
-          //         Container(
-          //           child: Row(children: [
-          //             TextButton(
-          //               onPressed: () {
-          //                 Navigator.push(
-          //                   context,
-          //                   MaterialPageRoute(
-          //                       builder: (context) => LoginRegister()),
-          //                 );
-          //               }, //bo sung 3
-          //               child: const Text(
-          //                 'Đăng kí',
-          //                 style: TextStyle(
-          //                   fontSize: 15,
-          //                   color: Colors.blue,
-          //                   decoration: TextDecoration.none,
-          //                 ),
-          //               ),
-          //             ),
-          //           ]),
-          //         ),
-          //       ],
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );
   }
 
   Widget logostag(BuildContext context) {
-    // return Padding(
-    //   padding: const EdgeInsets.symmetric(vertical: 8),
-    //   child: Column(
-    //     mainAxisAlignment: MainAxisAlignment.center,
-    //     children: [
-    //       Row(
-    //         mainAxisAlignment: MainAxisAlignment.center,
-    //         children: [
-    //           TextButton(
-    //             onPressed: () {}, //bo sung 3
-    //             child: Image(
-    //               height: 40,
-    //               width: 40,
-    //               image: AssetImage('images/facebook.png'),
-    //             ),
-    //           ),
-    //           TextButton(
-    //             onPressed: () {}, //bo sung 3
-    //             child: Image(
-    //               height: 40,
-    //               width: 40,
-    //               image: AssetImage('images/google.png'),
-    //             ),
-    //           ),
-    //         ],
-    //       ),
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -228,7 +165,7 @@ class LoginAccount extends StatelessWidget {
             Container(
               child: Text("Bạn chưa có tài khoản ?",
                   style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 15,
                   )),
             ),
@@ -297,6 +234,26 @@ class LoginAccount extends StatelessWidget {
                     ),
                     inputField('Name', Icons.person_outline),
                     InputBorder('Password', Icons.password_outlined),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 150),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginForget()),
+                          );
+                        }, //bo sung 3
+                        child: const Text(
+                          'Quên mật khẩu',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.blue,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                      ),
+                    ),
                     loginButton('Sign Up'),
                     orDivider(),
                     logos(context),

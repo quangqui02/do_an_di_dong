@@ -28,19 +28,31 @@ class LoginRegister extends StatelessWidget {
           );
         },
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 12),
           shape: const StadiumBorder(),
           primary: Color.fromARGB(255, 255, 255, 255),
           elevation: 8, // đổ bóng
           shadowColor: Color.fromARGB(221, 0, 0, 0),
         ),
-        child: Text(
-          title,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Image(
+                image: AssetImage('images/gmail.png'),
+                height: 35,
+                width: 40,
+              ),
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -57,19 +69,31 @@ class LoginRegister extends StatelessWidget {
           );
         },
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 12),
           shape: const StadiumBorder(),
           primary: Color.fromARGB(255, 255, 255, 255),
           elevation: 8, // đổ bóng
           shadowColor: Color.fromARGB(221, 0, 0, 0),
         ),
-        child: Text(
-          title,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Image(
+                image: AssetImage('images/phone.png'),
+                height: 40,
+                width: 40,
+              ),
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -79,6 +103,7 @@ class LoginRegister extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Column(
             children: [
@@ -88,7 +113,7 @@ class LoginRegister extends StatelessWidget {
                   Container(
                     child: Text("Bạn đã có tài khoản ?",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: Color.fromARGB(255, 255, 255, 255),
                           fontSize: 15,
                         )),
                   ),
@@ -156,9 +181,9 @@ class LoginRegister extends StatelessWidget {
                   children: [
                     loginButtonPhone('Đăng Ký Số Điện Thoại', context),
                     loginButtonEmail('Đăng Ký Email', context),
-                    logos(context),
                   ],
                 ),
+                logos(context),
               ],
             ),
           ),
