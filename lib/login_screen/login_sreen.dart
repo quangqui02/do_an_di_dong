@@ -2,13 +2,8 @@ import 'package:doan_didong/login_screen/login_forget.dart';
 import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
-enum Screens {
-  createAccount,
-  welcomback,
-}
-
 class LoginAccount extends StatelessWidget {
-  const LoginAccount({Key? key}) : super(key: key);
+  const LoginAccount({Key key}) : super(key: key);
 
   Widget inputField(String hint, IconData iconData) {
     return Padding(
@@ -77,7 +72,7 @@ class LoginAccount extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 12),
           shape: const StadiumBorder(),
           primary: Colors.blue[900],
           elevation: 12, // đổ bóng
@@ -197,8 +192,6 @@ class LoginAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const currentScreen = Screens.createAccount;
-
     return Scaffold(
       body: Stack(
         children: [

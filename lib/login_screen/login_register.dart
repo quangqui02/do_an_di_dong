@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
 // }
 
 class LoginRegister extends StatelessWidget {
-  const LoginRegister({Key? key}) : super(key: key);
+  const LoginRegister({Key key}) : super(key: key);
 
   Widget loginButtonEmail(String title, BuildContext context) {
     return Padding(

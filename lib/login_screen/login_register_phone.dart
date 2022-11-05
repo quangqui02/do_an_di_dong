@@ -5,7 +5,7 @@ import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPhone extends StatelessWidget {
-  const LoginPhone({Key? key}) : super(key: key);
+  const LoginPhone({Key key}) : super(key: key);
 
   Widget inputField(String hint, IconData iconData) {
     return Padding(
