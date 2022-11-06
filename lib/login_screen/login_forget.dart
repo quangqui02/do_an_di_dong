@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 // }
 
 class LoginForget extends StatelessWidget {
-  const LoginForget({Key key}) : super(key: key);
+  const LoginForget({Key? key}) : super(key: key);
 
   Widget inputField(String hint, IconData iconData) {
     return Padding(

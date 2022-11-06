@@ -3,7 +3,7 @@ import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
 class LoginAccount extends StatelessWidget {
-  const LoginAccount({Key key}) : super(key: key);
+  const LoginAccount({Key? key}) : super(key: key);
 
   Widget inputField(String hint, IconData iconData) {
     return Padding(

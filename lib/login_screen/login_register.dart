@@ -3,19 +3,9 @@ import 'package:doan_didong/login_screen/login_register_email.dart';
 import 'package:doan_didong/login_screen/login_register_phone.dart';
 import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'dart:math' as math;
-
-// import 'center_widget/center_widget.dart';
-// import 'login_content.dart';
-
-// enum lsScreens {
-//   createAccount,
-//   welcomback,
-// }
 
 class LoginRegister extends StatelessWidget {
-  const LoginRegister({Key key}) : super(key: key);
+  const LoginRegister({Key? key}) : super(key: key);
 
   Widget loginButtonEmail(String title, BuildContext context) {
     return Padding(

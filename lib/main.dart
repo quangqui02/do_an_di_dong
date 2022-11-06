@@ -3,6 +3,7 @@ import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:doan_didong/login_screen/login_register_email.dart';
 import 'package:doan_didong/login_screen/login_register_phone.dart';
 import 'package:doan_didong/login_screen/login_sreen.dart';
+import 'package:doan_didong/home/home.dart';
 import 'package:doan_didong/question_screen/question.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const Question(),
+      home: const QuestionScreen(),
     );
   }
 }

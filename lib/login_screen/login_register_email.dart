@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 // }
 
 class LoginEmail extends StatelessWidget {
-  const LoginEmail({Key key}) : super(key: key);
+  const LoginEmail({Key? key}) : super(key: key);
 
   Widget inputField(String hint, IconData iconData) {
     return Padding(
