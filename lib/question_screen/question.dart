@@ -1,4 +1,3 @@
-import 'package:doan_didong/question_screen/quiz_maker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class QuestionScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color(0xff7c94b6),
               image: const DecorationImage(
-                image: AssetImage('images/backgroud.jpg'),
+                image: AssetImage('images/background.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -31,25 +30,28 @@ class QuestionScreen extends StatelessWidget {
                         Container(
                           child: Row(children: [
                             Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding: const EdgeInsets.only(right: 10),
                               child: Image(
                                 image: AssetImage('images/brain.png'),
                                 height: 30,
                                 width: 30,
                               ),
                             ),
-                            Text(
-                              ('3200'),
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15),
+                              child: Text(
+                                ('3000'),
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ]),
                           height: 40,
                           decoration: BoxDecoration(
-                              color: Colors.yellow.shade800,
+                              color: Color.fromARGB(255, 5, 255, 18),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                               border: Border.all(color: Colors.white)),
@@ -237,19 +239,19 @@ class QuestionScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      child: Text(
-                        'Một Phút Có bao nhiêu giây?',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                        textAlign: TextAlign.center,
+                      child: Padding(
+                        padding: const EdgeInsets.all(3),
+                        child: Text(
+                          'Một Phút Có bao nhiêu giây?',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       alignment: Alignment.center,
-                      height: 100,
+                      height: 150,
                       width: 300,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 8, 0, 255),
+                          color: Color.fromARGB(137, 84, 84, 92),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               color: Color.fromARGB(255, 255, 255, 255))),
@@ -259,7 +261,7 @@ class QuestionScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(3),
                             child: Container(
                               alignment: Alignment.bottomLeft,
                               child: TextButton(
@@ -272,7 +274,7 @@ class QuestionScreen extends StatelessWidget {
                               height: 50,
                               width: 300,
                               decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 8, 0, 255),
+                                  color: Color.fromARGB(103, 84, 84, 92),
                                   borderRadius: BorderRadius.circular(30),
                                   border: Border.all(
                                       color:
@@ -280,7 +282,7 @@ class QuestionScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(3),
                             child: Container(
                               alignment: Alignment.bottomLeft,
                               child: TextButton(
@@ -293,7 +295,7 @@ class QuestionScreen extends StatelessWidget {
                               height: 50,
                               width: 300,
                               decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 8, 0, 255),
+                                  color: Color.fromARGB(103, 84, 84, 92),
                                   borderRadius: BorderRadius.circular(30),
                                   border: Border.all(
                                       color:
@@ -301,7 +303,7 @@ class QuestionScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(3),
                             child: Container(
                               alignment: Alignment.bottomLeft,
                               child: TextButton(
@@ -314,7 +316,7 @@ class QuestionScreen extends StatelessWidget {
                               height: 50,
                               width: 300,
                               decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 8, 0, 255),
+                                  color: Color.fromARGB(103, 84, 84, 92),
                                   borderRadius: BorderRadius.circular(30),
                                   border: Border.all(
                                       color:
@@ -322,7 +324,7 @@ class QuestionScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(3),
                             child: Container(
                               alignment: Alignment.bottomLeft,
                               child: TextButton(
@@ -335,7 +337,7 @@ class QuestionScreen extends StatelessWidget {
                               height: 50,
                               width: 300,
                               decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 8, 0, 255),
+                                  color: Color.fromARGB(103, 84, 84, 92),
                                   borderRadius: BorderRadius.circular(30),
                                   border: Border.all(
                                       color:
@@ -354,7 +356,7 @@ class QuestionScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () => _dialogBuilder(context),
                 child: Icon(
                   Icons.settings,
                   size: 50,
@@ -369,280 +371,110 @@ class QuestionScreen extends StatelessWidget {
   }
 }
 
-// class QuestionScreen extends StatefulWidget {
-//   QuestionScreen({Key? key, required this.questionData});
-
-//   final questionData;
-
-//   @override
-//   State<QuestionScreen> createState() => _QuestionScreenState();
-// }
-
-// class _QuestionScreenState extends State<QuestionScreen> {
-//   @override
-//   void initState() {
-//     super.initState();
-//     quizMaker.getList(widget.questionData);
-//   }
-
-//   QuizMaker quizMaker = QuizMaker();
-//   int questionNumber = 0;
-
-//   bool isAbsorbing = false;
-
-//   final int duration = 20;
-
-//   List<Color> optionColor = [
-//     Colors.white,
-//     Colors.white,
-//     Colors.white,
-//     Colors.white
-//   ];
-
-//   List<Widget> buildOptions(int i) {
-//     List<String> options = quizMaker.getOptions(i);
-
-//     List<Widget> Options = [];
-
-//     for (int j = 0; j < 4; j++) {
-//       Options.add(OptionWidget(
-//         widget: widget,
-//         option: options[j],
-//         optionColor: optionColor[j],
-//         onTap: () async {
-//           if (quizMaker.isCorrect(i, j)) {
-//             setState(() {
-//               optionColor[j] = Colors.green;
-//               isAbsorbing = true;
-//             });
-//             quizMaker.increaseScore();
-//           } else {
-//             setState(() {
-//               optionColor[j] = Colors.red;
-//               optionColor[quizMaker.getCorrectIndex(i)] = Colors.green;
-//               isAbsorbing = true;
-//             });
-//           }
-//           await Future.delayed(
-//               const Duration(seconds: 1, milliseconds: 30), () {});
-//           if (questionNumber < 9) {
-//             setState(() {
-//               optionColor[j] = Colors.white;
-//               optionColor[quizMaker.getCorrectIndex(i)] = Colors.white;
-//               questionNumber++;
-//               isAbsorbing = false;
-//             });
-//           } else {
-//             Navigator.pop(context);
-//             Navigator.pop(context);
-//           }
-//         },
-//       ));
-//     }
-//     return Options;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Stack(
-//         children: [
-//           Container(
-//             decoration: BoxDecoration(
-//               color: const Color(0xff7c94b6),
-//               image: const DecorationImage(
-//                 image: AssetImage('images/backgroud.jpg'),
-//                 fit: BoxFit.cover,
-//               ),
-//             ),
-//           ),
-//           Column(
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.only(top: 40),
-//                 child: Row(
-//                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                   children: [
-//                     Row(
-//                       children: [
-//                         Container(
-//                           child: Row(children: [
-//                             Padding(
-//                               padding: const EdgeInsets.only(right: 20),
-//                               child: Image(
-//                                 image: AssetImage('images/brain.png'),
-//                                 height: 30,
-//                                 width: 30,
-//                               ),
-//                             ),
-//                             Text(
-//                               ('3200'),
-//                               style: TextStyle(
-//                                 color: Colors.black,
-//                                 fontSize: 20,
-//                                 fontWeight: FontWeight.bold,
-//                               ),
-//                             ),
-//                           ]),
-//                           height: 40,
-//                           decoration: BoxDecoration(
-//                               color: Colors.yellow.shade800,
-//                               borderRadius:
-//                                   BorderRadius.all(Radius.circular(20)),
-//                               border: Border.all(color: Colors.white)),
-//                         )
-//                       ],
-//                     ),
-//                     Row(
-//                       children: [
-//                         Padding(
-//                           padding: const EdgeInsets.all(1),
-//                           child: Image(
-//                             image: AssetImage('images/heart.png'),
-//                             height: 20,
-//                             width: 20,
-//                           ),
-//                         ),
-//                         Padding(
-//                           padding: const EdgeInsets.all(1),
-//                           child: Image(
-//                             image: AssetImage('images/heart.png'),
-//                             height: 20,
-//                             width: 20,
-//                           ),
-//                         ),
-//                         Padding(
-//                           padding: const EdgeInsets.all(1),
-//                           child: Image(
-//                             image: AssetImage('images/heart.png'),
-//                             height: 20,
-//                             width: 20,
-//                           ),
-//                         ),
-//                         Padding(
-//                           padding: const EdgeInsets.all(1),
-//                           child: Image(
-//                             image: AssetImage('images/timused.png'),
-//                             height: 20,
-//                             width: 20,
-//                           ),
-//                         ),
-//                         Padding(
-//                           padding: const EdgeInsets.all(3),
-//                           child: Image(
-//                             image: AssetImage('images/timused.png'),
-//                             height: 20,
-//                             width: 20,
-//                           ),
-//                         ),
-//                       ],
-//                     )
-//                   ],
-//                 ),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.only(left: 20, top: 30),
-//                 child: Row(
-//                   children: [
-//                     TextButton(
-//                       onPressed: () {},
-//                       child: Image(
-//                         height: 50,
-//                         width: 50,
-//                         image: AssetImage('images/5050.png'),
-//                       ),
-//                     ),
-//                     TextButton(
-//                       onPressed: () {},
-//                       child: Image(
-//                         height: 50,
-//                         width: 50,
-//                         image: AssetImage('images/call.png'),
-//                       ),
-//                     ),
-//                     TextButton(
-//                       onPressed: () {},
-//                       child: Image(
-//                         height: 50,
-//                         width: 50,
-//                         image: AssetImage('images/hoikhangia.png'),
-//                       ),
-//                     ),
-//                     Container(
-//                       child: TextButton(
-//                         onPressed: () {},
-//                         child: Image(
-//                           height: 30,
-//                           width: 30,
-//                           image: AssetImage('images/reset.png'),
-//                         ),
-//                       ),
-//                       decoration: BoxDecoration(
-//                           color: Color.fromARGB(255, 255, 255, 255),
-//                           borderRadius: BorderRadius.all(Radius.circular(40)),
-//                           border: Border.all(color: Colors.white)),
-//                     ),
-//                     TextButton(
-//                       onPressed: () {},
-//                       child: Image(
-//                         height: 50,
-//                         width: 50,
-//                         image: AssetImage('images/5050.png'),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-// class OptionWidget extends StatelessWidget {
-//   const OptionWidget(
-//       {Key? key,
-//       required this.widget,
-//       required this.option,
-//       required this.onTap,
-//       required this.optionColor})
-//       : super(key: key);
-
-//   final QuestionScreen widget;
-//   final String option;
-//   final VoidCallback onTap;
-//   final Color optionColor;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: onTap,
-//       child: Container(
-//         padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
-//         alignment: Alignment.center,
-//         height: 50,
-//         width: MediaQuery.of(context).size.width,
-//         decoration: BoxDecoration(
-//           color: optionColor,
-//           borderRadius: BorderRadius.circular(10),
-//           boxShadow: [
-//             BoxShadow(
-//               offset: const Offset(1, 3),
-//               blurRadius: 3,
-//               color: Colors.black.withOpacity(0.3),
-//             ),
-//           ],
-//         ),
-//         child: Text(
-//           option,
-//           style: TextStyle(
-//             fontSize: 16,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Container(
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100),
+                    child: Text(
+                      'Cài Đặt',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Icon(
+                        Icons.close,
+                        size: 40,
+                        color: Colors.white,
+                      ))
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.music_note,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            'Âm Nhạc',
+                            style: TextStyle(color: Colors.white, fontSize: 10),
+                          )
+                        ],
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(139, 126, 114, 114),
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                  Container(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.volume_down,
+                            size: 30,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            'Âm Lượng',
+                            style: TextStyle(color: Colors.white, fontSize: 10),
+                          )
+                        ],
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(139, 126, 114, 114),
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                ],
+              ),
+              Container(
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Thoát Game',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    )),
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(138, 255, 255, 255),
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(40)),
+              )
+            ]),
+          )
+        ],
+      );
+    },
+  );
+}

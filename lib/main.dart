@@ -1,10 +1,14 @@
+import 'package:doan_didong/field_screen/player.dart';
 import 'package:doan_didong/login_screen/login_forget.dart';
 import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:doan_didong/login_screen/login_register_email.dart';
 import 'package:doan_didong/login_screen/login_register_phone.dart';
 import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:doan_didong/home/home.dart';
+import 'package:doan_didong/player/change_pass.dart';
+import 'package:doan_didong/player/user.dart';
 import 'package:doan_didong/question_screen/question.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {

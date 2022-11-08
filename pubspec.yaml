@@ -73,17 +73,15 @@ flutter:
     - images/tim.png
     - images/heart.png
     - images/timused.png
-    - images/5050.png
-    - images/5050used.png
-    - images/call.png
-    - images/callused.png
-    - images/hoikhangia.png
-    - images/hoikhangiaused.png
     - images/background.png
     - images/background_home.png
     - images/reset.png
     - images/doicauhoi.png
     - images/phonecall.png
+    - images/music.png
+    - images/math.png
+    - images/history.png
+    - images/van.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
