@@ -6,8 +6,12 @@ import 'package:doan_didong/login_screen/login_register_phone.dart';
 import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:doan_didong/home/home.dart';
 import 'package:doan_didong/player/change_pass.dart';
+import 'package:doan_didong/player/history.dart';
 import 'package:doan_didong/player/user.dart';
+import 'package:doan_didong/question_screen/level.dart';
 import 'package:doan_didong/question_screen/question.dart';
+import 'package:doan_didong/transaction/buybrains.dart';
+import 'package:doan_didong/transaction/transaction_history.dart';
 
 import 'package:flutter/material.dart';
 
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const History(),
     );
   }
 }
