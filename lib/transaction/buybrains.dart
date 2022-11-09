@@ -1,4 +1,5 @@
 import 'package:doan_didong/player/history.dart';
+import 'package:doan_didong/transaction/transaction_history.dart';
 import 'package:flutter/material.dart';
 
 class BuyBrains extends StatefulWidget {
@@ -24,7 +25,7 @@ class _BuyBrainsState extends State<BuyBrains> {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  top: 70.0, bottom: 40, left: 20, right: 25),
+                  top: 70.0, bottom: 30, left: 15, right: 25),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -49,11 +50,20 @@ class _BuyBrainsState extends State<BuyBrains> {
                         ),
                       ),
                     ),
-                    Text(
-                      'Lịch sử giao dịch',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TransactionHistory()),
+                        );
+                      }, //
+                      child: Text(
+                        'Lịch sử giao dịch',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
@@ -66,10 +76,10 @@ class _BuyBrainsState extends State<BuyBrains> {
                 children: [
                   Column(
                     children: [
-                      _field('100', '9.000đ', 'images/test.png'),
-                      _field('500', '49.000đ', 'images/test.png'),
-                      _field('1000', '99.000đ', 'images/test.png'),
-                      _field('2000', '199.000đ', 'images/test.png'),
+                      _field('100', '10.000đ', 'images/test.png'),
+                      _field('200', '20.000đ', 'images/test.png'),
+                      _field('500', '50.000đ', 'images/test.png'),
+                      _field('1000', '100.000đ', 'images/test.png'),
                     ],
                   ),
                 ],
@@ -111,7 +121,7 @@ class _BuyBrainsState extends State<BuyBrains> {
                   style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
-                    fontSize: 35,
+                    fontSize: 32,
                     letterSpacing: 1,
                   ),
                 ),
@@ -136,13 +146,13 @@ class _BuyBrainsState extends State<BuyBrains> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(7.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Text(
                         field,
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
-                          fontSize: 20,
+                          fontSize: 18,
                           letterSpacing: 1,
                         ),
                       ),
