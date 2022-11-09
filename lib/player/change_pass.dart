@@ -88,11 +88,11 @@ Widget InputBorder(String hint, IconData iconData) {
 
 Widget ChangButton(String title) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 16),
+    padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
     child: ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 14),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         shape: const StadiumBorder(),
         primary: Colors.blue[900],
         elevation: 8, // đổ bóng
@@ -101,7 +101,7 @@ Widget ChangButton(String title) {
       child: Text(
         title,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 17,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -143,7 +143,7 @@ Widget logos() {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 16),
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -187,6 +187,7 @@ Widget logos() {
 Widget build(BuildContext context) {
 
   return Scaffold(
+    resizeToAvoidBottomInset: false,
     body: Stack(
       children: [
         Container(
@@ -215,9 +216,10 @@ Widget build(BuildContext context) {
                   InputBorder('Nhập lại mật khẩu mới', Icons.password_outlined),
                   ChangButton('Đổi mật khẩu'),
                   orDivider(),
-                  logos(),
+
                 ],
               ),
+              logos(),
             ],
           ),
         ),

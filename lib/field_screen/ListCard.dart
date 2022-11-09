@@ -62,7 +62,7 @@ class ListCard extends StatelessWidget {
               tag: cardDetailList[index].iconTag,
               child: Image.asset(
                 cardDetailList[index].iconAssetName,
-                //width: 180, height: 200,
+                width: 180, height: 200,
               ),
             ),
           ],

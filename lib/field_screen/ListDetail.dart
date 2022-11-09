@@ -8,7 +8,7 @@ class ListDetail {
     required this.shadowColor,
     required this.iconTag,
     required this.category,
-    required this.textColor,
+    required this.textColor, 
   });
   final String title;
   final String iconAssetName;
