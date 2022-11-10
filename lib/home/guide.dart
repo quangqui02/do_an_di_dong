@@ -1,3 +1,4 @@
+import 'package:doan_didong/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -24,9 +25,30 @@ class _GuideState extends State<Guide> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 100, bottom: 10),
+              padding: const EdgeInsets.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                      },
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/left.png'),
+                      )),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
               child: Text(
                 'HƯỚNG DẪN CÁCH CHƠI',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 35,
                   color: Colors.white,
@@ -36,42 +58,49 @@ class _GuideState extends State<Guide> {
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  Container(
-                    width: 350,
-                    height: 90,
-                    child: Text(
-                      'Người chơi sẽ lần lượt vượt qua 15 câu hỏi. Người thắng cuộc là người vượt qua được 15 câu hỏi. Bạn sẽ có 5 sự trợ giúp: ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 19,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 10,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Column(
-                          children: [
-                            guide(
-                                'images/test.png', 'Loại bỏ 2 phương án sai. '),
-                            guide('images/test.png', 'Hỏi ý kiến người thân. '),
-                            guide('images/test.png', 'Hỏi ý kiến khán giả. '),
-                            guide('images/test.png', 'Đổi câu hỏi. '),
-                            guide('images/test.png', 'Mua đáp án bằng brain. '),
-                          ],
+              child: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      child: Text(
+                        'Người chơi sẽ lần lượt vượt qua 15 câu hỏi. Người thắng cuộc là người vượt qua được 15 câu hỏi. Bạn sẽ có 5 sự trợ giúp: ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 19,
                         ),
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Column(
+                            children: [
+                              guide('images/test.png',
+                                  'Loại bỏ 2 phương án sai. '),
+                              guide(
+                                  'images/test.png', 'Hỏi ý kiến người thân. '),
+                              guide('images/test.png', 'Hỏi ý kiến khán giả. '),
+                              guide('images/test.png', 'Đổi câu hỏi. '),
+                              guide(
+                                  'images/test.png', 'Mua đáp án bằng brain. '),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(10)),
               ),
             ),
           ],
@@ -97,7 +126,7 @@ guide(String help, String content) {
               ),
             ),
             Container(
-              width: 280,
+              width: 240,
               height: 50,
               child: Text(
                 content,

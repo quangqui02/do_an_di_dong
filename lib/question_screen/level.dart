@@ -1,3 +1,4 @@
+import 'package:doan_didong/field_screen/player.dart';
 import 'package:doan_didong/player/history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,28 @@ class _LevelState extends State<Level> {
         child: Column(
           children: [
             Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context) => Level()),
+                        );
+                      },
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/left.png'),
+                      )),
+                ],
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(
-                top: 100,
+                top: 50,
                 bottom: 60,
               ),
               child: Text(
@@ -62,7 +83,7 @@ class _LevelState extends State<Level> {
       onPressed: () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(
-            builder: (BuildContext context) => History(),
+            builder: (BuildContext context) => HomeScreen(),
           ),
         );
       },

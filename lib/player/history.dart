@@ -23,8 +23,28 @@ class _HistoryState extends State<History> {
         child: Column(
           children: [
             Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context) => History()),
+                        );
+                      },
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/left.png'),
+                      )),
+                ],
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(
-                top: 100,
+                top: 40,
                 bottom: 10,
               ),
               child: Text(
@@ -93,7 +113,7 @@ class _HistoryState extends State<History> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+              padding: const EdgeInsets.all(5),
               child: Text(
                 point + ' Điểm',
                 style: TextStyle(

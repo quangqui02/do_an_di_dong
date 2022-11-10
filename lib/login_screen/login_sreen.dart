@@ -2,6 +2,8 @@ import 'package:doan_didong/login_screen/login_forget.dart';
 import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
+import '../home/home.dart';
+
 class LoginAccount extends StatelessWidget {
   const LoginAccount({Key? key}) : super(key: key);
 
@@ -66,11 +68,16 @@ class LoginAccount extends StatelessWidget {
     );
   }
 
-  Widget loginButton(String title) {
+  Widget loginButton(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home()),
+          );
+        },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
           shape: const StadiumBorder(),
@@ -248,7 +255,7 @@ class LoginAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    loginButton('Sign Up'),
+                    loginButton('Sign Up', context),
                     orDivider(),
                     logos(context),
                   ],

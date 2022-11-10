@@ -1,4 +1,5 @@
 import 'package:doan_didong/field_screen/player.dart';
+import 'package:doan_didong/question_screen/question.dart';
 import 'package:flutter/material.dart';
 
 import 'ListDetail.dart';
@@ -16,7 +17,7 @@ class ListCard extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
+            MaterialPageRoute(builder: (context) => QuestionScreen()),
           );
         },
         child: Stack(
@@ -62,7 +63,8 @@ class ListCard extends StatelessWidget {
               tag: cardDetailList[index].iconTag,
               child: Image.asset(
                 cardDetailList[index].iconAssetName,
-                width: 180, height: 200,
+                width: 180,
+                height: 200,
               ),
             ),
           ],

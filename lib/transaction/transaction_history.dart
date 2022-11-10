@@ -25,8 +25,28 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         child: Column(
           children: [
             Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context) => BuyBrains()),
+                        );
+                      },
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/left.png'),
+                      )),
+                ],
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(
-                  top: 70.0, bottom: 40, left: 20, right: 25),
+                  top: 40.0, bottom: 40, left: 20, right: 25),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -37,37 +57,35 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                     Radius.circular(20),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 55),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) => BuyBrains(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Nạp điểm',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => BuyBrains(),
                           ),
+                        );
+                      },
+                      child: Text(
+                        'Nạp điểm',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
                         ),
                       ),
                     ),
-                    Text(
-                      'Lịch sử giao dịch',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
+                  ),
+                  Text(
+                    'Lịch sử giao dịch',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
                     ),
-                  ],
-                ),
+                  ),
+                ]),
               ),
             ),
             Padding(
@@ -113,7 +131,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
       padding: const EdgeInsets.only(bottom: 15),
       child: Container(
         height: 150,
-        width: 365,
+        width: 320,
         decoration: BoxDecoration(
           color: Color.fromARGB(92, 124, 148, 182),
           border: Border.all(
@@ -171,7 +189,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
               Padding(
                 padding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
                 child: Container(
-                  width: 360,
+                  width: 340,
                   height: 50,
                   child: Text(
                     content,
