@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class History extends StatefulWidget {
@@ -11,44 +12,42 @@ class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            color: const Color(0xff7c94b6),
-            image: const DecorationImage(
-              image: AssetImage('images/backgroud.jpg'),
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xff7c94b6),
+          image: const DecorationImage(
+            image: AssetImage('images/backgroud.jpg'),
+            fit: BoxFit.cover,
           ),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(
-              margin: EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Column(
-                        children: [
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                          history('25/10/2022 8:00 PM', '10', '3000'),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 100,
+                bottom: 10,
+              ),
+              child: Text(
+                'LỊCH SỬ CHƠI',
+                style: TextStyle(
+                  fontSize: 50,
+                  color: Colors.white,
+                ),
               ),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  history('25/10/2022 8:00 PM', '10', '3000'),
+                  history('25/10/2022 8:00 PM', '10', '3000'),
+                  history('25/10/2022 8:00 PM', '10', '3000'),
+                  history('25/10/2022 8:00 PM', '10', '3000'),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -66,6 +65,8 @@ class _HistoryState extends State<History> {
         child: Row(
           children: [
             Container(
+              height: 60,
+              width: 150,
               margin: EdgeInsets.all(10),
               padding: EdgeInsets.all(5.0),
               child: Column(

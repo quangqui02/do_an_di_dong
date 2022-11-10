@@ -1,4 +1,6 @@
+import 'package:doan_didong/field_screen/ListCard.dart';
 import 'package:doan_didong/field_screen/player.dart';
+import 'package:doan_didong/home/guide.dart';
 import 'package:doan_didong/login_screen/login_forget.dart';
 import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:doan_didong/login_screen/login_register_email.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const ChangePass(),
+      home: const History(),
     );
   }
 }
