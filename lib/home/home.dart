@@ -1,5 +1,6 @@
 import 'package:doan_didong/home/guide.dart';
 import 'package:doan_didong/player/history.dart';
+import 'package:doan_didong/player/ranker.dart';
 import 'package:doan_didong/player/user.dart';
 import 'package:doan_didong/question_screen/level.dart';
 import 'package:doan_didong/question_screen/question.dart';
@@ -151,7 +152,12 @@ class _HomeState extends State<Home> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 24),
                             textAlign: TextAlign.center),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ranker()),
+                          );
+                        },
                       ),
                       width: 250,
                       height: 45,
