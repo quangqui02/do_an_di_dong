@@ -16,9 +16,8 @@ class _GuideState extends State<Guide> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: const Color(0xff7c94b6),
           image: const DecorationImage(
-            image: AssetImage('images/backgroud.jpg'),
+            image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -39,7 +38,7 @@ class _GuideState extends State<Guide> {
                       child: Image(
                         width: 30,
                         height: 30,
-                        image: AssetImage('images/left.png'),
+                        image: AssetImage('images/back.png'),
                       )),
                 ],
               ),
@@ -59,43 +58,48 @@ class _GuideState extends State<Guide> {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Container(
-                child: Column(
-                  children: [
-                    Container(
-                      child: Text(
-                        'Người chơi sẽ lần lượt vượt qua 15 câu hỏi. Người thắng cuộc là người vượt qua được 15 câu hỏi. Bạn sẽ có 5 sự trợ giúp: ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 19,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Column(
-                            children: [
-                              guide('images/test.png',
-                                  'Loại bỏ 2 phương án sai. '),
-                              guide(
-                                  'images/test.png', 'Hỏi ý kiến người thân. '),
-                              guide('images/test.png', 'Hỏi ý kiến khán giả. '),
-                              guide('images/test.png', 'Đổi câu hỏi. '),
-                              guide(
-                                  'images/test.png', 'Mua đáp án bằng brain. '),
-                            ],
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          'Người chơi sẽ lần lượt vượt qua 15 câu hỏi. Người thắng cuộc là người vượt qua được 15 câu hỏi. Bạn sẽ có 5 sự trợ giúp: ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 19,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 10,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Column(
+                              children: [
+                                guide('images/test.png',
+                                    'Loại bỏ 2 phương án sai. '),
+                                guide('images/test.png',
+                                    'Hỏi ý kiến người thân. '),
+                                guide(
+                                    'images/test.png', 'Hỏi ý kiến khán giả. '),
+                                guide('images/test.png', 'Đổi câu hỏi. '),
+                                guide('images/test.png',
+                                    'Mua đáp án bằng brain. '),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 decoration: BoxDecoration(
                     color: Colors.blue,

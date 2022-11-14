@@ -8,7 +8,7 @@ class ListDetail {
     required this.shadowColor,
     required this.iconTag,
     required this.category,
-    required this.textColor, 
+    required this.textColor,
   });
   final String title;
   final String iconAssetName;
@@ -23,7 +23,7 @@ const double opacity = 0.4;
 
 final List<ListDetail> cardDetailList = [
   ListDetail(
-    title: 'Literature',
+    title: 'Game',
     iconAssetName: 'images/van.png',
     gradients: [
       const Color(0xff089e44),

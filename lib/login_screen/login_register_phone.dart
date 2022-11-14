@@ -91,10 +91,10 @@ class LoginPhone extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Text("Bạn đã có tài khoản ?",
+                    child: Text("Bạn đã có tài khoản?",
                         style: TextStyle(
                           color: Color.fromARGB(255, 255, 255, 255),
-                          fontSize: 15,
+                          fontSize: 17,
                         )),
                   ),
                   Container(
@@ -110,7 +110,7 @@ class LoginPhone extends StatelessWidget {
                         child: const Text(
                           'Đăng nhập',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 17,
                             color: Colors.blue,
                             decoration: TextDecoration.none,
                           ),
@@ -201,7 +201,7 @@ class LoginPhone extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
                     image: const DecorationImage(
-                      image: AssetImage('images/backgroud.jpg'),
+                      image: AssetImage('images/background.png'),
                       fit: BoxFit.cover,
                     ),
                     // border: Border.all(
@@ -225,7 +225,7 @@ class LoginPhone extends StatelessWidget {
                         },
                         icon: Icon(
                           Icons.email,
-                          color: Color.fromARGB(255, 0, 247, 255),
+                          color: Colors.white,
                           size: 50,
                         ),
                       ),
@@ -236,13 +236,21 @@ class LoginPhone extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: const Text(
-                        'Đăng Ký',
-                        style: TextStyle(color: Colors.white, fontSize: 50),
-                        //textDirection: null,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: const Text(
+                            'ĐĂNG KÝ ',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 45,
+                                fontWeight: FontWeight.w500),
+                            //textDirection: null,
+                          ),
+                        ),
+                      ],
                     ),
                     inputField('Tên Đăng Nhập', Icons.person_outline),
                     inputPhone('Phone', Icons.phone),
@@ -255,8 +263,8 @@ class LoginPhone extends StatelessWidget {
                           child: Text(
                             'Từ 8 ký tự (tối đa 20 ký tự), 1 chữ cái và 1 chữ số, 1 ký tự đặc biệt (Ví dụ: ! @ #  %)',
                             style: TextStyle(
-                              color: Color.fromARGB(255, 0, 238, 255),
-                              fontSize: 12,
+                              color: Colors.white,
+                              fontSize: 13,
                             ),
                           ),
                         ),

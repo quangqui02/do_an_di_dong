@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
               decoration: BoxDecoration(
                 color: const Color(0xff7c94b6),
                 image: const DecorationImage(
-                  image: AssetImage('images/backgroud.jpg'),
+                  image: AssetImage('images/background.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -73,12 +73,16 @@ class _HomeState extends State<Home> {
                             children: [
                               Container(
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.only(
+                                      right: 10, left: 10, top: 2, bottom: 2),
                                   child: Row(children: [
-                                    Image(
-                                      image: AssetImage('images/brain.png'),
-                                      height: 30,
-                                      width: 30,
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 5),
+                                      child: Image(
+                                        image: AssetImage('images/brain.png'),
+                                        height: 30,
+                                        width: 30,
+                                      ),
                                     ),
                                     Text(
                                       ('3200'),
@@ -105,7 +109,7 @@ class _HomeState extends State<Home> {
                               onPressed: () => _dialogBuilder(context),
                               icon: Icon(
                                 Icons.settings,
-                                color: Color.fromARGB(255, 0, 247, 255),
+                                color: Colors.white,
                                 size: 40,
                               ),
                             ),
@@ -244,9 +248,9 @@ class _HomeState extends State<Home> {
                                 Text(
                                   'Home',
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 14),
+                                      fontSize: 15),
                                 )
                               ],
                             ),
@@ -275,9 +279,9 @@ class _HomeState extends State<Home> {
                                 Text(
                                   'Shop',
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 14),
+                                      fontSize: 15),
                                 )
                               ],
                             ),

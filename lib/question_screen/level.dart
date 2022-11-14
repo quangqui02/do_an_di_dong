@@ -1,4 +1,5 @@
 import 'package:doan_didong/field_screen/player.dart';
+import 'package:doan_didong/home/home.dart';
 import 'package:doan_didong/player/history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _LevelState extends State<Level> {
         decoration: BoxDecoration(
           color: const Color(0xff7c94b6),
           image: const DecorationImage(
-            image: AssetImage('images/backgroud.jpg'),
+            image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -31,15 +32,15 @@ class _LevelState extends State<Level> {
                 children: [
                   TextButton(
                       onPressed: () {
-                        Navigator.pop(
+                        Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Level()),
+                          MaterialPageRoute(builder: (context) => Home()),
                         );
                       },
                       child: Image(
                         width: 30,
                         height: 30,
-                        image: AssetImage('images/left.png'),
+                        image: AssetImage('images/back.png'),
                       )),
                 ],
               ),

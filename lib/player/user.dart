@@ -39,7 +39,7 @@ class Userr extends StatelessWidget {
                       child: Image(
                         width: 30,
                         height: 30,
-                        image: AssetImage('images/left.png'),
+                        image: AssetImage('images/back.png'),
                       )),
                   TextButton(
                       onPressed: () => _dialogBuilder(context),
@@ -123,13 +123,16 @@ class Userr extends StatelessWidget {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.vpn_key,
-                          size: 20,
-                          color: Colors.white,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.vpn_key,
+                            size: 20,
+                            color: Colors.white,
+                          ),
                         ),
                         Text(
-                          'Đổi Mật Khẩu',
+                          'Đổi mật khẩu',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,

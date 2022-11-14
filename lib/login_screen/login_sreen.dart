@@ -96,39 +96,9 @@ class LoginAccount extends StatelessWidget {
     );
   }
 
-  Widget orDivider() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 5),
-      child: Row(children: [
-        Flexible(
-          child: Container(
-            height: 1,
-            color: Colors.black,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: const Text(
-            'or',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        Flexible(
-          child: Container(
-            height: 1,
-            color: Colors.black,
-          ),
-        ),
-      ]),
-    );
-  }
-
   Widget logos(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 1),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
           Row(
@@ -168,7 +138,7 @@ class LoginAccount extends StatelessWidget {
               child: Text("Bạn chưa có tài khoản ?",
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 15,
+                    fontSize: 17,
                   )),
             ),
             Container(
@@ -181,9 +151,9 @@ class LoginAccount extends StatelessWidget {
                     );
                   }, //bo sung 3
                   child: const Text(
-                    'Đăng kí',
+                    'Đăng ký',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 17,
                       color: Colors.blue,
                       decoration: TextDecoration.none,
                     ),
@@ -210,7 +180,7 @@ class LoginAccount extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
                     image: const DecorationImage(
-                      image: AssetImage('images/backgroud.jpg'),
+                      image: AssetImage('images/background.png'),
                       fit: BoxFit.cover,
                     ),
                     // border: Border.all(
@@ -226,17 +196,18 @@ class LoginAccount extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 20, bottom: 16),
                       child: Text(
-                        'Đăng Nhập',
+                        'ĐĂNG NHẬP',
                         style: TextStyle(
-                          fontSize: 60,
-                          color: Colors.blue,
+                          fontSize: 50,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     inputField('Name', Icons.person_outline),
                     InputBorder('Password', Icons.password_outlined),
                     Padding(
-                      padding: const EdgeInsets.only(left: 150),
+                      padding: const EdgeInsets.only(left: 210),
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -246,17 +217,16 @@ class LoginAccount extends StatelessWidget {
                           );
                         }, //bo sung 3
                         child: const Text(
-                          'Quên mật khẩu',
+                          'Quên mật khẩu?',
                           style: TextStyle(
                             fontSize: 15,
-                            color: Colors.blue,
+                            color: Colors.white,
                             decoration: TextDecoration.none,
                           ),
                         ),
                       ),
                     ),
                     loginButton('Sign Up', context),
-                    orDivider(),
                     logos(context),
                   ],
                 ),

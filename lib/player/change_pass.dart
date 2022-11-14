@@ -13,12 +13,22 @@ class ChangePass extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(35, 0, 0, 20),
       child: Container(
-        child: Text("Đổi mật khẩu",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 40,
-            )),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: const Text(
+                'ĐỔI MẬT KHẨU',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 44,
+                    fontWeight: FontWeight.w500),
+                //textDirection: null,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -45,7 +55,7 @@ class ChangePass extends StatelessWidget {
                 borderSide: BorderSide.none, // bỏ đường viền
               ),
               filled: true,
-              fillColor: Colors.blueAccent,
+              fillColor: Colors.white,
               hintText: hint, // hiển thị chữ
               prefixIcon: Icon(
                 iconData,
@@ -80,36 +90,6 @@ class ChangePass extends StatelessWidget {
     );
   }
 
-  Widget orDivider() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 8),
-      child: Row(children: [
-        Flexible(
-          child: Container(
-            height: 1,
-            color: Colors.black,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: const Text(
-            'or',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-        Flexible(
-          child: Container(
-            height: 1,
-            color: Colors.black,
-          ),
-        ),
-      ]),
-    );
-  }
-
   Widget logos() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -123,10 +103,10 @@ class ChangePass extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Text("Bạn chưa có tài khoản ?",
+                    child: Text("Bạn chưa có tài khoản?",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontSize: 15,
+                          color: Colors.white,
+                          fontSize: 17,
                         )),
                   ),
                   Container(
@@ -134,9 +114,9 @@ class ChangePass extends StatelessWidget {
                       TextButton(
                         onPressed: () {}, //bo sung 3
                         child: const Text(
-                          'Đăng kí',
+                          'Đăng ký',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 17,
                             color: Colors.blue,
                             decoration: TextDecoration.none,
                           ),
@@ -166,7 +146,7 @@ class ChangePass extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
                     image: const DecorationImage(
-                      image: AssetImage('images/backgroud.jpg'),
+                      image: AssetImage('images/background.png'),
                       fit: BoxFit.cover,
                     ),
                     // border: Border.all(
@@ -191,7 +171,7 @@ class ChangePass extends StatelessWidget {
                           child: Image(
                             width: 30,
                             height: 30,
-                            image: AssetImage('images/left.png'),
+                            image: AssetImage('images/back.png'),
                           )),
                     ],
                   ),
@@ -206,7 +186,6 @@ class ChangePass extends StatelessWidget {
                     InputBorder(
                         'Nhập lại mật khẩu mới', Icons.password_outlined),
                     ChangButton('Đổi mật khẩu'),
-                    orDivider(),
                   ],
                 ),
                 logos(),

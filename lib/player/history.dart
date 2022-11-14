@@ -61,8 +61,8 @@ class _HistoryState extends State<History> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   history('25/10/2022 8:00 PM', '10', '3000'),
-                  history('25/10/2022 8:00 PM', '10', '3000'),
-                  history('25/10/2022 8:00 PM', '10', '3000'),
+                  history('25/10/2022 8:00 PM', '10', '300'),
+                  history('25/10/2022 8:00 PM', '10', '300000'),
                   history('25/10/2022 8:00 PM', '10', '3000'),
                 ],
               ),
@@ -83,6 +83,7 @@ class _HistoryState extends State<History> {
             borderRadius: BorderRadius.circular(10),
             color: Color.fromARGB(112, 204, 197, 196)),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               height: 60,
@@ -112,16 +113,28 @@ class _HistoryState extends State<History> {
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  point,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 30),
               child: Text(
-                point + ' Điểm',
+                'Điểm',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 25,
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

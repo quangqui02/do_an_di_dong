@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const Ranker(),
+      home: const Home(),
     );
   }
 }

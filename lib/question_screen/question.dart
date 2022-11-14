@@ -390,7 +390,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                   Padding(
                     padding: const EdgeInsets.only(left: 100),
                     child: Text(
-                      'Cài Đặt',
+                      'CÀI ĐẶT',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -403,7 +403,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                       },
                       child: Icon(
                         Icons.close,
-                        size: 40,
+                        size: 20,
                         color: Colors.white,
                       ))
                 ],
@@ -422,8 +422,8 @@ Future<void> _dialogBuilder(BuildContext context) {
                             color: Colors.white,
                           ),
                           Text(
-                            'Âm Nhạc',
-                            style: TextStyle(color: Colors.white, fontSize: 10),
+                            'Âm nhạc',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
                           )
                         ],
                       ),
@@ -444,8 +444,8 @@ Future<void> _dialogBuilder(BuildContext context) {
                             color: Colors.white,
                           ),
                           Text(
-                            'Âm Lượng',
-                            style: TextStyle(color: Colors.white, fontSize: 10),
+                            'Âm lượng',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
                           )
                         ],
                       ),

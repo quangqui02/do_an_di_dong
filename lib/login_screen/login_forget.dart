@@ -59,10 +59,10 @@ class LoginForget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: Text("Bạn đã có tài khoản ?",
+                    child: Text("Bạn đã có tài khoản?",
                         style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontSize: 15,
+                          color: Colors.white,
+                          fontSize: 17,
                         )),
                   ),
                   Container(
@@ -78,7 +78,7 @@ class LoginForget extends StatelessWidget {
                         child: const Text(
                           'Đăng nhập',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 17,
                             color: Colors.blue,
                             decoration: TextDecoration.none,
                           ),
@@ -97,7 +97,7 @@ class LoginForget extends StatelessWidget {
 
   Widget loginButton(String title) {
     return Padding(
-      padding: const EdgeInsets.only(left: 100, right: 100),
+      padding: const EdgeInsets.only(left: 100, right: 100, top: 10),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
@@ -137,7 +137,7 @@ class LoginForget extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
                     image: const DecorationImage(
-                      image: AssetImage('images/backgroud.jpg'),
+                      image: AssetImage('images/background.png'),
                       fit: BoxFit.cover,
                     ),
                     // border: Border.all(
@@ -146,13 +146,25 @@ class LoginForget extends StatelessWidget {
                     // borderRadius: BorderRadius.circular(12),
                   ),
                 ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 170, left: 20, bottom: 16),
+                  child: Text(
+                    'QUÊN MẬT KHẨU',
+                    style: TextStyle(
+                      fontSize: 45,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     inputField('Tên Đăng Nhập', Icons.person_outline),
                     inputField('Email', Icons.email),
-                    loginButton('Lấy Mật Khẩu'),
+                    loginButton('Lấy lại mật khẩu'),
                   ],
                 ),
                 logos(context),

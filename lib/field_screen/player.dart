@@ -38,22 +38,11 @@ class HomeScreen extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.grey)),
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.grey)),
-                    child: const Icon(
-                      Icons.settings,
-                      color: Colors.lightBlueAccent,
-                      size: 30,
-                    ),
-                  ),
                 ],
               ),
               const SizedBox(height: 10),
               const Text(
-                'Chọn lĩnh vực',
+                'CHỌN LĨNH VỰC',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.w900,

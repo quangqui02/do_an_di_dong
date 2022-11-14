@@ -60,7 +60,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    padding: const EdgeInsets.only(right: 20),
                     child: TextButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(

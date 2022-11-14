@@ -104,7 +104,7 @@ class LoginRegister extends StatelessWidget {
                     child: Text("Bạn đã có tài khoản ?",
                         style: TextStyle(
                           color: Color.fromARGB(255, 255, 255, 255),
-                          fontSize: 15,
+                          fontSize: 17,
                         )),
                   ),
                   Container(
@@ -120,7 +120,7 @@ class LoginRegister extends StatelessWidget {
                         child: const Text(
                           'Đăng nhập',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 17,
                             color: Colors.blue,
                             decoration: TextDecoration.none,
                           ),
@@ -156,7 +156,7 @@ class LoginRegister extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xff7c94b6),
                     image: const DecorationImage(
-                      image: AssetImage('images/backgroud.jpg'),
+                      image: AssetImage('images/background.png'),
                       fit: BoxFit.cover,
                     ),
                     // border: Border.all(
@@ -169,8 +169,8 @@ class LoginRegister extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    loginButtonPhone('Đăng Ký Số Điện Thoại', context),
-                    loginButtonEmail('Đăng Ký Email', context),
+                    loginButtonPhone('Đăng ký bằng số điện thoại', context),
+                    loginButtonEmail('Đăng ký bằng email', context),
                   ],
                 ),
                 logos(context),
