@@ -1,3 +1,4 @@
+import 'package:doan_didong/home/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -458,7 +459,12 @@ Future<void> _dialogBuilder(BuildContext context) {
               ),
               Container(
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    },
                     child: Text(
                       'Thoát Game',
                       style: TextStyle(

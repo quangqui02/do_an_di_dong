@@ -1,3 +1,6 @@
+import 'package:doan_didong/home/home.dart';
+import 'package:doan_didong/login_screen/login_sreen.dart';
+import 'package:doan_didong/player/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,16 +13,6 @@ class Userr extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          leading: BackButton(),
-          elevation: 0,
-          actions: [
-            IconButton(
-              icon: Icon(icon),
-              onPressed: () {},
-            ),
-          ],
-        ),
         body: Stack(children: [
           Container(
             decoration: BoxDecoration(
@@ -28,15 +21,35 @@ class Userr extends StatelessWidget {
                 image: AssetImage('images/backgroud.jpg'),
                 fit: BoxFit.cover,
               ),
-              // border: Border.all(
-              //   width: 50,
-              // ),
-              // borderRadius: BorderRadius.circular(12),
             ),
           ),
           ListView(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(top: 40),
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                      },
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/left.png'),
+                      )),
+                  TextButton(
+                      onPressed: () => _dialogBuilder(context),
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/logout.png'),
+                      )),
+                ],
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -98,6 +111,33 @@ class Userr extends StatelessWidget {
                   buildButton(context, '20', 'Trò chơi'),
                 ],
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 50, right: 50),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChangePass()),
+                    );
+                  },
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.vpn_key,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Đổi Mật Khẩu',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        )
+                      ]),
+                ),
+              ),
             ],
           ),
         ]),
@@ -130,4 +170,78 @@ class Userr extends StatelessWidget {
           ],
         ),
       );
+}
+
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Container(
+            height: 120,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    'Đăng Xuất',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                Text(
+                  'Bạn Có Muốn Đăng Xuất',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginAccount()),
+                              );
+                            },
+                            child: Text(
+                              'Ok',
+                              style: TextStyle(color: Colors.red, fontSize: 12),
+                            )),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(139, 126, 114, 114),
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      Container(
+                        child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Hủy',
+                              style: TextStyle(color: Colors.red, fontSize: 12),
+                            )),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(139, 126, 114, 114),
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10)),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      );
+    },
+  );
 }

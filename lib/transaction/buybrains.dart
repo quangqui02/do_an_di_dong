@@ -24,8 +24,28 @@ class _BuyBrainsState extends State<BuyBrains> {
         child: Column(
           children: [
             Padding(
+              padding: const EdgeInsets.only(top: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context) => BuyBrains()),
+                        );
+                      },
+                      child: Image(
+                        width: 30,
+                        height: 30,
+                        image: AssetImage('images/left.png'),
+                      )),
+                ],
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(
-                  top: 70.0, bottom: 40, left: 20, right: 25),
+                  top: 40, bottom: 40, left: 20, right: 25),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -40,7 +60,7 @@ class _BuyBrainsState extends State<BuyBrains> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 55),
+                      padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Text(
                         'Nạp điểm',
                         style: TextStyle(
@@ -76,10 +96,10 @@ class _BuyBrainsState extends State<BuyBrains> {
                 children: [
                   Column(
                     children: [
-                      _field('100', '9.000đ', 'images/test.png'),
-                      _field('500', '49.000đ', 'images/test.png'),
-                      _field('1000', '99.000đ', 'images/test.png'),
-                      _field('2000', '199.000đ', 'images/test.png'),
+                      _field('100', '9.000đ', 'images/brain.png'),
+                      _field('500', '49.000đ', 'images/brain.png'),
+                      _field('1000', '99.000đ', 'images/brain.png'),
+                      _field('2000', '199.000đ', 'images/brain.png'),
                     ],
                   ),
                 ],
@@ -98,7 +118,7 @@ class _BuyBrainsState extends State<BuyBrains> {
         children: [
           Container(
             height: 90,
-            width: 365,
+            width: 315,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Color(0xff7c94b6),
@@ -111,8 +131,8 @@ class _BuyBrainsState extends State<BuyBrains> {
                 leading: Container(
                   child: Image(
                     image: AssetImage(image),
-                    height: 60,
-                    width: 60,
+                    height: 40,
+                    width: 40,
                   ),
                 ),
                 title: Text(
@@ -121,7 +141,7 @@ class _BuyBrainsState extends State<BuyBrains> {
                   style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
-                    fontSize: 35,
+                    fontSize: 25,
                     letterSpacing: 1,
                   ),
                 ),
@@ -146,7 +166,7 @@ class _BuyBrainsState extends State<BuyBrains> {
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(7.0),
+                      padding: const EdgeInsets.all(3),
                       child: Text(
                         field,
                         style: const TextStyle(

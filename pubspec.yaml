@@ -83,6 +83,11 @@ flutter:
     - images/history.png
     - images/van.png
     - images/test.png
+    - images/deletebutton.png
+    - images/checked.png
+    - images/creditcard.png
+    - images/left.png
+    - images/logout.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

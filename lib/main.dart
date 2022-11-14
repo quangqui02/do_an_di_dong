@@ -9,6 +9,7 @@ import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:doan_didong/home/home.dart';
 import 'package:doan_didong/player/change_pass.dart';
 import 'package:doan_didong/player/history.dart';
+import 'package:doan_didong/player/ranker.dart';
 import 'package:doan_didong/player/user.dart';
 import 'package:doan_didong/question_screen/level.dart';
 import 'package:doan_didong/question_screen/question.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const History(),
+      home: const Ranker(),
     );
   }
 }
