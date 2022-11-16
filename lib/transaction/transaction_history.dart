@@ -18,7 +18,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         decoration: BoxDecoration(
           color: const Color(0xff7c94b6),
           image: const DecorationImage(
-            image: AssetImage('images/backgroud.jpg'),
+            image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -39,14 +39,14 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                       child: Image(
                         width: 30,
                         height: 30,
-                        image: AssetImage('images/left.png'),
+                        image: AssetImage('images/back.png'),
                       )),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  top: 40.0, bottom: 40, left: 20, right: 25),
+                  top: 20.0, bottom: 10, left: 20, right: 25),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -88,35 +88,39 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                 ]),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 10, left: 20),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      transactionHistoryState(
-                          'images/creditcard.png',
-                          'Thanh toán thành công',
-                          'images/checked.png',
-                          '10/11/2022 2:07',
-                          'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ ' +
-                              'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ'),
-                      transactionHistoryState(
-                          'images/creditcard.png',
-                          'Thanh toán thành công',
-                          'images/checked.png',
-                          '10/11/2022 2:07',
-                          'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ ' +
-                              'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ'),
-                      transactionHistoryState(
-                          'images/creditcard.png',
-                          'Thanh toán thất bại',
-                          'images/deletebutton.png',
-                          '10/11/2022 2:07',
-                          'Quý khách đã thực hiện thanh toán thất bại'),
-                    ],
-                  ),
-                ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 25.0, left: 20.0),
+                child: ListView(
+                  children: <Widget>[
+                    transactionHistoryState(
+                        'images/creditcard.png',
+                        'Thanh toán thành công',
+                        'images/checked.png',
+                        '10/11/2022 2:07',
+                        'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ ' +
+                            'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ'),
+                    transactionHistoryState(
+                        'images/creditcard.png',
+                        'Thanh toán thành công',
+                        'images/checked.png',
+                        '10/11/2022 2:07',
+                        'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ ' +
+                            'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ'),
+                    transactionHistoryState(
+                        'images/creditcard.png',
+                        'Thanh toán thất bại',
+                        'images/deletebutton.png',
+                        '10/11/2022 2:07',
+                        'Quý khách đã thực hiện thanh toán thất bại'),
+                    transactionHistoryState(
+                        'images/creditcard.png',
+                        'Thanh toán thất bại',
+                        'images/deletebutton.png',
+                        '10/11/2022 2:07',
+                        'Quý khách đã thực hiện thanh toán thất bại'),
+                  ],
+                ),
               ),
             ),
           ],
@@ -125,7 +129,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
     );
   }
 
-  transactionHistoryState(
+  Widget transactionHistoryState(
       String card, String status, String check, String time, String content) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
@@ -140,65 +144,50 @@ class _TransactionHistoryState extends State<TransactionHistory> {
             Radius.circular(15),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            children: [
-              Row(
+        child: Column(
+          children: [
+            ListTile(
+              leading: Image(
+                width: 40,
+                height: 40,
+                image: AssetImage(card),
+              ),
+              title: Text(
+                status,
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
+              ),
+              subtitle: Row(
                 children: [
-                  Image(
-                    width: 40,
-                    height: 40,
-                    image: AssetImage(card),
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Column(
-                      children: [
-                        Text(
-                          status,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5.0, top: 5),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 5),
-                                child: Image(
-                                  image: AssetImage(check),
-                                  width: 20,
-                                  height: 20,
-                                ),
-                              ),
-                              Text(
-                                time,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    padding: const EdgeInsets.only(right: 5),
+                    child: Image(
+                      image: AssetImage(check),
+                      width: 20,
+                      height: 20,
                     ),
+                  ),
+                  Text(
+                    time,
+                    style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
-                child: Container(
-                  width: 340,
-                  height: 50,
-                  child: Text(
-                    content,
-                    style: TextStyle(color: Colors.white),
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
+              child: Container(
+                width: 340,
+                height: 50,
+                child: Text(
+                  content,
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

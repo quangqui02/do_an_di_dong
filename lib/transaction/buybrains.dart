@@ -17,7 +17,7 @@ class _BuyBrainsState extends State<BuyBrains> {
         decoration: BoxDecoration(
           color: const Color(0xff7c94b6),
           image: const DecorationImage(
-            image: AssetImage('images/backgroud.jpg'),
+            image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -29,23 +29,24 @@ class _BuyBrainsState extends State<BuyBrains> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   TextButton(
-                      onPressed: () {
-                        Navigator.pop(
-                          context,
-                          MaterialPageRoute(builder: (context) => BuyBrains()),
-                        );
-                      },
-                      child: Image(
-                        width: 30,
-                        height: 30,
-                        image: AssetImage('images/left.png'),
-                      )),
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        MaterialPageRoute(builder: (context) => BuyBrains()),
+                      );
+                    },
+                    child: Image(
+                      width: 30,
+                      height: 30,
+                      image: AssetImage('images/back.png'),
+                    ),
+                  ),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  top: 40, bottom: 40, left: 20, right: 25),
+                  top: 20, bottom: 10, left: 20, right: 25),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -90,19 +91,21 @@ class _BuyBrainsState extends State<BuyBrains> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 10, left: 15),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      _field('100', '9.000đ', 'images/brain.png'),
-                      _field('500', '49.000đ', 'images/brain.png'),
-                      _field('1000', '99.000đ', 'images/brain.png'),
-                      _field('2000', '199.000đ', 'images/brain.png'),
-                    ],
-                  ),
-                ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+                child: ListView(
+                  children: <Widget>[
+                    _field('100', '9.000đ', 'images/brain.png'),
+                    _field('500', '49.000đ', 'images/brain.png'),
+                    _field('1000', '99.000đ', 'images/brain.png'),
+                    _field('2000', '199.000đ', 'images/brain.png'),
+                    _field('100', '9.000đ', 'images/brain.png'),
+                    _field('500', '49.000đ', 'images/brain.png'),
+                    _field('1000', '99.000đ', 'images/brain.png'),
+                    _field('2000', '199.000đ', 'images/brain.png'),
+                  ],
+                ),
               ),
             ),
           ],
@@ -128,12 +131,10 @@ class _BuyBrainsState extends State<BuyBrains> {
             child: Padding(
               padding: const EdgeInsets.only(top: 13, bottom: 10),
               child: ListTile(
-                leading: Container(
-                  child: Image(
-                    image: AssetImage(image),
-                    height: 40,
-                    width: 40,
-                  ),
+                leading: Image(
+                  image: AssetImage(image),
+                  height: 40,
+                  width: 40,
                 ),
                 title: Text(
                   textAlign: TextAlign.left,

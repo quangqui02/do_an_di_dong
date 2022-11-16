@@ -200,7 +200,7 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.only(top: 15),
                     child: Container(
                       child: TextButton(
-                        child: Text('XEM ĐIỂM',
+                        child: Text('NẠP ĐIỂM',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
