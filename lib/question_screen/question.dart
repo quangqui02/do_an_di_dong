@@ -135,7 +135,7 @@ class QuestionScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(1),
                       child: Container(
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () => phoneCallBack(context),
                             child: Icon(
                               Icons.phone_callback,
                               color: Colors.white,
@@ -383,102 +383,644 @@ Future<void> _dialogBuilder(BuildContext context) {
         contentPadding: EdgeInsets.only(top: 10.0),
         actions: <Widget>[
           Container(
-            child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 100),
-                    child: Text(
-                      'CÀI ĐẶT',
-                      style: TextStyle(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 100),
+                      child: Text(
+                        'CÀI ĐẶT',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Icon(
+                          Icons.close,
+                          size: 20,
                           color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Icon(
-                        Icons.close,
-                        size: 20,
-                        color: Colors.white,
-                      ))
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.music_note,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Âm nhạc',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          )
-                        ],
+                        ))
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.music_note,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Âm nhạc',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            )
+                          ],
+                        ),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(139, 126, 114, 114),
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(139, 126, 114, 114),
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                  Container(
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.volume_down,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Âm lượng',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          )
-                        ],
+                    Container(
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.volume_down,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Âm lượng',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            )
+                          ],
+                        ),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(139, 126, 114, 114),
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(139, 126, 114, 114),
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                ],
-              ),
-              Container(
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Home()),
-                      );
-                    },
-                    child: Text(
-                      'Thoát Game',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    )),
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(138, 255, 255, 255),
-                    border: Border.all(color: Colors.black),
-                    borderRadius: BorderRadius.circular(40)),
-              )
-            ]),
+                  ],
+                ),
+                Container(
+                  child: TextButton(
+                      onPressed: () => endScreen(context),
+                      child: Text(
+                        'Thoát Game',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(138, 255, 255, 255),
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(40)),
+                ),
+              ],
+            ),
           )
+        ],
+      );
+    },
+  );
+}
+
+Future<void> phoneCallBack(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(7.0),
+                  child: Text(
+                    'CHỌN MỘT NGƯỜI TRỢ GIÚP',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                          AssetImage('images/businessman.png'),
+                                      height: 85,
+                                      width: 100,
+                                    ),
+                                    Text('Giáo sư',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextButton(
+                              onPressed: () => answer(context),
+                              child: Column(
+                                children: [
+                                  Image(
+                                    image: AssetImage('images/businessman.png'),
+                                    height: 85,
+                                    width: 100,
+                                  ),
+                                  Text('Giáo sư',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      )),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                          AssetImage('images/businessman.png'),
+                                      height: 85,
+                                      width: 100,
+                                    ),
+                                    Text('Giáo sư',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Column(
+                                children: [
+                                  Image(
+                                    image: AssetImage('images/businessman.png'),
+                                    height: 85,
+                                    width: 100,
+                                  ),
+                                  Text('Giáo sư',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      )),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Column(
+                                  children: [
+                                    Image(
+                                      image:
+                                          AssetImage('images/businessman.png'),
+                                      height: 85,
+                                      width: 100,
+                                    ),
+                                    Text('Giáo sư',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.white,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Column(
+                                children: [
+                                  Image(
+                                    image: AssetImage('images/businessman.png'),
+                                    height: 85,
+                                    width: 100,
+                                  ),
+                                  Text('Giáo sư',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      )),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<void> answer(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Center(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Column(
+                      children: [
+                        Image(
+                          image: AssetImage('images/businessman.png'),
+                          height: 85,
+                          width: 100,
+                        ),
+                        Text('Giáo sư',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            )),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(7.0),
+                  child: Text(
+                    'PHƯƠNG ÁN A',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<void> endScreen(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: Text(
+                    'BẠN MUỐN NGỪNG LƯỢT CHƠI',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'TIẾP TỤC CHƠI',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => quitGame(context),
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'NGỪNG LẠI',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<void> quitGame(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(7.0),
+                  child: Text(
+                    'LƯỢT CHƠI ĐÃ KẾT THÚC',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 15),
+                      child: Center(
+                        child: Text('1230',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 45,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Container(
+                        width: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'THÊM LƯỢT CHƠI: 500',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Image(
+                                  image: AssetImage('images/brain.png'),
+                                  height: 30,
+                                  width: 30,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Container(
+                        width: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute<void>(
+                                builder: (BuildContext context) =>
+                                    QuestionScreen(),
+                              ),
+                            );
+                          },
+                          child: Center(
+                            child: Row(
+                              children: [
+                                Image(
+                                  image: AssetImage('images/doicauhoi.png'),
+                                  height: 30,
+                                  width: 30,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 50),
+                                  child: Text(
+                                    'CHƠI LẠI',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => Home(),
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Container(
+                          width: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.home,
+                                    color: Colors.white,
+                                    size: 30,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 40),
+                                    child: Text(
+                                      'TRANG CHỦ',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 19,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       );
     },

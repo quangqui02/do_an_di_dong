@@ -90,6 +90,7 @@ flutter:
     - images/logout.png
     - images/back.png
     - images/shoppingcart.png
+    - images/businessman.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

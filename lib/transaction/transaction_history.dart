@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../home/home.dart';
 import 'buybrains.dart';
 
 class TransactionHistory extends StatefulWidget {
@@ -122,6 +123,86 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                   ],
                 ),
               ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        child: Row(
+                          children: [
+                            Column(
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute<void>(
+                                        builder: (BuildContext context) =>
+                                            Home(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image(
+                                    height: 40,
+                                    width: 40,
+                                    image: AssetImage('images/home.png'),
+                                  ),
+                                ),
+                                Text(
+                                  'Home',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Column(
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => BuyBrains()),
+                                    );
+                                  },
+                                  child: Image(
+                                    height: 40,
+                                    width: 40,
+                                    image: AssetImage('images/store.png'),
+                                  ),
+                                ),
+                                Text(
+                                  'Shop',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.yellow.shade800,
+                    // borderRadius: BorderRadius.all(Radius.circular(20)),
+                    // border: Border.all(color: Colors.white)
+                  ),
+                ),
+              ],
             ),
           ],
         ),
