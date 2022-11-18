@@ -84,14 +84,14 @@ class _GuideState extends State<Guide> {
                             padding: const EdgeInsets.only(left: 15),
                             child: Column(
                               children: [
-                                guide('images/test.png',
+                                guide('images/50.png',
                                     'Loại bỏ 2 phương án sai. '),
-                                guide('images/test.png',
+                                guide('images/dienthoai.png',
                                     'Hỏi ý kiến người thân. '),
-                                guide(
-                                    'images/test.png', 'Hỏi ý kiến khán giả. '),
-                                guide('images/test.png', 'Đổi câu hỏi. '),
-                                guide('images/test.png',
+                                guide('images/khangia.png',
+                                    'Hỏi ý kiến khán giả. '),
+                                guide('images/doi.png', 'Đổi câu hỏi. '),
+                                guide('images/muadapan.png',
                                     'Mua đáp án bằng brain. '),
                               ],
                             ),
@@ -130,7 +130,7 @@ guide(String help, String content) {
               ),
             ),
             Container(
-              width: 240,
+              width: 215,
               height: 50,
               child: Text(
                 content,

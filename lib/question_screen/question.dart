@@ -96,7 +96,7 @@ class QuestionScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(3),
                           child: Image(
-                            image: AssetImage('images/timused.png'),
+                            image: AssetImage('images/heartclose.png'),
                             height: 20,
                             width: 20,
                           ),

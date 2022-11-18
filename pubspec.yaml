@@ -61,7 +61,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/backgroud.jpg
     - images/facebook.png
     - images/google.png
     - images/gmail.png
@@ -70,14 +69,10 @@ flutter:
     - images/brain.png
     - images/store.png
     - images/home.png
-    - images/tim.png
     - images/heart.png
-    - images/timused.png
     - images/background.png
     - images/background_home.png
-    - images/reset.png
     - images/doicauhoi.png
-    - images/phonecall.png
     - images/music.png
     - images/math.png
     - images/history.png
@@ -89,8 +84,13 @@ flutter:
     - images/left.png
     - images/logout.png
     - images/back.png
-    - images/shoppingcart.png
+    - images/doi.png
     - images/businessman.png
+    - images/heartclose.png
+    - images/50.png
+    - images/dienthoai.png
+    - images/khangia.png
+    - images/muadapan.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

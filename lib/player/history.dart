@@ -62,7 +62,7 @@ class _HistoryState extends State<History> {
                 children: <Widget>[
                   history('25/10/2022 8:00 PM', '10', '3000'),
                   history('25/10/2022 8:00 PM', '10', '300'),
-                  history('25/10/2022 8:00 PM', '10', '300000'),
+                  history('25/10/2022 8:00 PM', '10', '3000'),
                   history('25/10/2022 8:00 PM', '10', '3000'),
                 ],
               ),
@@ -95,7 +95,7 @@ class _HistoryState extends State<History> {
                   Text(
                     time,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 15,
                     ),
                   ),
@@ -105,7 +105,7 @@ class _HistoryState extends State<History> {
                       'Số câu: ' + numberanswers,
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 17,
                       ),
                     ),
@@ -119,7 +119,7 @@ class _HistoryState extends State<History> {
                 Text(
                   point,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 25,
                   ),
                 ),
@@ -130,7 +130,7 @@ class _HistoryState extends State<History> {
               child: Text(
                 'Điểm',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 25,
                 ),
               ),
