@@ -100,10 +100,7 @@ class _BuyBrainsState extends State<BuyBrains> {
                     _field('500', '49.000đ', 'images/brain.png'),
                     _field('1000', '99.000đ', 'images/brain.png'),
                     _field('2000', '199.000đ', 'images/brain.png'),
-                    _field('100', '9.000đ', 'images/brain.png'),
-                    _field('500', '49.000đ', 'images/brain.png'),
-                    _field('1000', '99.000đ', 'images/brain.png'),
-                    _field('2000', '199.000đ', 'images/brain.png'),
+                    _field('3000', '299.000đ', 'images/brain.png'),
                   ],
                 ),
               ),
@@ -201,7 +198,7 @@ class _BuyBrainsState extends State<BuyBrains> {
         children: [
           Container(
             height: 90,
-            width: 315,
+            width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Color(0xff7c94b6),

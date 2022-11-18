@@ -18,7 +18,7 @@ class Userr extends StatelessWidget {
             decoration: BoxDecoration(
               color: const Color(0xff7c94b6),
               image: const DecorationImage(
-                image: AssetImage('images/backgroud.jpg'),
+                image: AssetImage('images/background.png'),
                 fit: BoxFit.cover,
               ),
             ),
