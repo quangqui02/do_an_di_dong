@@ -1000,7 +1000,7 @@ Future<void> quitGame(BuildContext context) {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 40),
+                                        horizontal: 35),
                                     child: Text(
                                       'TRANG CHỦ',
                                       style: TextStyle(
