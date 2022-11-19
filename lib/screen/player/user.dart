@@ -1,8 +1,10 @@
-import 'package:doan_didong/home/home.dart';
-import 'package:doan_didong/login_screen/login_sreen.dart';
-import 'package:doan_didong/player/change_pass.dart';
+
+import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../home/home.dart';
+import '../login_screen/login_sreen.dart';
 
 class Userr extends StatelessWidget {
   const Userr({Key? key}) : super(key: key);
