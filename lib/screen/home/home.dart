@@ -1,13 +1,14 @@
-import 'package:doan_didong/home/guide.dart';
-import 'package:doan_didong/player/history.dart';
-import 'package:doan_didong/player/ranker.dart';
-import 'package:doan_didong/player/user.dart';
-import 'package:doan_didong/question_screen/level.dart';
-import 'package:doan_didong/question_screen/question.dart';
-import 'package:doan_didong/transaction/buybrains.dart';
+import 'package:doan_didong/screen/player/history.dart';
+import 'package:doan_didong/screen/player/ranker.dart';
+import 'package:doan_didong/screen/player/user.dart';
+import 'package:doan_didong/screen/question_screen/level.dart';
+import 'package:doan_didong/screen/question_screen/question.dart';
+import 'package:doan_didong/screen/transaction/buybrains.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
+import 'guide.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

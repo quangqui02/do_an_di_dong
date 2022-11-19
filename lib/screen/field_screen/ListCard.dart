@@ -1,5 +1,4 @@
-import 'package:doan_didong/field_screen/player.dart';
-import 'package:doan_didong/question_screen/question.dart';
+import 'package:doan_didong/screen/question_screen/question.dart';
 import 'package:flutter/material.dart';
 
 import 'ListDetail.dart';

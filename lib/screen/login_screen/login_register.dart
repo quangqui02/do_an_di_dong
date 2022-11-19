@@ -1,8 +1,8 @@
-// import 'package:do_an/screens/login_screens/components/top_text.dart';
-import 'package:doan_didong/login_screen/login_register_email.dart';
-import 'package:doan_didong/login_screen/login_register_phone.dart';
-import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
+
+import 'login_register_email.dart';
+import 'login_register_phone.dart';
+import 'login_sreen.dart';
 
 class LoginRegister extends StatelessWidget {
   const LoginRegister({Key? key}) : super(key: key);

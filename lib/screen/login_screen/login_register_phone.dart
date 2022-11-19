@@ -1,8 +1,9 @@
 import 'dart:ui';
 
-import 'package:doan_didong/login_screen/login_register_email.dart';
-import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
+
+import 'login_register_email.dart';
+import 'login_sreen.dart';
 
 class LoginPhone extends StatelessWidget {
   const LoginPhone({Key? key}) : super(key: key);

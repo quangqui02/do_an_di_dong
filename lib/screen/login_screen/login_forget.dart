@@ -1,16 +1,6 @@
-// import 'package:do_an/screens/login_screens/components/top_text.dart';
-import 'package:doan_didong/login_screen/login_sreen.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'dart:math' as math;
 
-// import 'center_widget/center_widget.dart';
-// import 'login_content.dart';
-
-// enum lsScreens {
-//   createAccount,
-//   welcomback,
-// }
+import 'login_sreen.dart';
 
 class LoginForget extends StatelessWidget {
   const LoginForget({Key? key}) : super(key: key);

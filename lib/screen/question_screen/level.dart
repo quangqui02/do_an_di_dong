@@ -1,8 +1,9 @@
-import 'package:doan_didong/field_screen/player.dart';
-import 'package:doan_didong/home/home.dart';
-import 'package:doan_didong/player/history.dart';
+import 'package:doan_didong/screen/player/history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../field_screen/player.dart';
+import '../home/home.dart';
 
 class Level extends StatefulWidget {
   const Level({super.key});

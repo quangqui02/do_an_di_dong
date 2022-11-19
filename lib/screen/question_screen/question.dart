@@ -1,6 +1,7 @@
-import 'package:doan_didong/home/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../home/home.dart';
 
 class QuestionScreen extends StatelessWidget {
   const QuestionScreen({Key? key}) : super(key: key);

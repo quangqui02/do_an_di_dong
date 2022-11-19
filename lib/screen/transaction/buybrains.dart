@@ -1,6 +1,7 @@
-import 'package:doan_didong/home/home.dart';
-import 'package:doan_didong/transaction/transaction_history.dart';
+import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:flutter/material.dart';
+
+import '../home/home.dart';
 
 class BuyBrains extends StatefulWidget {
   const BuyBrains({super.key});

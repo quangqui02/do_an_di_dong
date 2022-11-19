@@ -1,8 +1,8 @@
-import 'package:doan_didong/login_screen/login_forget.dart';
-import 'package:doan_didong/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home.dart';
+import 'login_forget.dart';
+import 'login_register.dart';
 
 class LoginAccount extends StatelessWidget {
   const LoginAccount({Key? key}) : super(key: key);
