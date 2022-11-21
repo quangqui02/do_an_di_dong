@@ -67,7 +67,7 @@ _nhamang(String image) {
           //   ),
           //  )
         ],
-      )
+      ),
     ],
   );
 }

@@ -55,16 +55,21 @@ class _HistoryState extends State<History> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  history('25/10/2022 8:00 PM', '10', '3000'),
-                  history('25/10/2022 8:00 PM', '10', '300'),
-                  history('25/10/2022 8:00 PM', '10', '3000'),
-                  history('25/10/2022 8:00 PM', '10', '3000'),
-                ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+                child: ListView(
+                  children: <Widget>[
+                    history('25/10/2022 8:00 PM', '10', '3000'),
+                    history('25/10/2022 8:00 PM', '10', '300'),
+                    history('25/10/2022 8:00 PM', '10', '3000'),
+                    history('25/10/2022 8:00 PM', '10', '3000'),
+                    history('25/10/2022 8:00 PM', '10', '3000'),
+                    history('25/10/2022 8:00 PM', '10', '300'),
+                    history('25/10/2022 8:00 PM', '10', '3000'),
+                    history('25/10/2022 8:00 PM', '10', '3000'),
+                  ],
+                ),
               ),
             )
           ],

@@ -47,7 +47,7 @@ class _BuyBrainsState extends State<BuyBrains> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  top: 20, bottom: 10, left: 20, right: 25),
+                  top: 20.0, bottom: 10, left: 20, right: 25),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -58,38 +58,36 @@ class _BuyBrainsState extends State<BuyBrains> {
                     Radius.circular(20),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text(
-                        'Nạp điểm',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Text(
+                      'Nạp điểm',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) =>
-                                TransactionHistory(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Lịch sử giao dịch',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              TransactionHistory(),
                         ),
+                      );
+                    },
+                    child: Text(
+                      'Lịch sử giao dịch',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ]),
               ),
             ),
             Expanded(

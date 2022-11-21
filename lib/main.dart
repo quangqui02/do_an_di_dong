@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Game',
+      title: 'SUPER BUG BRAIN',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // scaffoldBackgroundColor: kBackgroundColor,
