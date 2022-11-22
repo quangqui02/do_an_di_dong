@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:flutter/material.dart';
 
@@ -224,10 +225,9 @@ class _BuyBrainsState extends State<BuyBrains> {
                 ),
                 trailing: TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => Home(),
-                      ),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Transaction()),
                     );
                   },
                   child: Container(

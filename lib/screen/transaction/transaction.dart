@@ -1,46 +1,42 @@
-import 'package:flutter/cupertino.dart';
+import 'package:doan_didong/screen/home/home.dart';
 import 'package:flutter/material.dart';
 
-class Tracsaction extends StatefulWidget {
-  const Tracsaction({super.key});
+class Transaction extends StatelessWidget {
+  const Transaction({Key? key}) : super(key: key);
 
-  @override
-  State<Tracsaction> createState() => _TracsactionState();
-}
-
-class _TracsactionState extends State<Tracsaction> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          color: const Color(0xff7c94b6),
-          image: const DecorationImage(
-            image: AssetImage('images/background.png'),
-            fit: BoxFit.cover,
-          ),
+  Widget Viettel(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
+      child: ElevatedButton(
+        onPressed: () {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => LoginEmail()),
+          // );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          shape: const StadiumBorder(),
+          primary: Color.fromARGB(255, 255, 255, 255),
+          elevation: 8, // đổ bóng
+          shadowColor: Color.fromARGB(221, 0, 0, 0),
         ),
-        child: Column(
+        child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(
-                        context,
-                        MaterialPageRoute(builder: (context) => Tracsaction()),
-                      );
-                    },
-                    child: Image(
-                      width: 30,
-                      height: 30,
-                      image: AssetImage('images/back.png'),
-                    ),
-                  ),
-                ],
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Image(
+                image: AssetImage('images/gmail.png'),
+                height: 35,
+                width: 40,
+              ),
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -48,26 +44,148 @@ class _TracsactionState extends State<Tracsaction> {
       ),
     );
   }
-}
 
-int _value = 0;
+  Widget MobiPhone(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
+      child: ElevatedButton(
+        onPressed: () {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => LoginEmail()),
+          // );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          shape: const StadiumBorder(),
+          primary: Color.fromARGB(255, 255, 255, 255),
+          elevation: 8, // đổ bóng
+          shadowColor: Color.fromARGB(221, 0, 0, 0),
+        ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Image(
+                image: AssetImage('images/gmail.png'),
+                height: 35,
+                width: 40,
+              ),
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
-_nhamang(String image) {
-  return Column(
-    children: [
-      Row(
+  Widget VinaPhone(String title, BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
+      child: ElevatedButton(
+        onPressed: () {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => LoginPhone()),
+          // );
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          shape: const StadiumBorder(),
+          primary: Color.fromARGB(255, 255, 255, 255),
+          elevation: 8, // đổ bóng
+          shadowColor: Color.fromARGB(221, 0, 0, 0),
+        ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Image(
+                image: AssetImage('images/phone.png'),
+                height: 40,
+                width: 40,
+              ),
+            ),
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // const currentScreen = lsScreens.createAccount;
+
+    return Scaffold(
+      body: Stack(
         children: [
-          // GestureDetector(
-          //    onTap: () {=> setState(() => _value = 0)},
-          //   child: Container(
-          //     height: 56,
-          //     width: 56,
-          //     color: _value == 0 ? Colors.grey : Colors.transparent,
-          //     child: Icon(Icons.call),
-          //   ),
-          //  )
+          Container(
+            child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xff7c94b6),
+                    image: const DecorationImage(
+                      image: AssetImage('images/background.png'),
+                      fit: BoxFit.cover,
+                    ),
+                    // border: Border.all(
+                    //   width: 50,
+                    // ),
+                    // borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Transaction()),
+                          );
+                        },
+                        child: Image(
+                          width: 30,
+                          height: 30,
+                          image: AssetImage('images/back.png'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    MobiPhone('MoBiPhone', context),
+                    Viettel('VietTel', context),
+                    VinaPhone('VietTel', context),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
-    ],
-  );
+    );
+  }
 }

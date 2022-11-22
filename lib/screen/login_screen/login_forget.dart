@@ -113,6 +113,7 @@ class LoginForget extends StatelessWidget {
     // const currentScreen = lsScreens.createAccount;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           // Positioned(

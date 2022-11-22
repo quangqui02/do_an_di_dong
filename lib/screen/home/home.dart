@@ -322,12 +322,12 @@ Future<void> _dialogBuilder(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 100),
+                    padding: const EdgeInsets.only(left: 90),
                     child: Text(
                       'Cài Đặt',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
                   ),

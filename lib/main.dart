@@ -11,9 +11,11 @@ import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
 import 'package:doan_didong/screen/player/user.dart';
+import 'package:doan_didong/screen/question_screen/audience_help.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:doan_didong/screen/question_screen/question.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
+import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:doan_didong/screen/transaction/transaction_history.dart';
 
 import 'package:flutter/material.dart';

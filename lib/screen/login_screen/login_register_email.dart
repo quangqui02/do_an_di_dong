@@ -94,11 +94,11 @@ class LoginEmail extends StatelessWidget {
     );
   }
 
-  Widget loginButton(String title) {
+  Widget loginButton(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 16),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => _dialogRegister(context),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
           shape: const StadiumBorder(),
@@ -154,6 +154,7 @@ class LoginEmail extends StatelessWidget {
     // const currentScreen = lsScreens.createAccount;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -233,7 +234,7 @@ class LoginEmail extends StatelessWidget {
                       ],
                     ),
                     InputBorder('Re-Password', Icons.password),
-                    loginButton('Đăng Ký'),
+                    loginButton('Đăng Ký', context),
                   ],
                 ),
                 logos(context),
@@ -244,4 +245,66 @@ class LoginEmail extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> _dialogRegister(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Container(
+            height: 120,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    'Đăng Ký',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+                Text(
+                  'Bạn Đăng Ký Thành Công',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginAccount()),
+                              );
+                            },
+                            child: Text(
+                              'Đăng Nhập',
+                              style: TextStyle(color: Colors.red, fontSize: 12),
+                            )),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(139, 126, 114, 114),
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      );
+    },
+  );
 }

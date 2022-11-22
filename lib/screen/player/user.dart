@@ -1,4 +1,3 @@
-
 import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,15 +54,6 @@ class Userr extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xff7c94b6),
-                      image: const DecorationImage(
-                        image: AssetImage('images/backgroud.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(150),
