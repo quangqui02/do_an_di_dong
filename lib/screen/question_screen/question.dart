@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/question_screen/audience_help.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -89,7 +90,7 @@ class QuestionScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(1),
                           child: Image(
-                            image: AssetImage('images/timused.png'),
+                            image: AssetImage('images/heart.png'),
                             height: 20,
                             width: 20,
                           ),
@@ -155,7 +156,12 @@ class QuestionScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(1),
                       child: Container(
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              //       Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => HelpAudience()),
+                              // );
+                            },
                             child: Icon(
                               Icons.people_alt,
                               color: Colors.white,
