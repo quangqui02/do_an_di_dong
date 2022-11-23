@@ -217,7 +217,7 @@ class LoginEmail extends StatelessWidget {
                     ),
                     inputField('Tên Đăng Nhập', Icons.person_outline),
                     inputField('Email', Icons.email),
-                    InputBorder('Password', Icons.password),
+                    InputBorder('Mật khẩu', Icons.password),
                     Column(
                       children: [
                         Padding(
@@ -233,7 +233,7 @@ class LoginEmail extends StatelessWidget {
                         ),
                       ],
                     ),
-                    InputBorder('Re-Password', Icons.password),
+                    InputBorder('Xác nhận mật khẩu', Icons.password),
                     loginButton('Đăng Ký', context),
                   ],
                 ),
@@ -263,11 +263,11 @@ Future<void> _dialogRegister(BuildContext context) {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(5),
-                  child: Text(
-                    'Đăng Ký',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  // child: Text(
+                  //   'Đăng Ký',
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(color: Colors.white, fontSize: 20),
+                  // ),
                 ),
                 Text(
                   'Bạn Đăng Ký Thành Công',
@@ -290,7 +290,8 @@ Future<void> _dialogRegister(BuildContext context) {
                             },
                             child: Text(
                               'Đăng Nhập',
-                              style: TextStyle(color: Colors.red, fontSize: 12),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
                             )),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(139, 126, 114, 114),

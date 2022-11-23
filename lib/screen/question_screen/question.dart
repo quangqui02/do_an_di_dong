@@ -31,30 +31,32 @@ class QuestionScreen extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          child: Row(children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Image(
-                                image: AssetImage('images/brain.png'),
-                                height: 30,
-                                width: 30,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 15),
-                              child: Text(
-                                ('3000'),
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: Image(
+                                  image: AssetImage('images/brain.png'),
+                                  height: 30,
+                                  width: 30,
                                 ),
                               ),
-                            ),
-                          ]),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 15),
+                                child: Text(
+                                  ('3000'),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                           height: 40,
                           decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 5, 255, 18),
+                              color: Color.fromARGB(139, 126, 114, 114),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                               border: Border.all(color: Colors.white)),
@@ -111,6 +113,7 @@ class QuestionScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 30, top: 30),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(1),
@@ -248,11 +251,11 @@ class QuestionScreen extends StatelessWidget {
                     ),
                     Container(
                       child: Padding(
-                        padding: const EdgeInsets.all(3),
+                        padding: const EdgeInsets.all(10.0),
                         child: Text(
-                          'Một Phút Có bao nhiêu giây?',
+                          'Một phút có bao nhiêu giây?',
                           style: TextStyle(color: Colors.white, fontSize: 20),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                         ),
                       ),
                       alignment: Alignment.center,
@@ -367,7 +370,7 @@ class QuestionScreen extends StatelessWidget {
                 onPressed: () => _dialogBuilder(context),
                 child: Icon(
                   Icons.settings,
-                  size: 50,
+                  size: 40,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
               )

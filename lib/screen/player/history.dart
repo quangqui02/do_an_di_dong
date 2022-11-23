@@ -37,22 +37,17 @@ class _HistoryState extends State<History> {
                       child: Image(
                         width: 30,
                         height: 30,
-                        image: AssetImage('images/left.png'),
+                        image: AssetImage('images/back.png'),
                       )),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 40,
-                bottom: 10,
-              ),
-              child: Text(
-                'LỊCH SỬ CHƠI',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Colors.white,
-                ),
+            Text(
+              'LỊCH SỬ CHƠI',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
             Expanded(
@@ -64,7 +59,7 @@ class _HistoryState extends State<History> {
                     history('25/10/2022 8:00 PM', '10', '300'),
                     history('25/10/2022 8:00 PM', '10', '3000'),
                     history('25/10/2022 8:00 PM', '10', '3000'),
-                    history('25/10/2022 8:00 PM', '10', '3000'),
+                    history('25/10/2022 8:00 PM', '10', '32000'),
                     history('25/10/2022 8:00 PM', '10', '300'),
                     history('25/10/2022 8:00 PM', '10', '3000'),
                     history('25/10/2022 8:00 PM', '10', '3000'),
@@ -83,18 +78,14 @@ class _HistoryState extends State<History> {
       onPressed: () {},
       child: Container(
         decoration: BoxDecoration(
-            border: Border.all(
-                color: Colors.white, width: 2.0, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(10),
-            color: Color.fromARGB(112, 204, 197, 196)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              height: 60,
-              width: 150,
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(5.0),
+          border: Border.all(
+              color: Colors.white, width: 1.5, style: BorderStyle.solid),
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 53, 127, 193),
+        ),
+        child: ListTile(
+            leading: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Column(
                 children: [
                   Text(
@@ -118,20 +109,18 @@ class _HistoryState extends State<History> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  point,
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 25,
-                  ),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Text(
+                point,
+                style: TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 25,
                 ),
-              ],
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 30),
+            trailing: Padding(
+              padding: const EdgeInsets.only(right: 20),
               child: Text(
                 'Điểm',
                 style: TextStyle(
@@ -139,9 +128,7 @@ class _HistoryState extends State<History> {
                   fontSize: 25,
                 ),
               ),
-            )
-          ],
-        ),
+            )),
       ),
     );
   }

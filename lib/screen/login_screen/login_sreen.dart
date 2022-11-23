@@ -204,8 +204,8 @@ class LoginAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    inputField('Name', Icons.person_outline),
-                    InputBorder('Password', Icons.password_outlined),
+                    inputField('Tên đăng nhập', Icons.person_outline),
+                    InputBorder('Mật khẩu', Icons.password_outlined),
                     Padding(
                       padding: const EdgeInsets.only(left: 210),
                       child: TextButton(
@@ -226,7 +226,7 @@ class LoginAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    loginButton('Sign Up', context),
+                    loginButton('Đăng nhập', context),
                     logos(context),
                   ],
                 ),

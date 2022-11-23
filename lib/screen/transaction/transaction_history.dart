@@ -17,7 +17,6 @@ class _TransactionHistoryState extends State<TransactionHistory> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: const Color(0xff7c94b6),
           image: const DecorationImage(
             image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
@@ -26,7 +25,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -218,7 +217,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         height: 150,
         width: 320,
         decoration: BoxDecoration(
-          color: Color.fromARGB(92, 124, 148, 182),
+          color: Color.fromARGB(151, 128, 138, 145),
           border: Border.all(
               color: Colors.white, width: 2.0, style: BorderStyle.solid),
           borderRadius: BorderRadius.all(
@@ -258,7 +257,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
+              padding: const EdgeInsets.only(left: 5),
               child: Container(
                 width: 340,
                 height: 50,

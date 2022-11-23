@@ -183,19 +183,19 @@ Future<void> _dialogBuilder(BuildContext context) {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(5),
-                  child: Text(
-                    'Đăng Xuất',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
+                  // child: Text(
+                  //   'Đăng Xuất',
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(color: Colors.white, fontSize: 20),
+                  // ),
                 ),
                 Text(
-                  'Bạn Có Muốn Đăng Xuất',
+                  'Bạn có muốn đăng xuất không? ',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(top: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -209,8 +209,9 @@ Future<void> _dialogBuilder(BuildContext context) {
                               );
                             },
                             child: Text(
-                              'Ok',
-                              style: TextStyle(color: Colors.red, fontSize: 12),
+                              'OK',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
                             )),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(139, 126, 114, 114),
@@ -222,7 +223,8 @@ Future<void> _dialogBuilder(BuildContext context) {
                             onPressed: () {},
                             child: Text(
                               'Hủy',
-                              style: TextStyle(color: Colors.red, fontSize: 12),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
                             )),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(139, 126, 114, 114),

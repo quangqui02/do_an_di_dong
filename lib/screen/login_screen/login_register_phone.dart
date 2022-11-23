@@ -255,8 +255,8 @@ class LoginPhone extends StatelessWidget {
                       ],
                     ),
                     inputField('Tên Đăng Nhập', Icons.person_outline),
-                    inputPhone('Phone', Icons.phone),
-                    InputBorder('Password', Icons.password),
+                    inputPhone('Số điện thoại', Icons.phone),
+                    InputBorder('Mật khẩu', Icons.password),
                     Column(
                       children: [
                         Padding(
@@ -272,7 +272,7 @@ class LoginPhone extends StatelessWidget {
                         ),
                       ],
                     ),
-                    InputBorder('Re-Password', Icons.password),
+                    InputBorder('Xác nhận mật khẩu', Icons.password),
                     loginButton('Đăng Ký', context),
                   ],
                 ),

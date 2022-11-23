@@ -27,7 +27,7 @@ class _LevelState extends State<Level> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -54,7 +54,8 @@ class _LevelState extends State<Level> {
               child: Text(
                 'CHỌN CẤP ĐỘ',
                 style: TextStyle(
-                  fontSize: 50,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
@@ -93,6 +94,7 @@ class _LevelState extends State<Level> {
         height: 50,
         width: MediaQuery.of(context).size.width * 0.9,
         decoration: BoxDecoration(
+          color: Color.fromARGB(109, 120, 117, 117),
           border: Border.all(
               color: Colors.white, width: 2.0, style: BorderStyle.solid),
           borderRadius: BorderRadius.all(

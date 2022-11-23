@@ -17,7 +17,6 @@ class _BuyBrainsState extends State<BuyBrains> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: const Color(0xff7c94b6),
           image: const DecorationImage(
             image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
@@ -26,7 +25,7 @@ class _BuyBrainsState extends State<BuyBrains> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -201,7 +200,7 @@ class _BuyBrainsState extends State<BuyBrains> {
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Color(0xff7c94b6),
+              color: Color.fromARGB(151, 128, 138, 145),
               border: Border.all(
                   color: Colors.white, width: 3.0, style: BorderStyle.solid),
             ),
@@ -210,16 +209,16 @@ class _BuyBrainsState extends State<BuyBrains> {
               child: ListTile(
                 leading: Image(
                   image: AssetImage(image),
-                  height: 40,
-                  width: 40,
+                  height: 45,
+                  width: 45,
                 ),
                 title: Text(
                   textAlign: TextAlign.left,
                   brain,
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.w700,
-                    fontSize: 25,
+                    fontSize: 30,
                     letterSpacing: 1,
                   ),
                 ),

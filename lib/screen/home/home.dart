@@ -247,7 +247,7 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 Text(
-                                  'Home',
+                                  'TRANG CHỦ',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -278,7 +278,7 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 Text(
-                                  'Shop',
+                                  'CỬA HÀNG',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -316,8 +316,8 @@ Future<void> _dialogBuilder(BuildContext context) {
             borderRadius: BorderRadius.all(Radius.circular(32.0))),
         contentPadding: EdgeInsets.only(top: 10.0),
         actions: <Widget>[
-          Container(
-            child: Column(children: [
+          Column(
+            children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -417,9 +417,9 @@ Future<void> _dialogBuilder(BuildContext context) {
                         borderRadius: BorderRadius.circular(40)),
                   ),
                 ],
-              )
-            ]),
-          )
+              ),
+            ],
+          ),
         ],
       );
     },

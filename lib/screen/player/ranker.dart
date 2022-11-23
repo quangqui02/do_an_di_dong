@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,7 @@ class _RankerState extends State<Ranker> {
           //mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -41,21 +40,19 @@ class _RankerState extends State<Ranker> {
                     },
                     child: Image(
                       image: AssetImage('images/back.png'),
-                      width: 35,
-                      height: 35,
+                      width: 30,
+                      height: 30,
                     ),
                   )
                 ],
               ),
             ),
-            Center(
-              child: Text(
-                'BẢNG XẾP HẠNG',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
-              ),
+            Text(
+              'BẢNG XẾP HẠNG',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold),
             ),
             toolbar(),
             Expanded(
@@ -63,16 +60,15 @@ class _RankerState extends State<Ranker> {
                 padding: const EdgeInsets.only(right: 10.0, left: 10.0),
                 child: ListView(
                   children: <Widget>[
-                    rank('1', 'Thành Thành Thành Thành Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '3000'),
-                    rank('1', 'Thành', '300'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
+                    rank('1', 'Name', '3000'),
                   ],
                 ),
               ),
@@ -90,37 +86,35 @@ class _RankerState extends State<Ranker> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 270,
             height: 40,
+            width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
               color: Color(0xff7c94b6),
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: Colors.white),
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Tất cả',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Tất cả',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
                     ),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40.0, right: 40.0),
+                  child: TextButton(
+                    onPressed: () {},
                     child: Text(
                       'Lĩnh Vực',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 17,
                       ),
                     ),
                   ),
@@ -131,7 +125,7 @@ class _RankerState extends State<Ranker> {
                     'Cấp độ',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 17,
                     ),
                   ),
                 ),
@@ -148,6 +142,7 @@ class _RankerState extends State<Ranker> {
       padding: const EdgeInsets.all(6.0),
       child: Container(
         decoration: BoxDecoration(
+          color: Color.fromARGB(151, 128, 138, 145),
           border: Border.all(
               color: Colors.white, width: 2.0, style: BorderStyle.solid),
           borderRadius: BorderRadius.all(
@@ -166,31 +161,32 @@ class _RankerState extends State<Ranker> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image(
-                width: 30,
-                height: 30,
-                image: AssetImage('images/brain.png'),
+                width: 40,
+                height: 40,
+                image: AssetImage('images/user.png'),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
-                child: Container(
-                  width: 180,
-                  child: Text(
-                    name,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
+                child: Text(
+                  name,
+                  //overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ],
           ),
           subtitle: null,
-          trailing: Text(
-            point,
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+          trailing: Padding(
+            padding: const EdgeInsets.only(right: 30.0),
+            child: Text(
+              point,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

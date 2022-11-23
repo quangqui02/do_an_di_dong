@@ -14,7 +14,7 @@ class ChangePass extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(35, 0, 0, 20),
       child: Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
