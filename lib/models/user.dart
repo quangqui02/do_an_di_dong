@@ -14,4 +14,11 @@ class User {
     required this.image,
     required this.status,
   });
+  User.fromJson(Map<String, dynamic> r)
+      : id = r['id'],
+        name = r['name'],
+        point = r['point'],
+        ranker = r['ranker'],
+        image = r['image'],
+        status = r['status'];
 }

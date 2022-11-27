@@ -1,6 +1,7 @@
 import 'package:doan_didong/screen/field_screen/ListCard.dart';
 import 'package:doan_didong/screen/field_screen/player.dart';
 import 'package:doan_didong/screen/home/guide.dart';
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/login_screen/login_forget.dart';
 import 'package:doan_didong/screen/login_screen/login_register.dart';
 import 'package:doan_didong/screen/login_screen/login_register_email.dart';
@@ -17,6 +18,7 @@ import 'package:doan_didong/screen/question_screen/question.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
 import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:doan_didong/screen/transaction/transaction_history.dart';
+import 'package:doan_didong/screen/transaction/transaction_viettell.dart';
 
 import 'package:flutter/material.dart';
 
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const TransactionViettel(),
     );
   }
 }

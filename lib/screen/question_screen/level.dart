@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _LevelState extends State<Level> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Home()),
+                          MaterialPageRoute(builder: (context) => HomeTab()),
                         );
                       },
                       child: Image(

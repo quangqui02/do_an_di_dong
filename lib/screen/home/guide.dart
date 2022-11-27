@@ -1,4 +1,5 @@
 import 'package:doan_didong/screen/home/home.dart';
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:flutter/material.dart';
 
 class Guide extends StatefulWidget {
@@ -30,7 +31,7 @@ class _GuideState extends State<Guide> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Home()),
+                          MaterialPageRoute(builder: (context) => HomeTab()),
                         );
                       },
                       child: Image(

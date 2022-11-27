@@ -37,6 +37,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.15
+  cached_network_image: ^3.2.2
   http: ^0.13.5
   fl_chart: ^0.55.2
 dev_dependencies:
@@ -63,36 +64,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/facebook.png
-    - images/google.png
-    - images/gmail.png
-    - images/phone.png
-    - images/user.png
-    - images/brain.png
-    - images/store.png
-    - images/home.png
-    - images/heart.png
-    - images/background.png
-    - images/background_home.png
-    - images/doicauhoi.png
-    - images/music.png
-    - images/math.png
-    - images/history.png
-    - images/van.png
-    - images/test.png
-    - images/deletebutton.png
-    - images/checked.png
-    - images/creditcard.png
-    - images/left.png
-    - images/logout.png
-    - images/back.png
-    - images/doi.png
-    - images/businessman.png
-    - images/heartclose.png
-    - images/50.png
-    - images/dienthoai.png
-    - images/khangia.png
-    - images/muadapan.png
+    - images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

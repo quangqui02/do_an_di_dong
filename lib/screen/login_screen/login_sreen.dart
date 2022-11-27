@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home.dart';
@@ -75,7 +76,7 @@ class LoginAccount extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Home()),
+            MaterialPageRoute(builder: (context) => HomeTab()),
           );
         },
         style: ElevatedButton.styleFrom(

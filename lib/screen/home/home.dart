@@ -17,6 +17,11 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+List<Widget> lsScreen = [
+  Text('Màn hình tin nhắn'),
+  Text('Màn hình tin nhắn'),
+];
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
@@ -197,108 +202,9 @@ class _HomeState extends State<Home> {
                           border: Border.all(color: Colors.white)),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Container(
-                      child: TextButton(
-                        child: Text('NẠP ĐIỂM',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24),
-                            textAlign: TextAlign.center),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BuyBrains()),
-                          );
-                        },
-                      ),
-                      width: 250,
-                      height: 45,
-                      decoration: BoxDecoration(
-                          color: Colors.yellow.shade800,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          border: Border.all(color: Colors.white)),
-                    ),
-                  ),
                 ]),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Column(
-                              children: [
-                                TextButton(
-                                  onPressed: () {},
-                                  child: Image(
-                                    height: 40,
-                                    width: 40,
-                                    image: AssetImage('images/home.png'),
-                                  ),
-                                ),
-                                Text(
-                                  'TRANG CHỦ',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Column(
-                              children: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => BuyBrains()),
-                                    );
-                                  },
-                                  child: Image(
-                                    height: 40,
-                                    width: 40,
-                                    image: AssetImage('images/store.png'),
-                                  ),
-                                ),
-                                Text(
-                                  'CỬA HÀNG',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.yellow.shade800,
-                    // borderRadius: BorderRadius.all(Radius.circular(20)),
-                    // border: Border.all(color: Colors.white)
-                  ),
-                ),
-              ],
-            )
           ]),
         ),
       ]),

@@ -1,4 +1,4 @@
-class User {
+class Question {
   final int id;
   final String fullcontent;
   final String dapanA;
@@ -9,7 +9,7 @@ class User {
   final int idfield;
   final int status;
 
-  const User({
+  const Question({
     required this.id,
     required this.fullcontent,
     required this.dapanA,

@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class _RankerState extends State<Ranker> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute<void>(
-                          builder: (BuildContext context) => Home(),
+                          builder: (BuildContext context) => HomeTab(),
                         ),
                       );
                     },

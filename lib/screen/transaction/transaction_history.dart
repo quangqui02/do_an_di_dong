@@ -1,3 +1,5 @@
+import 'package:doan_didong/screen/home/hometab.dart';
+import 'package:doan_didong/screen/player/history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,26 +27,6 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pop(
-                          context,
-                          MaterialPageRoute(builder: (context) => BuyBrains()),
-                        );
-                      },
-                      child: Image(
-                        width: 30,
-                        height: 30,
-                        image: AssetImage('images/back.png'),
-                      )),
-                ],
-              ),
-            ),
-            Padding(
               padding: const EdgeInsets.only(
                   top: 20.0, bottom: 10, left: 20, right: 25),
               child: Container(
@@ -63,10 +45,9 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                     padding: const EdgeInsets.only(right: 15),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) => BuyBrains(),
-                          ),
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => BuyBrains()),
                         );
                       },
                       child: Text(
@@ -122,86 +103,6 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                   ],
                 ),
               ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Column(
-                              children: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute<void>(
-                                        builder: (BuildContext context) =>
-                                            Home(),
-                                      ),
-                                    );
-                                  },
-                                  child: Image(
-                                    height: 40,
-                                    width: 40,
-                                    image: AssetImage('images/home.png'),
-                                  ),
-                                ),
-                                Text(
-                                  'Home',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Column(
-                              children: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => BuyBrains()),
-                                    );
-                                  },
-                                  child: Image(
-                                    height: 40,
-                                    width: 40,
-                                    image: AssetImage('images/store.png'),
-                                  ),
-                                ),
-                                Text(
-                                  'Shop',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.yellow.shade800,
-                    // borderRadius: BorderRadius.all(Radius.circular(20)),
-                    // border: Border.all(color: Colors.white)
-                  ),
-                ),
-              ],
             ),
           ],
         ),

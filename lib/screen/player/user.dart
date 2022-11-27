@@ -1,3 +1,4 @@
+import 'package:doan_didong/models/user.dart';
 import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,20 +29,8 @@ class Userr extends StatelessWidget {
             padding: EdgeInsets.only(top: 40),
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Home()),
-                        );
-                      },
-                      child: Image(
-                        width: 30,
-                        height: 30,
-                        image: AssetImage('images/back.png'),
-                      )),
                   TextButton(
                       onPressed: () => _dialogBuilder(context),
                       child: Image(
@@ -220,7 +209,13 @@ Future<void> _dialogBuilder(BuildContext context) {
                       ),
                       Container(
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Userr()),
+                              );
+                            },
                             child: Text(
                               'Hủy',
                               style:

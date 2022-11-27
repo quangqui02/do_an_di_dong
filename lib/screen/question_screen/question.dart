@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/question_screen/audience_help.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -159,12 +160,7 @@ class QuestionScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(1),
                       child: Container(
                         child: TextButton(
-                            onPressed: () {
-                              //       Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(builder: (context) => HelpAudience()),
-                              // );
-                            },
+                            onPressed: () => showHelpAudience(context),
                             child: Icon(
                               Icons.people_alt,
                               color: Colors.white,
@@ -268,93 +264,77 @@ class QuestionScreen extends StatelessWidget {
                               color: Color.fromARGB(255, 255, 255, 255))),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 10),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(3),
-                            child: Container(
-                              alignment: Alignment.bottomLeft,
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'A. 60',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              height: 50,
-                              width: 300,
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(103, 84, 84, 92),
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 255, 255, 255))),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(3),
-                            child: Container(
-                              alignment: Alignment.bottomLeft,
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'B. 120',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              height: 50,
-                              width: 300,
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(103, 84, 84, 92),
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 255, 255, 255))),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(3),
-                            child: Container(
-                              alignment: Alignment.bottomLeft,
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'C. 30',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              height: 50,
-                              width: 300,
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(103, 84, 84, 92),
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 255, 255, 255))),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(3),
-                            child: Container(
-                              alignment: Alignment.bottomLeft,
-                              child: TextButton(
-                                onPressed: () {},
+                          TextButton(
+                              onPressed: () {},
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50,
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(103, 84, 84, 92),
+                                    borderRadius: BorderRadius.circular(30),
+                                    border: Border.all(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
                                 child: Text(
                                   'D. 90',
                                   style: TextStyle(color: Colors.white),
                                 ),
-                              ),
-                              height: 50,
-                              width: 300,
-                              decoration: BoxDecoration(
-                                  color: Color.fromARGB(103, 84, 84, 92),
-                                  borderRadius: BorderRadius.circular(30),
-                                  border: Border.all(
-                                      color:
-                                          Color.fromARGB(255, 255, 255, 255))),
-                            ),
-                          ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50,
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(103, 84, 84, 92),
+                                    borderRadius: BorderRadius.circular(30),
+                                    border: Border.all(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
+                                child: Text(
+                                  'D. 90',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50,
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(103, 84, 84, 92),
+                                    borderRadius: BorderRadius.circular(30),
+                                    border: Border.all(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
+                                child: Text(
+                                  'D. 90',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: () {},
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50,
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(103, 84, 84, 92),
+                                    borderRadius: BorderRadius.circular(30),
+                                    border: Border.all(
+                                        color: Color.fromARGB(
+                                            255, 255, 255, 255))),
+                                child: Text(
+                                  'D. 90',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              )),
                         ],
                       ),
                     ),
@@ -865,6 +845,18 @@ Future<void> endScreen(BuildContext context) {
   );
 }
 
+showHelpAudience(BuildContext context) {
+  showDialog<dynamic>(
+    context: context,
+    builder: (BuildContext context) => Center(
+      child: HelpAudience(
+        indexCorrect: 0,
+        isTapFifty: false,
+      ),
+    ),
+  );
+}
+
 Future<void> quitGame(BuildContext context) {
   return showDialog<void>(
     context: context,
@@ -983,7 +975,7 @@ Future<void> quitGame(BuildContext context) {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => Home(),
+                            builder: (BuildContext context) => HomeTab(),
                           ),
                         );
                       },

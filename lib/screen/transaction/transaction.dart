@@ -26,7 +26,7 @@ class Transaction extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Image(
-                image: AssetImage('images/gmail.png'),
+                image: AssetImage('images/viettel.png'),
                 height: 35,
                 width: 40,
               ),
@@ -67,7 +67,7 @@ class Transaction extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Image(
-                image: AssetImage('images/gmail.png'),
+                image: AssetImage('images/mobifone.png'),
                 height: 35,
                 width: 40,
               ),
@@ -108,7 +108,7 @@ class Transaction extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Image(
-                image: AssetImage('images/phone.png'),
+                image: AssetImage('images/vinaphone.png'),
                 height: 40,
                 width: 40,
               ),
@@ -176,9 +176,9 @@ class Transaction extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    MobiPhone('MoBiPhone', context),
-                    Viettel('VietTel', context),
-                    VinaPhone('VietTel', context),
+                    MobiPhone('Mobiphone', context),
+                    Viettel('Viettel', context),
+                    VinaPhone('Vinaphone', context),
                   ],
                 ),
               ],
