@@ -4,6 +4,8 @@ import 'package:doan_didong/screen/transaction/buybrains.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../transaction/tab_brains.dart';
+
 class HomeTab extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -21,7 +23,7 @@ class HomeTabState extends State<HomeTab> {
 
   List<Widget> lsScreen = [
     Home(),
-    BuyBrains(),
+    TabBrains(),
     Userr(),
   ];
 

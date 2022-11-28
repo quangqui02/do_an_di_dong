@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/login_screen/tab_login.dart';
 import 'package:flutter/material.dart';
 
 import 'login_register_email.dart';
@@ -14,7 +15,7 @@ class LoginRegister extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => LoginEmail()),
+            MaterialPageRoute(builder: (context) => TabLogin()),
           );
         },
         style: ElevatedButton.styleFrom(
@@ -55,7 +56,7 @@ class LoginRegister extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => LoginPhone()),
+            MaterialPageRoute(builder: (context) => TabLogin()),
           );
         },
         style: ElevatedButton.styleFrom(

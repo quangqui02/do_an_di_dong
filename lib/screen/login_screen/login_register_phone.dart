@@ -212,49 +212,11 @@ class LoginPhone extends StatelessWidget {
                     // borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, right: 20),
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginEmail()),
-                          );
-                        },
-                        icon: Icon(
-                          Icons.email,
-                          color: Colors.white,
-                          size: 50,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: const Text(
-                            'ĐĂNG KÝ ',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 45,
-                                fontWeight: FontWeight.w500),
-                            //textDirection: null,
-                          ),
-                        ),
-                      ],
-                    ),
-                    inputField('Tên Đăng Nhập', Icons.person_outline),
+                    inputField('Tên đăng nhập', Icons.person_outline),
                     inputPhone('Số điện thoại', Icons.phone),
                     InputBorder('Mật khẩu', Icons.password),
                     Column(

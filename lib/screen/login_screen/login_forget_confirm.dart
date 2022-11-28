@@ -1,38 +1,53 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'login_forget_confirm.dart';
 import 'login_sreen.dart';
 
-class LoginForget extends StatelessWidget {
-  const LoginForget({Key? key}) : super(key: key);
+class LoginForgetConfirm extends StatefulWidget {
+  const LoginForgetConfirm({super.key});
 
-  Widget inputField(String hint, IconData iconData) {
+  @override
+  State<LoginForgetConfirm> createState() => _LoginForgetConfirmState();
+}
+
+class _LoginForgetConfirmState extends State<LoginForgetConfirm> {
+  Widget responseOption(BuildContext context) {
+    int _method = 0;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
-      child: SizedBox(
-        height: 50,
-        child: Material(
-          elevation: 8, // góc đổ bóng
-          shadowColor: Colors.black87,
-          color: Colors.transparent,
-
-          borderRadius: BorderRadius.circular(10), // bo tròn bóng
-          child: TextField(
-            textAlignVertical: TextAlignVertical.bottom, // gạch chân input
-            decoration: InputDecoration(
-              // tạo input
-
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10), // bo tròn
-                borderSide: BorderSide.none, // bỏ đường viền
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: hint, // hiển thị chữ
-              prefixIcon: Icon(iconData), //icon
+      padding: const EdgeInsets.only(top: 70.0),
+      child: Column(
+        children: [
+          RadioListTile(
+            title: Text(
+              'Gửi SMS',
+              style: TextStyle(color: Colors.white, fontSize: 18),
             ),
+            subtitle: Text('*******089',
+                style: TextStyle(color: Colors.white, fontSize: 13)),
+            value: 1,
+            groupValue: _method,
+            onChanged: (value) {
+              setState(() {
+                _method = int.parse(value.toString());
+              });
+            },
           ),
-        ),
+          RadioListTile(
+            title: Text(
+              'Gửi Email',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            subtitle: Text('@*********.com',
+                style: TextStyle(color: Colors.white, fontSize: 13)),
+            value: 0,
+            groupValue: _method,
+            onChanged: (value) {
+              setState(() {
+                _method = int.parse(value.toString());
+              });
+            },
+          ),
+        ],
       ),
     );
   }
@@ -84,16 +99,11 @@ class LoginForget extends StatelessWidget {
     );
   }
 
-  Widget loginButton(context, String title) {
+  Widget loginButton(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 20),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => LoginForgetConfirm()),
-          );
-        },
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
           shape: const StadiumBorder(),
@@ -148,46 +158,46 @@ class LoginForget extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // Image(
-                          //   height: 10,
-                          //   width: 10,
-                          //   image: AssetImage('images/unlock.png'),
-                          // ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Bạn gặp sự cố khi đăng nhập?',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          Image(
+                            height: 100,
+                            width: 100,
+                            image: AssetImage('images/user.png'),
                           ),
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              height: 100,
-                              width: MediaQuery.of(context).size.width * 0.8,
-                              child: Text(
-                                'Hãy nhập tên đăng nhập của bạn và chúng tôi sẽ gửi cho bạn một liện kết dể truy vập lại vào tài khoản',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.white,
-                                ),
+                            Text(
+                              'Tên tài khoản',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ],
                         ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 100,
+                            width: MediaQuery.of(context).size.width * 0.85,
+                            child: Text(
+                              'Chúng tôi sẽ gửi liên kết hoặc mã đăng nhập để  bạn truy cập vào tài khoản',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -196,8 +206,8 @@ class LoginForget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    inputField('Tên đăng nhập', Icons.person_outline),
-                    loginButton(context, 'Tiếp'),
+                    responseOption(context),
+                    loginButton('Gửi liên kết đăng nhập'),
                   ],
                 ),
                 logos(context),

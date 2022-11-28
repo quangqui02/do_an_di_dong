@@ -1,7 +1,6 @@
-import 'package:doan_didong/screen/home/hometab.dart';
+import 'package:doan_didong/screen/login_screen/tab_login.dart';
 import 'package:flutter/material.dart';
 
-import '../home/home.dart';
 import 'login_forget.dart';
 import 'login_register.dart';
 
@@ -17,13 +16,13 @@ class LoginAccount extends StatelessWidget {
           elevation: 8, // góc đổ bóng
           shadowColor: Colors.black87,
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(30), // bo tròn bóng
+          borderRadius: BorderRadius.circular(10), // bo tròn bóng
           child: TextField(
             textAlignVertical: TextAlignVertical.bottom, // gạch chân input
             decoration: InputDecoration(
               // tạo input
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30), // bo tròn
+                borderRadius: BorderRadius.circular(10), // bo tròn
                 borderSide: BorderSide.none, // bỏ đường viền
               ),
               filled: true,
@@ -47,7 +46,7 @@ class LoginAccount extends StatelessWidget {
           shadowColor: Colors.black87,
           color: Colors.transparent,
 
-          borderRadius: BorderRadius.circular(30), // bo tròn bóng
+          borderRadius: BorderRadius.circular(10), // bo tròn bóng
           child: TextField(
             obscureText: true,
             textAlignVertical: TextAlignVertical.bottom, // gạch chân input
@@ -55,7 +54,7 @@ class LoginAccount extends StatelessWidget {
               // tạo input
 
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30), // bo tròn
+                borderRadius: BorderRadius.circular(10), // bo tròn
                 borderSide: BorderSide.none, // bỏ đường viền
               ),
               filled: true,
@@ -74,10 +73,10 @@ class LoginAccount extends StatelessWidget {
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomeTab()),
-          );
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => Home()),
+          // );
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -88,6 +87,7 @@ class LoginAccount extends StatelessWidget {
         ),
         child: Text(
           title,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -148,7 +148,7 @@ class LoginAccount extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginRegister()),
+                      MaterialPageRoute(builder: (context) => TabLogin()),
                     );
                   }, //bo sung 3
                   child: const Text(
@@ -195,11 +195,12 @@ class LoginAccount extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 20, bottom: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 30),
                       child: Text(
                         'ĐĂNG NHẬP',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),
