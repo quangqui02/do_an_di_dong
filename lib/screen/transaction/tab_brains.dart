@@ -29,7 +29,7 @@ class _TabBrainsState extends State<TabBrains> {
                   child: Text(
                     'Nạp điểm',
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontFamily: "BarlowBold",
                         color: Colors.white),
                   ),
@@ -38,7 +38,7 @@ class _TabBrainsState extends State<TabBrains> {
                   child: Text(
                     'Lịch sử giao dịch',
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontFamily: "BarlowBold",
                         color: Colors.white),
                   ),

@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,6 @@ class _BuyBrainsState extends State<BuyBrains> {
                     _field('1200', '249.000', 'images/brain.png'),
                     _field('2500', '499.000', 'images/brain.png'),
                     _field('6500', '1.299.000', 'images/brain.png'),
-                    _field('9200', '1.499.000', 'images/brain.png'),
                   ],
                 ),
               ),
@@ -55,7 +55,7 @@ class _BuyBrainsState extends State<BuyBrains> {
 
   _field(String brain, String field, String image) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 10),
       child: Row(
         children: [
           Container(
@@ -89,13 +89,12 @@ class _BuyBrainsState extends State<BuyBrains> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => TransactionHistory()),
+                      MaterialPageRoute(builder: (context) => Transaction()),
                     );
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    width: 135,
+                    width: 100,
                     decoration: BoxDecoration(
                       border: Border.all(
                           color: Colors.white,
@@ -113,14 +112,14 @@ class _BuyBrainsState extends State<BuyBrains> {
                           style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w700,
-                            fontSize: 20,
+                            fontSize: 18,
                             letterSpacing: 0,
                           ),
                         ),
                         Text(
                           'đ',
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 15,
                             decoration: TextDecoration.underline,
                             decorationColor: Colors.white,
                             decorationThickness: 1,

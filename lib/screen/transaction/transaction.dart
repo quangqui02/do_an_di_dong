@@ -129,8 +129,6 @@ class Transaction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // const currentScreen = lsScreens.createAccount;
-
     return Scaffold(
       body: Stack(
         children: [
@@ -144,10 +142,6 @@ class Transaction extends StatelessWidget {
                       image: AssetImage('images/background.png'),
                       fit: BoxFit.cover,
                     ),
-                    // border: Border.all(
-                    //   width: 50,
-                    // ),
-                    // borderRadius: BorderRadius.circular(12),
                   ),
                 ),
                 Padding(
