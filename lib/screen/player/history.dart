@@ -1,16 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class History extends StatefulWidget {
-  const History({super.key});
+import '../../models/history/history_obj.dart';
+import '../../models/history/history_provider.dart';
 
+class HistoryScreen extends StatefulWidget {
+  String id_user;
+  HistoryScreen({Key? key, required this.id_user}) : super(key: key);
   @override
-  State<History> createState() => _HistoryState();
+  _HistoryState createState() => _HistoryState();
 }
 
-class _HistoryState extends State<History> {
+class _HistoryState extends State<HistoryScreen> {
+  List<History> lsHistory = [];
+  void _LoadDanhSach() async {
+    final data = await HistoryProvider.getUserHistory(this.widget.id_user);
+    setState(() {});
+    lsHistory = data.cast<History>();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _LoadDanhSach();
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -31,7 +48,10 @@ class _HistoryState extends State<History> {
                       onPressed: () {
                         Navigator.pop(
                           context,
-                          MaterialPageRoute(builder: (context) => History()),
+                          MaterialPageRoute(
+                              builder: (context) => HistoryScreen(
+                                    id_user: '',
+                                  )),
                         );
                       },
                       child: Image(
@@ -51,29 +71,21 @@ class _HistoryState extends State<History> {
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-                child: ListView(
-                  children: <Widget>[
-                    history('25/10/2022 8:00 PM', '10', '3000'),
-                    history('25/10/2022 8:00 PM', '10', '300'),
-                    history('25/10/2022 8:00 PM', '10', '3000'),
-                    history('25/10/2022 8:00 PM', '10', '3000'),
-                    history('25/10/2022 8:00 PM', '10', '32000'),
-                    history('25/10/2022 8:00 PM', '10', '300'),
-                    history('25/10/2022 8:00 PM', '10', '3000'),
-                    history('25/10/2022 8:00 PM', '10', '3000'),
-                  ],
-                ),
-              ),
-            )
+                child: Padding(
+              padding: const EdgeInsets.only(right: 5.0, left: 5.0),
+              child: ListView.builder(
+                  itemCount: lsHistory.length,
+                  itemBuilder: (context, index) {
+                    return history(lsHistory[index]);
+                  }),
+            )),
           ],
         ),
       ),
     );
   }
 
-  history(String time, String numberanswers, String point) {
+  history(History his) {
     return TextButton(
       onPressed: () {},
       child: Container(
@@ -89,30 +101,30 @@ class _HistoryState extends State<History> {
               child: Column(
                 children: [
                   Text(
-                    time,
+                    his.time_start,
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 15,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4.0),
-                    child: Text(
-                      'Số câu: ' + numberanswers,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(top: 4.0),
+                  //   child: Text(
+                  //     'Số câu: ' + ,
+                  //     style: TextStyle(
+                  //       fontWeight: FontWeight.w700,
+                  //       color: Color.fromARGB(255, 255, 255, 255),
+                  //       fontSize: 17,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
             title: Padding(
-              padding: const EdgeInsets.only(left: 10.0),
+              padding: const EdgeInsets.only(left: 1.0),
               child: Text(
-                point,
+                his.totalscore,
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 25,
@@ -120,12 +132,12 @@ class _HistoryState extends State<History> {
               ),
             ),
             trailing: Padding(
-              padding: const EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(right: 1),
               child: Text(
                 'Điểm',
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 25,
+                  fontSize: 20,
                 ),
               ),
             )),

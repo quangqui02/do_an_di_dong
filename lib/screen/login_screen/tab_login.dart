@@ -22,10 +22,6 @@ class _TabLoginState extends State<TabLogin> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             backgroundColor: Colors.blue[900],
-            leading: Icon(
-              Icons.arrow_back,
-              size: 30.0,
-            ),
             title: Text(
               'Đăng ký',
               style: TextStyle(

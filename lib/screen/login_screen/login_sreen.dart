@@ -1,12 +1,18 @@
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/login_screen/tab_login.dart';
 import 'package:flutter/material.dart';
 
 import 'login_forget.dart';
 import 'login_register.dart';
 
-class LoginAccount extends StatelessWidget {
+class LoginAccount extends StatefulWidget {
   const LoginAccount({Key? key}) : super(key: key);
 
+  @override
+  State<LoginAccount> createState() => _LoginAccountState();
+}
+
+class _LoginAccountState extends State<LoginAccount> {
   Widget inputField(String hint, IconData iconData) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
@@ -73,10 +79,10 @@ class LoginAccount extends StatelessWidget {
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
         onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => Home()),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomeTab()),
+          );
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -175,67 +181,56 @@ class LoginAccount extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xff7c94b6),
-                    image: const DecorationImage(
-                      image: AssetImage('images/background.png'),
-                      fit: BoxFit.cover,
-                    ),
-                    // border: Border.all(
-                    //   width: 50,
-                    // ),
-                    // borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: Text(
-                        'ĐĂNG NHẬP',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 45,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    inputField('Tên đăng nhập', Icons.person_outline),
-                    InputBorder('Mật khẩu', Icons.password_outlined),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 210),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginForget()),
-                          );
-                        }, //bo sung 3
-                        child: const Text(
-                          'Quên mật khẩu?',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ),
-                    ),
-                    loginButton('Đăng nhập', context),
-                    logos(context),
-                  ],
-                ),
-                logostag(context),
-              ],
+            decoration: BoxDecoration(
+              color: const Color(0xff7c94b6),
+              image: const DecorationImage(
+                image: AssetImage('images/background.png'),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 30),
+                child: Text(
+                  'ĐĂNG NHẬP',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 45,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              inputField('Tên đăng nhập', Icons.person_outline),
+              InputBorder('Mật khẩu', Icons.password_outlined),
+              Padding(
+                padding: const EdgeInsets.only(left: 210),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginForget()),
+                    );
+                  }, //bo sung 3
+                  child: const Text(
+                    'Quên mật khẩu?',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
+                ),
+              ),
+              loginButton('Đăng nhập', context),
+              logos(context),
+            ],
+          ),
+          logostag(context),
         ],
       ),
     );

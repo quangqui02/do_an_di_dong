@@ -26,39 +26,11 @@ class _RankerState extends State<Ranker> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30, bottom: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => HomeTab(),
-                        ),
-                      );
-                    },
-                    child: Image(
-                      image: AssetImage('images/back.png'),
-                      width: 30,
-                      height: 30,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Text(
-              'BẢNG XẾP HẠNG',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
-            ),
-            toolbar(),
+            //toolbar(),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+                padding:
+                    const EdgeInsets.only(top: 15, right: 10.0, left: 10.0),
                 child: ListView(
                   children: <Widget>[
                     rank('1', 'Name', '3000'),

@@ -6,9 +6,14 @@ enum Screens {
   welcomback,
 }
 
-class ChangePass extends StatelessWidget {
+class ChangePass extends StatefulWidget {
   const ChangePass({Key? key}) : super(key: key);
 
+  @override
+  State<ChangePass> createState() => _ChangePassState();
+}
+
+class _ChangePassState extends State<ChangePass> {
   Widget Textt() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(35, 0, 0, 20),
@@ -90,49 +95,6 @@ class ChangePass extends StatelessWidget {
     );
   }
 
-  Widget logos() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Text("Bạn chưa có tài khoản?",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                        )),
-                  ),
-                  Container(
-                    child: Row(children: [
-                      TextButton(
-                        onPressed: () {}, //bo sung 3
-                        child: const Text(
-                          'Đăng ký',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.blue,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ),
-                    ]),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -188,7 +150,6 @@ class ChangePass extends StatelessWidget {
                     ChangButton('Đổi mật khẩu'),
                   ],
                 ),
-                logos(),
               ],
             ),
           ),

@@ -15,7 +15,9 @@ import 'package:doan_didong/screen/player/user.dart';
 import 'package:doan_didong/screen/question_screen/audience_help.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:doan_didong/screen/question_screen/question.dart';
+import 'package:doan_didong/screen/question_screen/test.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
+import 'package:doan_didong/screen/transaction/test.dart';
 import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:doan_didong/screen/transaction/transaction_viettell.dart';
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: HomeTab(),
+      home: LoginAccount(),
     );
   }
 }

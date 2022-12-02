@@ -1,15 +1,60 @@
+import 'dart:async';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/question_screen/audience_help.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home.dart';
 
-class QuestionScreen extends StatelessWidget {
+class QuestionScreen extends StatefulWidget {
   const QuestionScreen({Key? key}) : super(key: key);
 
   @override
+  State<QuestionScreen> createState() => _QuizScreenState();
+}
+
+final CountDownController _controller = CountDownController();
+
+class _QuizScreenState extends State<QuestionScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // startTimer();
+  }
+
+  @override
+  void dispose() {
+    timer!.cancel();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  int seconds = 20;
+  Timer? timer;
+  var currentQuestionIndex = 0;
+  final int _duration = 20;
+  // startTimer() {
+  //   timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+  //     setState(() {
+  //       if (seconds > 0) {
+  //         seconds--;
+  //       } else {
+  //         timer.cancel();
+  //         setState(() {
+  //           quitGame(context);
+  //         });
+  //       }
+  //     });
+  //   });
+  // }
+
+  @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
@@ -29,40 +74,35 @@ class QuestionScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: Image(
-                                  image: AssetImage('images/brain.png'),
-                                  height: 30,
-                                  width: 30,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 15),
-                                child: Text(
-                                  ('3000'),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
+                    Container(
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Image(
+                              image: AssetImage('images/brain.png'),
+                              height: 30,
+                              width: 30,
+                            ),
                           ),
-                          height: 40,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(139, 126, 114, 114),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              border: Border.all(color: Colors.white)),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Text(
+                              ('3000'),
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(139, 126, 114, 114),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          border: Border.all(color: Colors.white)),
                     ),
                     Row(
                       children: [
@@ -112,7 +152,7 @@ class QuestionScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 30, top: 30),
+                padding: const EdgeInsets.only(top: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -132,7 +172,7 @@ class QuestionScreen extends StatelessWidget {
                         width: 60,
                         decoration: BoxDecoration(
                             color: Color.fromARGB(255, 0, 0, 0),
-                            borderRadius: BorderRadius.all(Radius.circular(40)),
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
                             border: Border.all(
                                 color: Color.fromARGB(255, 28, 74, 123))),
                       ),
@@ -227,119 +267,157 @@ class QuestionScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5, left: 30),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Câu 1',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Text(
-                          'Một phút có bao nhiêu giây?',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: size.height * 0.01),
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        border: Border.all(color: Colors.yellow),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Stack(
                       alignment: Alignment.center,
-                      height: 150,
-                      width: 300,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(137, 84, 84, 92),
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                              color: Color.fromARGB(255, 255, 255, 255))),
+                      children: [
+                        CircularCountDownTimer(
+                          width: size.width * 0.1,
+                          height: size.height * 0.05,
+                          duration: _duration,
+                          fillColor: Colors.purpleAccent[100]!,
+                          ringColor: Colors.grey[300]!,
+                          controller: _controller,
+                          isReverse: true,
+                          autoStart: true,
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Column(
-                        children: [
-                          TextButton(
-                              onPressed: () {},
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 300,
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(103, 84, 84, 92),
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                                child: Text(
-                                  'D. 90',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              )),
-                          TextButton(
-                              onPressed: () {},
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 300,
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(103, 84, 84, 92),
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                                child: Text(
-                                  'D. 90',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              )),
-                          TextButton(
-                              onPressed: () {},
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 300,
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(103, 84, 84, 92),
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                                child: Text(
-                                  'D. 90',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              )),
-                          TextButton(
-                              onPressed: () {},
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 300,
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(103, 84, 84, 92),
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                        color: Color.fromARGB(
-                                            255, 255, 255, 255))),
-                                child: Text(
-                                  'D. 90',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              )),
-                        ],
-                      ),
+                  ),
+                  Container(
+                    width: size.width * 0.3,
+                    height: size.height * 0.07,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(137, 84, 84, 92),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 255, 255, 255)),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Text(
+                      'Điểm: 200',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
                     ),
-                  ],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: size.width * 0.7),
+                child: Text(
+                  'Câu 1',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
                 ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Một phút có bao nhiêu giây?',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                alignment: Alignment.center,
+                height: 150,
+                width: 300,
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(137, 84, 84, 92),
+                    borderRadius: BorderRadius.circular(10),
+                    border:
+                        Border.all(color: Color.fromARGB(255, 255, 255, 255))),
+              ),
+              Column(
+                children: [
+                  TextButton(
+                      onPressed: () {},
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(103, 84, 84, 92),
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 255, 255, 255))),
+                        child: Container(
+                          margin: EdgeInsets.only(left: size.height * 0.02),
+                          child: Text(
+                            'D. 90 ',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )),
+                  TextButton(
+                      onPressed: () {},
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(103, 84, 84, 92),
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 255, 255, 255))),
+                        child: Container(
+                          margin: EdgeInsets.only(left: size.height * 0.02),
+                          child: Text(
+                            'D. 90 ',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )),
+                  TextButton(
+                      onPressed: () {},
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(103, 84, 84, 92),
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 255, 255, 255))),
+                        child: Container(
+                          margin: EdgeInsets.only(left: size.height * 0.02),
+                          child: Text(
+                            'D. 90 ',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )),
+                  TextButton(
+                      onPressed: () {},
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(103, 84, 84, 92),
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 255, 255, 255))),
+                        child: Container(
+                          margin: EdgeInsets.only(left: size.height * 0.02),
+                          child: Text(
+                            'D. 90 ',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )),
+                ],
               ),
             ],
           ),
@@ -360,6 +438,96 @@ class QuestionScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> endScreen(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        contentPadding: EdgeInsets.only(top: 10.0),
+        actions: <Widget>[
+          Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: Text(
+                    'BẠN MUỐN NGỪNG LƯỢT CHƠI',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'TIẾP TỤC CHƠI',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    _controller.pause();
+                    quitGame(context);
+                  },
+                  child: Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'NGỪNG LẠI',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }
 
 Future<void> _dialogBuilder(BuildContext context) {
@@ -452,7 +620,11 @@ Future<void> _dialogBuilder(BuildContext context) {
                 ),
                 Container(
                   child: TextButton(
-                      onPressed: () => endScreen(context),
+                      onPressed: () {
+                        Navigator.pop(context);
+
+                        endScreen(context);
+                      },
                       child: Text(
                         'Thoát Game',
                         style: TextStyle(
@@ -760,91 +932,6 @@ Future<void> answer(BuildContext context) {
   );
 }
 
-Future<void> endScreen(BuildContext context) {
-  return showDialog<void>(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.blue,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(32.0))),
-        contentPadding: EdgeInsets.only(top: 10.0),
-        actions: <Widget>[
-          Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: Text(
-                    'BẠN MUỐN NGỪNG LƯỢT CHƠI',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(6.0),
-                    child: Container(
-                      width: 250,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'TIẾP TỤC CHƠI',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => quitGame(context),
-                  child: Container(
-                    width: 250,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'NGỪNG LẠI',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      );
-    },
-  );
-}
-
 showHelpAudience(BuildContext context) {
   showDialog<dynamic>(
     context: context,
@@ -871,19 +958,19 @@ Future<void> quitGame(BuildContext context) {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(7.0),
+                  padding: const EdgeInsets.only(left: 10, top: 10),
                   child: Text(
                     'LƯỢT CHƠI ĐÃ KẾT THÚC',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 23,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 8.0, bottom: 15),
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 8),
                       child: Center(
                         child: Text('1230',
                             style: TextStyle(
@@ -939,12 +1026,11 @@ Future<void> quitGame(BuildContext context) {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute<void>(
-                                builder: (BuildContext context) =>
-                                    QuestionScreen(),
-                              ),
-                            );
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                  builder: (context) => HomeTab(),
+                                ),
+                                (route) => false);
                           },
                           child: Center(
                             child: Row(
@@ -956,7 +1042,7 @@ Future<void> quitGame(BuildContext context) {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 50),
+                                      horizontal: 40),
                                   child: Text(
                                     'CHƠI LẠI',
                                     style: TextStyle(
@@ -971,48 +1057,45 @@ Future<void> quitGame(BuildContext context) {
                         ),
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) => HomeTab(),
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Container(
+                        width: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 2.0,
                           ),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Container(
-                          width: 250,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.home,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 35),
-                                    child: Text(
-                                      'TRANG CHỦ',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ],
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute<void>(
+                                builder: (BuildContext context) => HomeTab(),
                               ),
+                            );
+                          },
+                          child: Center(
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.home,
+                                  size: 30,
+                                  color: Colors.white,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 40),
+                                  child: Text(
+                                    'TRANG CHỦ',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

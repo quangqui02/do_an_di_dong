@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'login_forget_confirm.dart';
 import 'login_sreen.dart';
 
-class LoginForget extends StatelessWidget {
+class LoginForget extends StatefulWidget {
   const LoginForget({Key? key}) : super(key: key);
 
+  @override
+  State<LoginForget> createState() => _LoginForgetState();
+}
+
+class _LoginForgetState extends State<LoginForget> {
   Widget inputField(String hint, IconData iconData) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
@@ -148,11 +153,11 @@ class LoginForget extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // Image(
-                          //   height: 10,
-                          //   width: 10,
-                          //   image: AssetImage('images/unlock.png'),
-                          // ),
+                          Image(
+                            height: 120,
+                            width: 120,
+                            image: AssetImage('images/unlock.png'),
+                          ),
                         ],
                       ),
                       Row(

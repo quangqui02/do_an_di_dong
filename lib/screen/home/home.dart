@@ -1,5 +1,6 @@
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
+import 'package:doan_didong/screen/player/tab_rank.dart';
 import 'package:doan_didong/screen/player/user.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:doan_didong/screen/question_screen/question.dart';
@@ -47,19 +48,10 @@ class _HomeState extends State<Home> {
                     children: [
                       Row(
                         children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Userr()),
-                              );
-                            },
-                            child: Image(
-                              image: AssetImage('images/user.png'),
-                              height: 50,
-                              width: 50,
-                            ),
+                          Image(
+                            image: AssetImage('images/user.png'),
+                            height: 50,
+                            width: 50,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -165,7 +157,7 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Ranker()),
+                            MaterialPageRoute(builder: (context) => TabRank()),
                           );
                         },
                       ),
@@ -190,7 +182,10 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => History()),
+                            MaterialPageRoute(
+                                builder: (context) => HistoryScreen(
+                                      id_user: '1',
+                                    )),
                           );
                         },
                       ),

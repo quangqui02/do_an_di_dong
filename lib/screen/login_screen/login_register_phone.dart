@@ -5,9 +5,14 @@ import 'package:flutter/material.dart';
 import 'login_register_email.dart';
 import 'login_sreen.dart';
 
-class LoginPhone extends StatelessWidget {
+class LoginPhone extends StatefulWidget {
   const LoginPhone({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPhone> createState() => _LoginPhoneState();
+}
+
+class _LoginPhoneState extends State<LoginPhone> {
   Widget inputField(String hint, IconData iconData) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),

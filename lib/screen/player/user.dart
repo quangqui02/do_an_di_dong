@@ -6,9 +6,14 @@ import 'package:flutter/material.dart';
 import '../home/home.dart';
 import '../login_screen/login_sreen.dart';
 
-class Userr extends StatelessWidget {
+class Userr extends StatefulWidget {
   const Userr({Key? key}) : super(key: key);
 
+  @override
+  State<Userr> createState() => _UserrState();
+}
+
+class _UserrState extends State<Userr> {
   @override
   Widget build(BuildContext context) {
     final icon = CupertinoIcons.moon_stars;
@@ -191,11 +196,11 @@ Future<void> _dialogBuilder(BuildContext context) {
                       Container(
                         child: TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginAccount()),
-                              );
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginAccount(),
+                                  ),
+                                  (route) => false);
                             },
                             child: Text(
                               'OK',

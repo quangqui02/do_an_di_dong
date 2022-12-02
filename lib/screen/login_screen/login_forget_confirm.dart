@@ -101,7 +101,7 @@ class _LoginForgetConfirmState extends State<LoginForgetConfirm> {
 
   Widget loginButton(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 20),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(

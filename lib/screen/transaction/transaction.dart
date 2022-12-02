@@ -1,18 +1,26 @@
 import 'package:doan_didong/screen/home/home.dart';
+import 'package:doan_didong/screen/transaction/transaction_mobiphone.dart';
+import 'package:doan_didong/screen/transaction/transaction_viettell.dart';
+import 'package:doan_didong/screen/transaction/transaction_vinaphone.dart';
 import 'package:flutter/material.dart';
 
-class Transaction extends StatelessWidget {
+class Transaction extends StatefulWidget {
   const Transaction({Key? key}) : super(key: key);
 
+  @override
+  State<Transaction> createState() => _TransactionState();
+}
+
+class _TransactionState extends State<Transaction> {
   Widget Viettel(String title, BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
       child: ElevatedButton(
         onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => LoginEmail()),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TransactionViettel()),
+          );
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -50,10 +58,10 @@ class Transaction extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
       child: ElevatedButton(
         onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => LoginEmail()),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TransactionMobiphone()),
+          );
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -67,7 +75,7 @@ class Transaction extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Image(
-                image: AssetImage('images/mobifone.png'),
+                image: AssetImage('images/mobiphone.png'),
                 height: 35,
                 width: 40,
               ),
@@ -91,10 +99,10 @@ class Transaction extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, top: 10, bottom: 1, right: 20),
       child: ElevatedButton(
         onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => LoginPhone()),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TransactionVinaphone()),
+          );
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -107,10 +115,12 @@ class Transaction extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Image(
-                image: AssetImage('images/vinaphone.png'),
-                height: 40,
-                width: 40,
+              child: Container(
+                child: Image(
+                  image: AssetImage('images/vinaphone.png'),
+                  height: 40,
+                  width: 40,
+                ),
               ),
             ),
             Text(
@@ -153,8 +163,9 @@ class Transaction extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => Transaction()),
+                            MaterialPageRoute<void>(
+                              builder: (BuildContext context) => Transaction(),
+                            ),
                           );
                         },
                         child: Image(

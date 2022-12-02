@@ -2,30 +2,27 @@ import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TransactionViettel extends StatefulWidget {
-  const TransactionViettel({super.key});
+class TransactionMobiphone extends StatefulWidget {
+  const TransactionMobiphone({super.key});
 
   @override
-  State<TransactionViettel> createState() => _TransactionViettelState();
+  State<TransactionMobiphone> createState() => _TransactionViettelState();
 }
 
-class _TransactionViettelState extends State<TransactionViettel> {
+class _TransactionViettelState extends State<TransactionMobiphone> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Stack(children: [
-        Container(
-          decoration: BoxDecoration(
-            color: const Color(0xff7c94b6),
-            image: const DecorationImage(
-              image: AssetImage('images/background.png'),
-              fit: BoxFit.cover,
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('images/background.png'),
+            fit: BoxFit.cover,
           ),
         ),
-        Column(
+        child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -34,7 +31,8 @@ class _TransactionViettelState extends State<TransactionViettel> {
                   margin: EdgeInsets.only(top: size.height * 0.05),
                   child: TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.pushReplacement(
+                        context,
                         MaterialPageRoute<void>(
                           builder: (BuildContext context) => Transaction(),
                         ),
@@ -49,10 +47,19 @@ class _TransactionViettelState extends State<TransactionViettel> {
                 ),
               ],
             ),
-            Image(
-              image: AssetImage('images/viettel.png'),
-              height: 200,
-              width: 200,
+            Container(
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 8, 69, 184),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  border: Border.all(color: Colors.white)),
+              height: size.height * 0.3,
+              width: size.width * 0.85,
+              margin: EdgeInsets.only(bottom: size.height * 0.12),
+              child: Image(
+                image: AssetImage('images/mobiphone.png'),
+                height: 50,
+                width: 50,
+              ),
             ),
             Column(
               children: [
@@ -67,7 +74,7 @@ class _TransactionViettelState extends State<TransactionViettel> {
             )
           ],
         ),
-      ]),
+      ),
     );
   }
 }
@@ -108,7 +115,7 @@ Widget inputField(String hint) {
       height: 50,
       child: Material(
         elevation: 8, // góc đổ bóng
-        shadowColor: Color.fromARGB(221, 10, 9, 9),
+        shadowColor: Colors.black87,
         color: Colors.transparent,
 
         borderRadius: BorderRadius.circular(30), // bo tròn bóng

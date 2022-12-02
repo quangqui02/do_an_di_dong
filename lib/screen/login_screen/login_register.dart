@@ -146,39 +146,28 @@ class LoginRegister extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          // Positioned(
-          //   top: 90,
-          //   left: 24,
-          //   child: TopTextRGT(screen: currentScreen),
-          // ),
           Container(
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xff7c94b6),
-                    image: const DecorationImage(
-                      image: AssetImage('images/background.png'),
-                      fit: BoxFit.cover,
-                    ),
-                    // border: Border.all(
-                    //   width: 50,
-                    // ),
-                    // borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    loginButtonPhone('Đăng ký bằng số điện thoại', context),
-                    loginButtonEmail('Đăng ký bằng email', context),
-                  ],
-                ),
-                logos(context),
-              ],
+            decoration: BoxDecoration(
+              color: const Color(0xff7c94b6),
+              image: const DecorationImage(
+                image: AssetImage('images/background.png'),
+                fit: BoxFit.cover,
+              ),
+              // border: Border.all(
+              //   width: 50,
+              // ),
+              // borderRadius: BorderRadius.circular(12),
             ),
           ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              loginButtonPhone('Đăng ký bằng số điện thoại', context),
+              loginButtonEmail('Đăng ký bằng email', context),
+            ],
+          ),
+          logos(context),
         ],
       ),
     );
