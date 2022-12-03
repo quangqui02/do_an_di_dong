@@ -98,7 +98,7 @@ class _LoginEmailState extends State<LoginEmail> {
                           color: Colors.transparent,
 
                           borderRadius:
-                              BorderRadius.circular(30), // bo tròn bóng
+                              BorderRadius.circular(10), // bo tròn bóng
                           child: TextFormField(
                               textAlignVertical:
                                   TextAlignVertical.bottom, // gạch chân input
@@ -108,7 +108,7 @@ class _LoginEmailState extends State<LoginEmail> {
 
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.circular(30), // bo tròn
+                                      BorderRadius.circular(10), // bo tròn
                                   borderSide: BorderSide.none, // bỏ đường viền
                                 ),
                                 filled: true,
@@ -143,7 +143,7 @@ class _LoginEmailState extends State<LoginEmail> {
                           color: Colors.transparent,
 
                           borderRadius:
-                              BorderRadius.circular(30), // bo tròn bóng
+                              BorderRadius.circular(10), // bo tròn bóng
                           child: TextFormField(
                               textAlignVertical:
                                   TextAlignVertical.bottom, // gạch chân input
@@ -153,7 +153,7 @@ class _LoginEmailState extends State<LoginEmail> {
 
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.circular(30), // bo tròn
+                                      BorderRadius.circular(10), // bo tròn
                                   borderSide: BorderSide.none, // bỏ đường viền
                                 ),
                                 filled: true,
@@ -190,7 +190,7 @@ class _LoginEmailState extends State<LoginEmail> {
                           color: Colors.transparent,
 
                           borderRadius:
-                              BorderRadius.circular(30), // bo tròn bóng
+                              BorderRadius.circular(10), // bo tròn bóng
                           child: TextFormField(
                               textAlignVertical:
                                   TextAlignVertical.bottom, // gạch chân input
@@ -200,7 +200,7 @@ class _LoginEmailState extends State<LoginEmail> {
 
                                 border: OutlineInputBorder(
                                   borderRadius:
-                                      BorderRadius.circular(30), // bo tròn
+                                      BorderRadius.circular(10), // bo tròn
                                   borderSide: BorderSide.none, // bỏ đường viền
                                 ),
                                 filled: true,

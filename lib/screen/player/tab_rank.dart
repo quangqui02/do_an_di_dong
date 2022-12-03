@@ -21,7 +21,7 @@ class _TabLoginState extends State<TabRank> {
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 33, 30, 241),
+            backgroundColor: Colors.blue[900],
             title: Row(
               children: [
                 TextButton(
@@ -39,7 +39,7 @@ class _TabLoginState extends State<TabRank> {
                 Padding(
                   padding: EdgeInsets.only(left: size.height * 0.05),
                   child: Text(
-                    'Bang Xep Hang',
+                    'Bảng xếp hạng',
                     style: TextStyle(
                       fontSize: 23,
                       color: Color.fromARGB(255, 255, 255, 255),
@@ -56,25 +56,25 @@ class _TabLoginState extends State<TabRank> {
               tabs: <Tab>[
                 Tab(
                   child: Text(
-                    'Tat Ca',
+                    'Tất cả',
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 19,
                         color: Color.fromARGB(255, 255, 255, 255)),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    'Cap Do',
+                    'Cấp độ',
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 19,
                         color: Color.fromARGB(255, 255, 255, 255)),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    'Linh Vuc',
+                    'Lĩnh vực',
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 19,
                         color: Color.fromARGB(255, 255, 255, 255)),
                   ),
                 ),

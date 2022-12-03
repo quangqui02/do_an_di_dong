@@ -31,7 +31,7 @@ class _HistoryState extends State<HistoryScreen> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: const Color(0xff7c94b6),
+          color: Color.fromARGB(151, 128, 138, 145),
           image: const DecorationImage(
             image: AssetImage('images/background.png'),
             fit: BoxFit.cover,
@@ -62,12 +62,14 @@ class _HistoryState extends State<HistoryScreen> {
                 ],
               ),
             ),
-            Text(
-              'LỊCH SỬ CHƠI',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            Center(
+              child: Text(
+                'LỊCH SỬ CHƠI',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
             Expanded(
@@ -86,61 +88,62 @@ class _HistoryState extends State<HistoryScreen> {
   }
 
   history(History his) {
-    return TextButton(
-      onPressed: () {},
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: Colors.white, width: 1.5, style: BorderStyle.solid),
-          borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 53, 127, 193),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: Colors.white, width: 1.5, style: BorderStyle.solid),
+        borderRadius: BorderRadius.circular(10),
+        color: Color.fromARGB(151, 128, 138, 145),
+      ),
+      child: ListTile(
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                his.time_start,
+                style: TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 17,
+                ),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 4.0),
+              //   child: Text(
+              //     'Số câu: ' + ,
+              //     style: TextStyle(
+              //       fontWeight: FontWeight.w700,
+              //       color: Color.fromARGB(255, 255, 255, 255),
+              //       fontSize: 17,
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
         ),
-        child: ListTile(
-            leading: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Column(
-                children: [
-                  Text(
-                    his.time_start,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 15,
-                    ),
-                  ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(top: 4.0),
-                  //   child: Text(
-                  //     'Số câu: ' + ,
-                  //     style: TextStyle(
-                  //       fontWeight: FontWeight.w700,
-                  //       color: Color.fromARGB(255, 255, 255, 255),
-                  //       fontSize: 17,
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 1.0),
+          child: Text(
+            his.totalscore,
+            style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontSize: 25,
             ),
-            title: Padding(
-              padding: const EdgeInsets.only(left: 1.0),
-              child: Text(
-                his.totalscore,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 25,
-                ),
-              ),
+            textAlign: TextAlign.right,
+          ),
+        ),
+        trailing: Padding(
+          padding: const EdgeInsets.only(right: 1),
+          child: Text(
+            'Điểm',
+            style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontSize: 20,
             ),
-            trailing: Padding(
-              padding: const EdgeInsets.only(right: 1),
-              child: Text(
-                'Điểm',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 20,
-                ),
-              ),
-            )),
+          ),
+        ),
       ),
     );
   }

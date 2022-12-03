@@ -8,6 +8,7 @@ import 'package:doan_didong/screen/login_screen/login_register_email.dart';
 import 'package:doan_didong/screen/login_screen/login_register_phone.dart';
 import 'package:doan_didong/screen/login_screen/login_sreen.dart';
 import 'package:doan_didong/screen/home/home.dart';
+import 'package:doan_didong/screen/login_screen/tab_login.dart';
 import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
@@ -15,9 +16,7 @@ import 'package:doan_didong/screen/player/user.dart';
 import 'package:doan_didong/screen/question_screen/audience_help.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:doan_didong/screen/question_screen/question.dart';
-import 'package:doan_didong/screen/question_screen/test.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
-import 'package:doan_didong/screen/transaction/test.dart';
 import 'package:doan_didong/screen/transaction/transaction.dart';
 import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:doan_didong/screen/transaction/transaction_viettell.dart';
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: LoginAccount(),
+      home: HomeTab(),
     );
   }
 }

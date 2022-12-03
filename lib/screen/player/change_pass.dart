@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../login_screen/login_forget.dart';
+
 enum Screens {
   createAccount,
   welcomback,
@@ -48,7 +50,7 @@ class _ChangePassState extends State<ChangePass> {
           shadowColor: Colors.black87,
           color: Colors.transparent,
 
-          borderRadius: BorderRadius.circular(30), // bo tròn bóng
+          borderRadius: BorderRadius.circular(10), // bo tròn bóng
           child: TextField(
             obscureText: true,
             textAlignVertical: TextAlignVertical.bottom, // gạch chân input
@@ -56,7 +58,7 @@ class _ChangePassState extends State<ChangePass> {
               // tạo input
 
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30), // bo tròn
+                borderRadius: BorderRadius.circular(10), // bo tròn
                 borderSide: BorderSide.none, // bỏ đường viền
               ),
               filled: true,
@@ -148,6 +150,25 @@ class _ChangePassState extends State<ChangePass> {
                     InputBorder(
                         'Nhập lại mật khẩu mới', Icons.password_outlined),
                     ChangButton('Đổi mật khẩu'),
+                    Center(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginForget()),
+                          );
+                        }, //bo sung 3
+                        child: const Text(
+                          'Quên mật khẩu?',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

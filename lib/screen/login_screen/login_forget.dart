@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/login_screen/login_register.dart';
 import 'package:flutter/material.dart';
 
 import 'login_forget_confirm.dart';
@@ -147,7 +148,28 @@ class _LoginForgetState extends State<LoginForget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 50.0),
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginAccount()),
+                            );
+                          },
+                          child: Image(
+                            width: 30,
+                            height: 30,
+                            image: AssetImage('images/back.png'),
+                          )),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 40.0),
                   child: Column(
                     children: [
                       Row(
@@ -205,7 +227,7 @@ class _LoginForgetState extends State<LoginForget> {
                     loginButton(context, 'Tiếp'),
                   ],
                 ),
-                logos(context),
+                //logos(context),
               ],
             ),
           ),

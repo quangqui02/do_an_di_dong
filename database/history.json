@@ -24,15 +24,15 @@
       {
         "id": "4",
         "player_id": "1",
-        "time_start": "28/11/2022 00:00",
-		    "totalscore": "3000000",
+        "time_start": "00:00:00",
+		    "totalscore": "30000",
         "status": "1"
       },
       {
         "id": "5",
         "player_id": "1",
         "time_start": "00:00:00",
-		    "totalscore": "3000000",
+		    "totalscore": "300000",
         "status": "1"
       },
       {
@@ -46,7 +46,7 @@
         "id": "7",
         "player_id": "1",
         "time_start": "00:00:00",
-        "totalscore": "3000000",
+        "totalscore": "1000000",
         "status": "1"
       },
       {

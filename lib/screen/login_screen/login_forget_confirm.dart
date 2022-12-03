@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'login_forget.dart';
 import 'login_sreen.dart';
 
 class LoginForgetConfirm extends StatefulWidget {
@@ -152,6 +153,27 @@ class _LoginForgetConfirmState extends State<LoginForgetConfirm> {
                   ),
                 ),
                 Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginForget()),
+                            );
+                          },
+                          child: Image(
+                            width: 30,
+                            height: 30,
+                            image: AssetImage('images/back.png'),
+                          )),
+                    ],
+                  ),
+                ),
+                Padding(
                   padding: const EdgeInsets.symmetric(vertical: 50.0),
                   child: Column(
                     children: [
@@ -210,7 +232,7 @@ class _LoginForgetConfirmState extends State<LoginForgetConfirm> {
                     loginButton('Gửi liên kết đăng nhập'),
                   ],
                 ),
-                logos(context),
+                //logos(context),
               ],
             ),
           ),
