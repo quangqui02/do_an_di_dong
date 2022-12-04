@@ -28,7 +28,7 @@ class _QuizScreenState extends State<QuestionScreen> {
 
   @override
   void dispose() {
-    timer!.cancel();
+    // timer!.cancel();
     // TODO: implement dispose
     super.dispose();
   }
@@ -37,20 +37,28 @@ class _QuizScreenState extends State<QuestionScreen> {
   Timer? timer;
   var currentQuestionIndex = 0;
   final int _duration = 20;
-  // startTimer() {
-  //   timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-  //     setState(() {
-  //       if (seconds > 0) {
-  //         seconds--;
-  //       } else {
-  //         timer.cancel();
-  //         setState(() {
-  //           quitGame(context);
-  //         });
-  //       }
-  //     });
-  //   });
-  // }
+
+  startTimer() {
+    // timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    //   setState(() {
+    //     if (seconds > 0) {
+    //       seconds--;
+    //     } else {
+    //       timer.cancel();
+    //       setState(() {
+    //         quitGame(context);
+    //       });
+    //     }
+    //   });
+    // });
+    setState(() {
+      if (_duration < 1) {
+        quitGame(context);
+      } else {
+        _controller.pause();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -1028,7 +1036,7 @@ Future<void> quitGame(BuildContext context) {
                           onPressed: () {
                             Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                  builder: (context) => HomeTab(),
+                                  builder: (context) => QuestionScreen(),
                                 ),
                                 (route) => false);
                           },
@@ -1070,11 +1078,11 @@ Future<void> quitGame(BuildContext context) {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute<void>(
-                                builder: (BuildContext context) => HomeTab(),
-                              ),
-                            );
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                  builder: (context) => HomeTab(),
+                                ),
+                                (route) => false);
                           },
                           child: Center(
                             child: Row(

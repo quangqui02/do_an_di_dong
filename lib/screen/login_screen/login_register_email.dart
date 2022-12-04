@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'dart:ui';
 
+import 'package:doan_didong/api/Services/auth_services.dart';
+import 'package:doan_didong/api/Services/globals.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'login_register_phone.dart';
 import 'login_sreen.dart';
 
@@ -12,8 +15,34 @@ class LoginEmail extends StatefulWidget {
 
 class _LoginEmailState extends State<LoginEmail> {
   final formKey = GlobalKey<FormState>();
+  String _email = '';
+  String _password = '';
+  String _name = '';
+
+  createAccountPressed() async {
+    bool emailValid = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(_email);
+    if (emailValid) {
+      http.Response response =
+          await AuthServices.register(_name, _email, _password);
+      Map responseMap = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => const LoginAccount(),
+            ));
+      } else {
+        errorSnackBar(context, responseMap.values.first[0]);
+      }
+    } else {
+      errorSnackBar(context, 'email not valid');
+    }
+  }
 
   // const LoginEmail({Key? key}) : super(key: key);
+  @override
   Widget logos(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 0),
@@ -102,7 +131,9 @@ class _LoginEmailState extends State<LoginEmail> {
                           child: TextFormField(
                               textAlignVertical:
                                   TextAlignVertical.bottom, // gạch chân input
-
+                              onChanged: (value) {
+                                _name = value;
+                              },
                               decoration: InputDecoration(
                                 // tạo input
 
@@ -147,7 +178,9 @@ class _LoginEmailState extends State<LoginEmail> {
                           child: TextFormField(
                               textAlignVertical:
                                   TextAlignVertical.bottom, // gạch chân input
-
+                              onChanged: (value) {
+                                _email = value;
+                              },
                               decoration: InputDecoration(
                                 // tạo input
 
@@ -192,93 +225,97 @@ class _LoginEmailState extends State<LoginEmail> {
                           borderRadius:
                               BorderRadius.circular(10), // bo tròn bóng
                           child: TextFormField(
-                              textAlignVertical:
-                                  TextAlignVertical.bottom, // gạch chân input
+                            textAlignVertical:
+                                TextAlignVertical.bottom, // gạch chân input
+                            onChanged: (value) {
+                              _password = value;
+                            },
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              // tạo input
 
-                              decoration: InputDecoration(
-                                // tạo input
-
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(10), // bo tròn
-                                  borderSide: BorderSide.none, // bỏ đường viền
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
-
-                                hintText: 'Mật khẩu',
-
-                                // hiển thị chữ
-
-                                prefixIcon: const Icon(
-                                  Icons.password_outlined,
-                                  // color: Color.fromARGB(255, 38, 0, 255),
-                                ), //icon
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.circular(10), // bo tròn
+                                borderSide: BorderSide.none, // bỏ đường viền
                               ),
-                              validator: (value) {
-                                if (value!.isEmpty ||
-                                    !RegExp(r'^[\w-\.]+@([\w-$')
-                                        .hasMatch(value!)) {
-                                  return "Nhập mật khẩu";
-                                }
-                                return null;
-                              }),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+
+                              hintText: 'Mật khẩu',
+
+                              // hiển thị chữ
+
+                              prefixIcon: const Icon(
+                                Icons.password_outlined,
+                                // color: Color.fromARGB(255, 38, 0, 255),
+                              ), //icon
+                            ),
+                            // validator: (value) {
+                            //   if (value!.isEmpty ||
+                            //       !RegExp(r'^[\w-\.]+@([\w-$')
+                            //           .hasMatch(value!)) {
+                            //     return "Nhập mật khẩu";
+                            //   }
+                            //   return null;
+                            // }
+                          ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 36, vertical: 8),
-                      child: SizedBox(
-                        height: 50,
-                        child: Material(
-                          elevation: 8, // góc đổ bóng
-                          shadowColor: Colors.black87,
-                          color: Colors.transparent,
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(
+                    //       horizontal: 36, vertical: 8),
+                    //   child: SizedBox(
+                    //     height: 50,
+                    //     child: Material(
+                    //       elevation: 8, // góc đổ bóng
+                    //       shadowColor: Colors.black87,
+                    //       color: Colors.transparent,
 
-                          borderRadius:
-                              BorderRadius.circular(30), // bo tròn bóng
-                          child: TextFormField(
-                              textAlignVertical:
-                                  TextAlignVertical.bottom, // gạch chân input
+                    //       borderRadius:
+                    //           BorderRadius.circular(30), // bo tròn bóng
+                    //       child: TextFormField(
 
-                              decoration: InputDecoration(
-                                // tạo input
+                    //           textAlignVertical:
+                    //               TextAlignVertical.bottom, // gạch chân input
 
-                                border: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(30), // bo tròn
-                                  borderSide: BorderSide.none, // bỏ đường viền
-                                ),
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 255, 255, 255),
+                    //           decoration: InputDecoration(
+                    //             // tạo input
 
-                                hintText: 'Xác nhận mật khẩu',
-                                // hiển thị chữ
+                    //             border: OutlineInputBorder(
+                    //               borderRadius:
+                    //                   BorderRadius.circular(30), // bo tròn
+                    //               borderSide: BorderSide.none, // bỏ đường viền
+                    //             ),
+                    //             filled: true,
+                    //             fillColor: Color.fromARGB(255, 255, 255, 255),
 
-                                prefixIcon: const Icon(
-                                  Icons.password_outlined,
-                                  // color: Color.fromARGB(255, 38, 0, 255),
-                                ), //icon
-                              ),
-                              validator: (value) {
-                                if (value!.isEmpty ||
-                                    !RegExp(r'^[\w-\.]+@([\w-$')
-                                        .hasMatch(value!)) {
-                                  return "Xác nhận mật khẩu";
-                                }
-                                return null;
-                              }),
-                        ),
-                      ),
-                    ),
+                    //             hintText: 'Xác nhận mật khẩu',
+                    //             // hiển thị chữ
+
+                    //             prefixIcon: const Icon(
+                    //               Icons.password_outlined,
+                    //               // color: Color.fromARGB(255, 38, 0, 255),
+                    //             ), //icon
+                    //           ),
+                    //           validator: (value) {
+                    //             if (value!.isEmpty ||
+                    //                 !RegExp(r'^[\w-\.]+@([\w-$')
+                    //                     .hasMatch(value!)) {
+                    //               return "Xác nhận mật khẩu";
+                    //             }
+                    //             return null;
+                    //           }),
+                    //     ),
+                    //   ),
+                    // ),
+
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 120, vertical: 15),
                       child: ElevatedButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {}
-                        },
+                        onPressed: () => createAccountPressed(),
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: const StadiumBorder(),
@@ -295,6 +332,22 @@ class _LoginEmailState extends State<LoginEmail> {
                         ),
                       ),
                     ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const LoginAccount(),
+                            ));
+                      },
+                      child: const Text(
+                        'already have an account',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

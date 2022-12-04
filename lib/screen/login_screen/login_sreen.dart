@@ -1,7 +1,12 @@
+import 'dart:convert';
+
+import 'package:doan_didong/api/Services/auth_services.dart';
+import 'package:doan_didong/api/Services/globals.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/login_screen/tab_login.dart';
 import 'package:flutter/material.dart';
 
+import 'package:http/http.dart' as http;
 import 'login_forget.dart';
 import 'login_register.dart';
 
@@ -13,6 +18,28 @@ class LoginAccount extends StatefulWidget {
 }
 
 class _LoginAccountState extends State<LoginAccount> {
+  String _email = '';
+  String _password = '';
+
+  loginPressed() async {
+    if (_email.isNotEmpty && _password.isNotEmpty) {
+      http.Response response = await AuthServices.login(_email, _password);
+      Map responseMap = jsonDecode(response.body);
+      if (response.statusCode == 200) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => HomeTab(),
+            ));
+      } else {
+        errorSnackBar(context, responseMap.values.first);
+      }
+    } else {
+      errorSnackBar(context, 'enter all required fields');
+    }
+  }
+
+  @override
   Widget inputField(String hint, IconData iconData) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
@@ -24,6 +51,9 @@ class _LoginAccountState extends State<LoginAccount> {
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(10), // bo tròn bóng
           child: TextField(
+            onChanged: (value) {
+              _email = value;
+            },
             textAlignVertical: TextAlignVertical.bottom, // gạch chân input
             decoration: InputDecoration(
               // tạo input
@@ -54,6 +84,9 @@ class _LoginAccountState extends State<LoginAccount> {
 
           borderRadius: BorderRadius.circular(10), // bo tròn bóng
           child: TextField(
+            onChanged: (value) {
+              _password = value;
+            },
             obscureText: true,
             textAlignVertical: TextAlignVertical.bottom, // gạch chân input
             decoration: InputDecoration(
@@ -78,12 +111,7 @@ class _LoginAccountState extends State<LoginAccount> {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomeTab()),
-          );
-        },
+        onPressed: () => loginPressed(),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
           shape: const StadiumBorder(),
