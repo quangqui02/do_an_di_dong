@@ -155,7 +155,7 @@ class _LoginEmailState extends State<LoginEmail> {
                               ),
                               validator: (value) {
                                 if (value!.isEmpty ||
-                                    !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
+                                    !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
                                   return "Nhập tên đăng nhập";
                                 }
                                 return null;
@@ -204,7 +204,7 @@ class _LoginEmailState extends State<LoginEmail> {
                                 // RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')
                                 if (value!.isEmpty ||
                                     !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                                        .hasMatch(value!)) {
+                                        .hasMatch(value)) {
                                   return "Nhập email";
                                 }
                                 return null;

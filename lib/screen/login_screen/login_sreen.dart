@@ -25,6 +25,8 @@ class _LoginAccountState extends State<LoginAccount> {
     if (_email.isNotEmpty && _password.isNotEmpty) {
       http.Response response = await AuthServices.login(_email, _password);
       Map responseMap = jsonDecode(response.body);
+      print(responseMap);
+
       if (response.statusCode == 200) {
         Navigator.push(
             context,
