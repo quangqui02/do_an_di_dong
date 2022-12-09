@@ -33,31 +33,28 @@ class _QuizScreenState extends State<QuestionScreen> {
     super.dispose();
   }
 
-  int seconds = 20;
+  // int seconds = 20;
   Timer? timer;
   var currentQuestionIndex = 0;
   final int _duration = 20;
 
   startTimer() {
+    const Duration(seconds: 1);
     // timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-    //   setState(() {
-    //     if (seconds > 0) {
-    //       seconds--;
-    //     } else {
-    //       timer.cancel();
-    //       setState(() {
-    //         quitGame(context);
-    //       });
-    //     }
-    //   });
-    // });
     setState(() {
-      if (_duration < 1) {
-        quitGame(context);
-      } else {
+      if (_duration > 1) {
         _controller.pause();
+        quitGame(context);
       }
     });
+    // });
+    // setState(() {
+    //   if (_duration < 1) {
+    //     quitGame(context);
+    //   } else {
+    //     _controller.pause();
+    //   }
+    // });
   }
 
   @override
@@ -282,7 +279,7 @@ class _QuizScreenState extends State<QuestionScreen> {
                     margin: EdgeInsets.only(top: size.height * 0.01),
                     decoration: BoxDecoration(
                         color: Colors.blue,
-                        border: Border.all(color: Colors.yellow),
+                        // border: Border.all(color: Colors.yellow),
                         borderRadius: BorderRadius.circular(30)),
                     child: Stack(
                       alignment: Alignment.center,
@@ -291,8 +288,8 @@ class _QuizScreenState extends State<QuestionScreen> {
                           width: size.width * 0.1,
                           height: size.height * 0.05,
                           duration: _duration,
-                          fillColor: Colors.purpleAccent[100]!,
-                          ringColor: Colors.grey[300]!,
+                          fillColor: Color.fromARGB(255, 255, 255, 255)!,
+                          ringColor: Color.fromARGB(0, 255, 255, 255)!,
                           controller: _controller,
                           isReverse: true,
                           autoStart: true,
