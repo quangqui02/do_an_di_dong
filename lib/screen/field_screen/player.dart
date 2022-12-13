@@ -1,4 +1,5 @@
 import 'package:doan_didong/screen/home/home.dart';
+import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:flutter/material.dart';
 import 'ListCard.dart';
@@ -39,7 +40,7 @@ class FeildQuestion extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Home()),
+                                        builder: (context) => Level()),
                                   );
                                 },
                                 child: Image(

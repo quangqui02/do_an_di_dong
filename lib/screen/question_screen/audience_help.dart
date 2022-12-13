@@ -7,6 +7,7 @@ import 'indicator.dart';
 class HelpAudience extends StatefulWidget {
   final bool isTapFifty;
   final int indexCorrect;
+
   const HelpAudience(
       {Key? key, required this.isTapFifty, required this.indexCorrect})
       : super(key: key);
@@ -25,6 +26,10 @@ class HelpAudienceState extends State<HelpAudience> {
   int percentC = 0;
   int percentD = 0;
 
+  // String answer1 = 'A';
+  // String answer2 = 'B';
+  // String answer3 = 'C';
+  // String answer4 = 'D';
   @override
   Widget build(BuildContext context) {
     if (widget.isTapFifty) {
@@ -73,16 +78,16 @@ class HelpAudienceState extends State<HelpAudience> {
                   ? widget.indexCorrect == 3 || widget.indexCorrect == 2
                       ? const <Widget>[
                           Indicator(
-                            color: Color(0xff845bef),
-                            text: 'C',
+                            color: Color(0xff0293ee),
+                            text: 'A',
                             isSquare: true,
                           ),
                           SizedBox(
                             height: 8,
                           ),
                           Indicator(
-                            color: Color(0xff13d38e),
-                            text: 'D',
+                            color: Color(0xfff8b250),
+                            text: 'B',
                             isSquare: true,
                           ),
                           SizedBox(

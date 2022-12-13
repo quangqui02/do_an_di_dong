@@ -109,17 +109,6 @@ class _HistoryState extends State<HistoryScreen> {
                   fontSize: 17,
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(top: 4.0),
-              //   child: Text(
-              //     'Số câu: ' + ,
-              //     style: TextStyle(
-              //       fontWeight: FontWeight.w700,
-              //       color: Color.fromARGB(255, 255, 255, 255),
-              //       fontSize: 17,
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

@@ -1,4 +1,3 @@
-import 'package:doan_didong/models/user.dart';
 import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
