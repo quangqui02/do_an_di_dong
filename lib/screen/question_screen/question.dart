@@ -44,6 +44,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
   bool dapan50 = false;
   String add1 = '';
   String add2 = '';
+
+  int indexbuyone = 1;
   @override
   void initState() {
     super.initState();
@@ -106,6 +108,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
     dapan = false;
     seconds = 30;
     sodapan = 4;
+    indexbuyone = 1;
     startTimer();
   }
 
@@ -135,8 +138,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 if (snapshot.hasData) {
                   var data = snapshot.data["results"];
                   indexanswer = data[currentQuestionIndex]["correct_answer"];
-                  optionList50 =
-                      data[currentQuestionIndex]["incorrect_answers"];
+                  // optionList50 =
+                  //     data[currentQuestionIndex]["incorrect_answers"];
                   // answer5050 = data[currentQuestionIndex]["incorrect_answers"];
                   if (isLoaded == false) {
                     optionsList =
@@ -211,9 +214,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                             // // optionList50 = optionList50[1];
                                             // //optionList50.remove(0);
                                             for (int i = 0;
-                                                i < optionList50.length;
+                                                i < optionsList.length;
                                                 i++) {
-                                              if (optionList50[i].toString() ==
+                                              if (optionsList[i].toString() ==
                                                   indexanswer.toString()) {
                                                 indexcorrect = i;
                                                 break;
@@ -221,19 +224,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                             }
                                             if (indexcorrect == 0 ||
                                                 indexcorrect == 1) {
-                                              optionList50.removeAt(2);
-                                              optionList50.removeAt(2);
+                                              optionsList.removeAt(2);
+                                              optionsList.removeAt(2);
 
                                               //optionList50.length = 2;
                                             } else {
-                                              optionList50.removeAt(0);
-                                              optionList50.removeAt(0);
+                                              optionsList.removeAt(0);
+                                              optionsList.removeAt(0);
 
                                               //optionList50.length = 2;
                                             }
-                                            // optionList50.length = 1;
-                                            // optionList50.add(indexanswer);
-                                            // optionList50.shuffle();
 
                                             loaidapan = 0;
                                           } else {
@@ -383,26 +383,31 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                     onPressed: () {
                                       setState(() {
                                         if (muadapan > 0 &&
-                                            pointuser >= brain) {
+                                            pointuser >= brain &&
+                                            indexbuyone == 1) {
                                           pointuser = pointuser - brain;
                                           for (int i = 0;
-                                              i < optionList50.length;
+                                              i < optionsList.length;
                                               i++) {
-                                            if (optionList50[i].toString() ==
+                                            if (optionsList[i].toString() ==
                                                 indexanswer.toString()) {
                                               indexcorrect = i;
-
                                               break;
                                             }
                                           }
                                           optionsColor[indexcorrect] =
-                                              AppColor.purple;
+                                              AppColor.yellow1;
                                           brain = brain + 50;
                                           muadapan--;
+                                          indexbuyone = 0;
                                           //gotoNextQuestion();
                                         } else if (pointuser < brain &&
-                                            muadapan > 0) {
+                                            muadapan > 0 &&
+                                            indexbuyone == 1) {
                                           error(context, 'Brain bạn không đủ');
+                                        } else if (indexbuyone == 0) {
+                                          error(context,
+                                              'Đã dùng hết lượt cho câu hỏi này');
                                         } else {
                                           error(
                                               context, 'Bạn đã dùng hết lượt');
@@ -575,12 +580,24 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                         Future.delayed(Duration(seconds: 1));
                                         if (answer.toString() ==
                                             optionsList[index].toString()) {
-                                          optionsColor[index] = AppColor.green;
+                                          optionsColor[index] = AppColor.purple;
                                           points = points + 10;
                                           dapan = true;
                                         } else {
                                           optionsColor[index] =
                                               AppColor.redbtn2;
+                                          for (int i = 0;
+                                              i < optionsList.length;
+                                              i++) {
+                                            if (optionsList[i].toString() ==
+                                                indexanswer.toString()) {
+                                              indexcorrect = i;
+                                              break;
+                                            }
+                                          }
+                                          optionsColor[indexcorrect] =
+                                              AppColor.purple;
+
                                           dapan = true;
                                           heart = heart - 1;
                                         }

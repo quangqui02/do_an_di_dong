@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:doan_didong/api/Services/auth_services.dart';
 import 'package:doan_didong/api/Services/globals.dart';
+import 'package:doan_didong/screen/error.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
+import 'package:doan_didong/screen/login_screen/login_register_email.dart';
 import 'package:doan_didong/screen/login_screen/tab_login.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +35,12 @@ class _LoginAccountState extends State<LoginAccount> {
             MaterialPageRoute(
               builder: (BuildContext context) => HomeTab(),
             ));
+        error(context, 'Đăng nhâp thành công');
       } else {
         errorSnackBar(context, responseMap.values.first);
       }
     } else {
-      errorSnackBar(context, 'enter all required fields');
+      errorSnackBar(context, 'Vui lòng nhập đầy đủ thông tin');
     }
   }
 
@@ -46,7 +49,7 @@ class _LoginAccountState extends State<LoginAccount> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
       child: SizedBox(
-        height: 50,
+        height: 55,
         child: Material(
           elevation: 8, // góc đổ bóng
           shadowColor: Colors.black87,
@@ -78,7 +81,7 @@ class _LoginAccountState extends State<LoginAccount> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
       child: SizedBox(
-        height: 50,
+        height: 55,
         child: Material(
           elevation: 8, // góc đổ bóng
           shadowColor: Colors.black87,
@@ -184,7 +187,7 @@ class _LoginAccountState extends State<LoginAccount> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => TabLogin()),
+                      MaterialPageRoute(builder: (context) => LoginEmail()),
                     );
                   }, //bo sung 3
                   child: const Text(

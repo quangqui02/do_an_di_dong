@@ -28,16 +28,12 @@ class _LoginEmailState extends State<LoginEmail> {
           await AuthServices.register(_name, _email, _password);
       Map responseMap = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (BuildContext context) => const LoginAccount(),
-            ));
+        _dialogRegister(context);
       } else {
         errorSnackBar(context, responseMap.values.first[0]);
       }
     } else {
-      errorSnackBar(context, 'email not valid');
+      errorSnackBar(context, 'Vui lòng nhập đầy đủ thông tin');
     }
   }
 
@@ -120,7 +116,7 @@ class _LoginEmailState extends State<LoginEmail> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 36, vertical: 8),
                       child: SizedBox(
-                        height: 50,
+                        height: 60,
                         child: Material(
                           elevation: 8, // góc đổ bóng
                           shadowColor: Colors.black87,
@@ -167,7 +163,7 @@ class _LoginEmailState extends State<LoginEmail> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 36, vertical: 8),
                       child: SizedBox(
-                        height: 50,
+                        height: 55,
                         child: Material(
                           elevation: 8, // góc đổ bóng
                           shadowColor: Colors.black87,
@@ -216,7 +212,7 @@ class _LoginEmailState extends State<LoginEmail> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 36, vertical: 8),
                       child: SizedBox(
-                        height: 50,
+                        height: 55,
                         child: Material(
                           elevation: 8, // góc đổ bóng
                           shadowColor: Colors.black87,
@@ -315,7 +311,11 @@ class _LoginEmailState extends State<LoginEmail> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 120, vertical: 15),
                       child: ElevatedButton(
-                        onPressed: () => createAccountPressed(),
+                        onPressed: () {
+                          setState(() {
+                            createAccountPressed();
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: const StadiumBorder(),
@@ -332,22 +332,22 @@ class _LoginEmailState extends State<LoginEmail> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const LoginAccount(),
-                            ));
-                      },
-                      child: const Text(
-                        'already have an account',
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    )
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //           builder: (BuildContext context) =>
+                    //               const LoginAccount(),
+                    //         ));
+                    //   },
+                    //   child: const Text(
+                    //     'already have an account',
+                    //     style: TextStyle(
+                    //       decoration: TextDecoration.underline,
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               ),
