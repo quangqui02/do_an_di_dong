@@ -4,6 +4,7 @@ import 'package:doan_didong/screen/transaction/buybrains.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../friend/tabfriend.dart';
 import '../transaction/tab_brains.dart';
 
 class HomeTab extends StatefulWidget {
@@ -24,6 +25,7 @@ class HomeTabState extends State<HomeTab> {
   List<Widget> lsScreen = [
     Home(),
     TabBrains(),
+    TabFriend(),
     Userr(),
   ];
 
@@ -46,7 +48,13 @@ class HomeTabState extends State<HomeTab> {
             label: 'Cửa hàng',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: 'Người Dùng'),
+            icon: Icon(Icons.people),
+            label: 'Bạn bè',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Người Dùng',
+          ),
         ],
       ),
       body: lsScreen[_selectedIndex],
