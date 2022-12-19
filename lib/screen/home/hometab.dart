@@ -1,3 +1,5 @@
+import 'package:doan_didong/screen/attackfriend/attacktab.dart';
+import 'package:doan_didong/screen/friend/tabfriend.dart';
 import 'package:doan_didong/screen/home/home.dart';
 import 'package:doan_didong/screen/player/user.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
@@ -24,6 +26,8 @@ class HomeTabState extends State<HomeTab> {
   List<Widget> lsScreen = [
     Home(),
     TabBrains(),
+    TabFriend(),
+    AttackTab(),
     Userr(),
   ];
 
@@ -33,9 +37,9 @@ class HomeTabState extends State<HomeTab> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: OntabSelected,
-        selectedItemColor: Colors.blueAccent,
-        backgroundColor: Color.fromARGB(232, 2, 14, 65),
-        unselectedItemColor: Colors.white,
+        selectedItemColor: Color.fromARGB(255, 0, 60, 255),
+        unselectedItemColor: Color.fromARGB(255, 0, 0, 0),
+        //backgroundColor: Color.fromARGB(232, 255, 0, 0),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
@@ -44,6 +48,14 @@ class HomeTabState extends State<HomeTab> {
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_bag),
             label: 'Cửa hàng',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_alt),
+            label: 'Bạn Bè',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.gavel_rounded),
+            label: 'Thách Đấu',
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Người Dùng'),

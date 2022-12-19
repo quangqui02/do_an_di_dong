@@ -31,15 +31,13 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                       'Thanh toán thành công',
                       'images/checked.png',
                       '10/11/2022 2:07',
-                      'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ ' +
-                          'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ'),
+                      'Quý khách đã thực hiện thanh toán thành công số tiền 20.000đ '),
                   transactionHistoryState(
                       'images/creditcard.png',
                       'Thanh toán thành công',
                       'images/checked.png',
                       '10/11/2022 2:07',
-                      'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ ' +
-                          'Quý khách đã thực hiện thanh toán thành công số tiền 10.000.000đ'),
+                      'Quý khách đã thực hiện thanh toán thành công số tiền 499.000đ '),
                   transactionHistoryState(
                       'images/creditcard.png',
                       'Thanh toán thất bại',
@@ -66,7 +64,6 @@ class _TransactionHistoryState extends State<TransactionHistory> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Container(
-        height: 150,
         decoration: BoxDecoration(
           color: const Color.fromARGB(151, 128, 138, 145),
           border: Border.all(

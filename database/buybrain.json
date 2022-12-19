@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,      
+     "brain": 50,
+     "price": 25000,
+     "status": 1
+  },
+  {
+    "id": 2,      
+     "brain": 120,
+     "price": 49000,
+     "status": 1
+  },
+  {
+    "id": 3,      
+     "brain": 350,
+     "price": 129000,
+     "status": 1
+  },   
+  {
+    "id": 1,      
+     "brain": 600,
+     "price": 199000,
+     "status": 1
+  },
+  {
+    "id": 2,      
+     "brain": 1200,
+     "price": 379000,
+     "status": 1
+  },
+  {
+    "id": 3,      
+     "brain": 20000,
+     "price": 499000,
+     "status": 1
+  }    
+]

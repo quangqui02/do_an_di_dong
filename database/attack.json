@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,      
+        "name": "Phi Long",
+        "name2": "Huỳnh Trọng",
+        "point": 1600,
+        "point2": 0,
+        "time": "18:00",
+       "status": "Đang Giao Đấu"
+    },
+    {
+        "id": 2,      
+        "name": "Quốc Tuấn",
+        "name2": "Huỳnh Trọng",
+        "point": 1600,
+        "point2": 0,
+        "time": "18:00",
+        "status": "Đang Giao Đấu"
+    }
+]   

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,      
+        "name": "Trọng Nghĩa",
+        "avata": "user",
+        "point": 1100,
+        "status": 1
+    },
+    {
+        "id": 2,      
+        "name": "Quang Qui",
+        "avata": "user",
+        "point": 1400,
+        "status": 1
+    },
+    {
+        "id": 3,      
+        "name": "Đức Trọng",
+        "avata": "user",
+        "point": 1100,
+        "status": 1
+    }
+]
