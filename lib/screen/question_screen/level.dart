@@ -36,7 +36,10 @@ class _LevelState extends State<Level> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeTab()),
+                          MaterialPageRoute(
+                              builder: (context) => HomeTab(
+                                    user: null,
+                                  )),
                         );
                       },
                       child: Image(

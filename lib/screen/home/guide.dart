@@ -2,9 +2,11 @@ import 'package:doan_didong/screen/home/home.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:flutter/material.dart';
 
-class Guide extends StatefulWidget {
-  const Guide({super.key});
+import '../../models/user.dart';
 
+class Guide extends StatefulWidget {
+  Guide({super.key});
+  User? user;
   @override
   State<Guide> createState() => _GuideState();
 }
@@ -31,7 +33,10 @@ class _GuideState extends State<Guide> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeTab()),
+                          MaterialPageRoute(
+                              builder: (context) => HomeTab(
+                                    user: this.widget.user,
+                                  )),
                         );
                       },
                       child: Image(

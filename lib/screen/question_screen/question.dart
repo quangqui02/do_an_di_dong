@@ -6,12 +6,13 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import '../../models/question/question.dart';
+import '../../models/user.dart';
 import '../appcolor.dart';
 import 'audience_help.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
-
+  QuestionScreen({Key? key, required this.user}) : super(key: key);
+  User? user;
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
 }
@@ -30,7 +31,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   int sodapan = 4;
   int muadapan = 5;
   int loaidapan = 1;
-  int pointuser = 500;
+  int pointuser = 0;
   String indexanswer = '';
   int indexcorrect = 0;
 
@@ -50,6 +51,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   void initState() {
     super.initState();
     quizz = getQuiz();
+    pointuser = this.widget.user!.point;
     startTimer();
   }
 
@@ -171,7 +173,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                   Padding(
                                     padding: const EdgeInsets.only(right: 15),
                                     child: Text(
-                                      pointuser.toString(),
+                                      ('${this.widget.user!.point}'),
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
@@ -385,7 +387,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                         if (muadapan > 0 &&
                                             pointuser >= brain &&
                                             indexbuyone == 1) {
-                                          pointuser = pointuser - brain;
+                                          pointuser -= brain;
                                           for (int i = 0;
                                               i < optionsList.length;
                                               i++) {
@@ -1057,7 +1059,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                             child: TextButton(
                               onPressed: () {
                                 setState(() {
-                                  if (heart == 0 && pointuser >= addheart) {
+                                  int pointuser = this.widget.user!.point;
+                                  if (heart == 0 &&
+                                      this.widget.user!.point >= addheart) {
                                     heart = heart + 1;
                                     Navigator.pop(context);
                                     gotoNextQuestion();
@@ -1065,7 +1069,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                   } else if (heart > 0 &&
                                       pointuser >= addheart) {
                                     Navigator.pop(context);
-                                    pointuser = pointuser - addheart;
+                                    pointuser -= addheart;
                                   } else {
                                     error(context, 'Brain bạn không đủ');
                                   }
@@ -1106,7 +1110,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                             onPressed: () {
                               Navigator.of(context).pushAndRemoveUntil(
                                   MaterialPageRoute(
-                                    builder: (context) => QuestionScreen(),
+                                    builder: (context) => QuestionScreen(
+                                      user: this.widget.user,
+                                    ),
                                   ),
                                   (route) => false);
                             },
@@ -1150,7 +1156,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                             onPressed: () {
                               Navigator.of(context).pushAndRemoveUntil(
                                   MaterialPageRoute(
-                                    builder: (context) => HomeTab(),
+                                    builder: (context) => HomeTab(
+                                      user: this.widget.user,
+                                    ),
                                   ),
                                   (route) => false);
                             },

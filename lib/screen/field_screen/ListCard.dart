@@ -1,13 +1,19 @@
 import 'package:doan_didong/screen/question_screen/question.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
 import 'ListDetail.dart';
 
-class ListCard extends StatelessWidget {
-  const ListCard(this.index);
-
+class ListCard extends StatefulWidget {
+  ListCard(this.index);
+  User? user;
   final int index;
 
+  @override
+  State<ListCard> createState() => _ListCardState();
+}
+
+class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,7 +22,10 @@ class ListCard extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => QuestionScreen()),
+            MaterialPageRoute(
+                builder: (context) => QuestionScreen(
+                      user: this.widget.user,
+                    )),
           );
         },
         child: Stack(
@@ -31,7 +40,7 @@ class ListCard extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
-                  colors: cardDetailList[index].gradients,
+                  colors: cardDetailList[widget.index].gradients,
                 ),
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
@@ -39,7 +48,7 @@ class ListCard extends StatelessWidget {
                     offset: const Offset(1, 3),
                     blurRadius: 7,
                     spreadRadius: 5,
-                    color: cardDetailList[index].shadowColor,
+                    color: cardDetailList[widget.index].shadowColor,
                   )
                 ],
               ),
@@ -48,7 +57,7 @@ class ListCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    cardDetailList[index].title,
+                    cardDetailList[widget.index].title,
                     style: const TextStyle(
                       fontSize: 25,
                       color: Colors.white,
@@ -59,9 +68,9 @@ class ListCard extends StatelessWidget {
               ),
             ),
             Hero(
-              tag: cardDetailList[index].iconTag,
+              tag: cardDetailList[widget.index].iconTag,
               child: Image.asset(
-                cardDetailList[index].iconAssetName,
+                cardDetailList[widget.index].iconAssetName,
                 width: 180,
                 height: 200,
               ),

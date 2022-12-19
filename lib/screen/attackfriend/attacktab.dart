@@ -8,11 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../../models/user.dart';
 import '../friend/friendship.dart';
 
 class AttackTab extends StatefulWidget {
-  const AttackTab({super.key});
-
+  User? user;
+  AttackTab({Key? key, required this.user}) : super(key: key);
   @override
   State<AttackTab> createState() => _AttackTabState();
 }

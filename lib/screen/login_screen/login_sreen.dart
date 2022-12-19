@@ -3,17 +3,22 @@ import 'dart:convert';
 import 'package:doan_didong/api/Services/auth_services.dart';
 import 'package:doan_didong/api/Services/globals.dart';
 import 'package:doan_didong/screen/error.dart';
+import 'package:doan_didong/screen/field_screen/player.dart';
+import 'package:doan_didong/screen/home/home.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/login_screen/login_register_email.dart';
 import 'package:doan_didong/screen/login_screen/tab_login.dart';
+import 'package:doan_didong/screen/player/user.dart';
+import 'package:doan_didong/screen/question_screen/question.dart';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
+import '../../models/user.dart';
 import 'login_forget.dart';
 import 'login_register.dart';
 
 class LoginAccount extends StatefulWidget {
-  const LoginAccount({Key? key}) : super(key: key);
+  LoginAccount({Key? key}) : super(key: key);
 
   @override
   State<LoginAccount> createState() => _LoginAccountState();
@@ -30,10 +35,13 @@ class _LoginAccountState extends State<LoginAccount> {
       print(responseMap);
 
       if (response.statusCode == 200) {
+        User? us = await AuthServices.fetchUser(_email, _password);
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => HomeTab(),
+              builder: (BuildContext context) => HomeTab(
+                user: us,
+              ),
             ));
         error(context, 'Đăng nhâp thành công');
       } else {

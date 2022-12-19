@@ -2,12 +2,13 @@ import 'package:doan_didong/screen/player/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
 import '../home/home.dart';
 import '../login_screen/login_sreen.dart';
 
 class Userr extends StatefulWidget {
-  const Userr({Key? key}) : super(key: key);
-
+  Userr({Key? key, required this.user}) : super(key: key);
+  User? user;
   @override
   State<Userr> createState() => _UserrState();
 }
@@ -61,12 +62,12 @@ class _UserrState extends State<Userr> {
                     ),
                     child: CircleAvatar(
                       radius: 80,
-                      backgroundImage: AssetImage("images/user.png"),
+                      backgroundImage: AssetImage('${this.widget.user!.image}'),
                     ),
                   ),
                   const SizedBox(height: 25),
                   Text(
-                    'Player',
+                    '${this.widget.user!.name}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 27,
@@ -74,7 +75,7 @@ class _UserrState extends State<Userr> {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    'Player@gmail.com',
+                    '${this.widget.user!.email}',
                     style: TextStyle(fontSize: 17, color: Colors.white),
                   )
                 ],
@@ -85,7 +86,8 @@ class _UserrState extends State<Userr> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  buildButton(context, '2000', 'Thành tích'),
+                  buildButton(
+                      context, '${this.widget.user!.point}', 'Thành tích'),
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Text(
@@ -93,7 +95,8 @@ class _UserrState extends State<Userr> {
                       style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                   ),
-                  buildButton(context, '20', 'Trò chơi'),
+                  buildButton(
+                      context, '${this.widget.user!.point}', 'Trò chơi'),
                 ],
               ),
               Padding(
@@ -214,11 +217,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                       Container(
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pop(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Userr()),
-                              );
+                              Navigator.pop(context);
                             },
                             child: Text(
                               'Hủy',

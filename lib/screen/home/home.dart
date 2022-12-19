@@ -1,3 +1,4 @@
+import 'package:doan_didong/screen/field_screen/player.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
 import 'package:doan_didong/screen/player/tab_rank.dart';
@@ -9,12 +10,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../../models/user.dart';
 import 'guide.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
   @override
+  User? user;
+  Home({Key? key, required this.user}) : super(key: key);
   State<Home> createState() => _HomeState();
 }
 
@@ -24,6 +26,11 @@ List<Widget> lsScreen = [
 ];
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +63,7 @@ class _HomeState extends State<Home> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Player',
+                              '${this.widget.user!.name}',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -83,7 +90,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     Text(
-                                      ('3200'),
+                                      ('${this.widget.user!.point}'),
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 20,
@@ -131,7 +138,8 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Level()),
+                            MaterialPageRoute(
+                                builder: (context) => FeildQuestion()),
                           );
                         },
                       ),

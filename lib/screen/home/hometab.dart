@@ -6,10 +6,13 @@ import 'package:doan_didong/screen/transaction/buybrains.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
 import '../transaction/tab_brains.dart';
 
 class HomeTab extends StatefulWidget {
   @override
+  User? user;
+  HomeTab({Key? key, required this.user}) : super(key: key);
   State<StatefulWidget> createState() {
     return HomeTabState();
   }
@@ -23,13 +26,18 @@ class HomeTabState extends State<HomeTab> {
     });
   }
 
-  List<Widget> lsScreen = [
-    Home(),
-    TabBrains(),
-    TabFriend(),
-    AttackTab(),
-    Userr(),
-  ];
+  @override
+  void initState() {
+    lsScreen = [
+      Home(user: this.widget.user),
+      TabBrains(user: this.widget.user),
+      TabFriend(user: this.widget.user),
+      AttackTab(user: this.widget.user),
+      Userr(user: this.widget.user),
+    ];
+  }
+
+  List<Widget> lsScreen = [];
 
   @override
   Widget build(BuildContext context) {

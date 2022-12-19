@@ -3,9 +3,11 @@ import 'package:doan_didong/screen/player/ranker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TabRank extends StatefulWidget {
-  const TabRank({super.key});
+import '../../models/user.dart';
 
+class TabRank extends StatefulWidget {
+  TabRank({super.key});
+  User? user;
   @override
   State<TabRank> createState() => _TabLoginState();
 }
@@ -28,7 +30,10 @@ class _TabLoginState extends State<TabRank> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeTab()),
+                        MaterialPageRoute(
+                            builder: (context) => HomeTab(
+                                  user: this.widget.user,
+                                )),
                       );
                     },
                     child: Image(

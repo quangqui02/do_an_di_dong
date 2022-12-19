@@ -3,17 +3,17 @@ import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
 import 'buybrains.dart';
 
 class TabBrains extends StatefulWidget {
-  const TabBrains({super.key});
-
+  TabBrains({Key? key, required this.user}) : super(key: key);
+  User? user;
   @override
   State<TabBrains> createState() => _TabBrainsState();
 }
 
 class _TabBrainsState extends State<TabBrains> {
-  int pointuser = 500;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,7 +42,7 @@ class _TabBrainsState extends State<TabBrains> {
                             ),
                           ),
                           Text(
-                            pointuser.toString(),
+                            ('${this.widget.user!.point}'),
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
@@ -99,7 +99,9 @@ class _TabBrainsState extends State<TabBrains> {
           ),
           body: TabBarView(
             children: [
-              BuyBrains(),
+              BuyBrains(
+                user: this.widget.user,
+              ),
               TransactionHistory(),
             ],
           ),

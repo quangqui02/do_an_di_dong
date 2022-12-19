@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         // textTheme: Theme.of(context).textTheme.apply(bodyColor: kPrimaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: HomeTab(),
+      home: LoginAccount(),
     );
   }
 }

@@ -5,15 +5,17 @@ import 'package:doan_didong/screen/transaction/transaction_history.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BuyBrains extends StatefulWidget {
-  const BuyBrains({super.key});
+import '../../models/user.dart';
 
+class BuyBrains extends StatefulWidget {
+  BuyBrains({Key? key, required this.user}) : super(key: key);
+  User? user;
   @override
   State<BuyBrains> createState() => _BuyBrainsState();
 }
 
 class _BuyBrainsState extends State<BuyBrains> {
-  int pointuser = 100;
+  int pointuser = 0;
 
   List<BuyBrainObject> lsBuyBrains = [];
   void loadDanhSach() async {
@@ -74,8 +76,11 @@ class _BuyBrainsState extends State<BuyBrains> {
                     ),
                     trailing: TextButton(
                       onPressed: () {
-                        pointuser = pointuser + 10;
-                        setState(() {});
+                        setState(() {
+                          pointuser = this.widget.user!.point;
+                          pointuser = pointuser + lsBuyBrains[index].price;
+                          // this.widget.user!.point += pointuser;
+                        });
                       },
                       child: Container(
                         alignment: Alignment.center,

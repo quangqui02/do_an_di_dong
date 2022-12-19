@@ -1,24 +1,35 @@
 class User {
   final int id;
   final String name;
-  final String point;
+  final String email;
+  final int point;
+  final String ranker;
   final String image;
-  final int ranker;
-  final int status;
 
   const User({
     required this.id,
     required this.name,
+    required this.email,
     required this.point,
     required this.ranker,
     required this.image,
-    required this.status,
   });
   User.fromJson(Map<String, dynamic> r)
       : id = r['id'],
         name = r['name'],
+        email = r['email'],
         point = r['point'],
         ranker = r['ranker'],
-        image = r['image'],
-        status = r['status'];
+        image = r['image'] == null ? "images/user.png" : r['image'];
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email ': email,
+      'point': point,
+      'ranker ': ranker,
+      'image': image,
+    };
+  }
 }

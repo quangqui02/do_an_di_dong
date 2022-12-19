@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../../models/user.dart';
 import 'friendship.dart';
 
 class TabFriend extends StatefulWidget {
-  const TabFriend({super.key});
-
+  TabFriend({Key? key, required this.user}) : super(key: key);
+  User? user;
   @override
   State<TabFriend> createState() => _TabFriendState();
 }

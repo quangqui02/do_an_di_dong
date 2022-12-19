@@ -4,6 +4,8 @@ import 'package:doan_didong/api/Services/globals.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../../models/user.dart';
+
 class AuthServices {
   static Future<http.Response> register(
       String name, String email, String password) async {
@@ -37,5 +39,17 @@ class AuthServices {
     );
     print(response.body);
     return response;
+  }
+
+  static Future<User?> fetchUser(String email, String password) async {
+    http.Response response = await login(email, password);
+    User? result;
+    if (response.statusCode == 200) {
+      final parsed = jsonDecode(response.body);
+      final data = parsed["users"];
+      print(data);
+      result = User.fromJson(data);
+    }
+    return result;
   }
 }

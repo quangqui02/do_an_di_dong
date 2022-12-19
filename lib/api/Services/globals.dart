@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const String baseURL =
-    "https://b1fc-2001-ee0-555b-f200-304d-e196-252-b4a7.ap.ngrok.io/api"; //emulator localhost
+    "https://d9b6-118-71-246-65.ap.ngrok.io/api"; //emulator localhost
 
 // nếu muốn load câu hoi api thì sử dụng cái này và comment cái var link trên
 // const String baseURL =
