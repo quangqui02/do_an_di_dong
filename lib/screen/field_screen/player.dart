@@ -2,12 +2,18 @@ import 'package:doan_didong/screen/home/home.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:flutter/material.dart';
+import '../../models/user.dart';
 import 'ListCard.dart';
 import 'ListDetail.dart';
 
-class FeildQuestion extends StatelessWidget {
-  const FeildQuestion({Key? key}) : super(key: key);
+class FeildQuestion extends StatefulWidget {
+  FeildQuestion({Key? key, required this.user}) : super(key: key);
+  User user;
+  @override
+  State<FeildQuestion> createState() => _FeildQuestionState();
+}
 
+class _FeildQuestionState extends State<FeildQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +46,9 @@ class FeildQuestion extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Level()),
+                                        builder: (context) => HomeTab(
+                                              user: this.widget.user,
+                                            )),
                                   );
                                 },
                                 child: Image(
@@ -68,7 +76,8 @@ class FeildQuestion extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            return ListCard(index);
+                            return ListCard(
+                                user: this.widget.user, index: index);
                           },
                         ),
                       ),

@@ -5,6 +5,7 @@ import 'package:doan_didong/screen/player/user.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/user.dart';
 import '../transaction/tab_brains.dart';
@@ -29,12 +30,18 @@ class HomeTabState extends State<HomeTab> {
   @override
   void initState() {
     lsScreen = [
-      Home(user: this.widget.user),
+      Home(user: this.widget.user!),
       TabBrains(user: this.widget.user),
       TabFriend(user: this.widget.user),
       AttackTab(user: this.widget.user),
       Userr(user: this.widget.user),
     ];
+    setcost();
+  }
+
+  void setcost() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('point', this.widget.user!.point);
   }
 
   List<Widget> lsScreen = [];

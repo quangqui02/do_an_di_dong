@@ -5,7 +5,8 @@ import '../../models/user.dart';
 import 'ListDetail.dart';
 
 class ListCard extends StatefulWidget {
-  ListCard(this.index);
+  ListCard({Key? key, required this.user, required this.index})
+      : super(key: key);
   User? user;
   final int index;
 
@@ -24,7 +25,7 @@ class _ListCardState extends State<ListCard> {
             context,
             MaterialPageRoute(
                 builder: (context) => QuestionScreen(
-                      user: this.widget.user,
+                      user: this.widget.user!,
                     )),
           );
         },

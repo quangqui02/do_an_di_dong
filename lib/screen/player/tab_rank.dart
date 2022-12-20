@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../models/user.dart';
 
 class TabRank extends StatefulWidget {
-  TabRank({super.key});
+  TabRank({Key? key, required this.user}) : super(key: key);
   User? user;
   @override
   State<TabRank> createState() => _TabLoginState();

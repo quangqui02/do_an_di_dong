@@ -32,7 +32,7 @@ class _LoginAccountState extends State<LoginAccount> {
     if (_email.isNotEmpty && _password.isNotEmpty) {
       http.Response response = await AuthServices.login(_email, _password);
       Map responseMap = jsonDecode(response.body);
-      print(responseMap);
+      //print(responseMap);
 
       if (response.statusCode == 200) {
         User? us = await AuthServices.fetchUser(_email, _password);
@@ -268,7 +268,7 @@ class _LoginAccountState extends State<LoginAccount> {
                 ),
               ),
               loginButton('Đăng nhập', context),
-              logos(context),
+              // logos(context),
             ],
           ),
           logostag(context),

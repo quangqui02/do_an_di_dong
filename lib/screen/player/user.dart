@@ -96,7 +96,7 @@ class _UserrState extends State<Userr> {
                     ),
                   ),
                   buildButton(
-                      context, '${this.widget.user!.point}', 'Trò chơi'),
+                      context, '${this.widget.user!.ranker}', 'Xếp Hạng'),
                 ],
               ),
               Padding(

@@ -2,6 +2,7 @@ import 'package:doan_didong/screen/error.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/question_screen/time_textstyle.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'dart:async';
 
@@ -12,12 +13,20 @@ import 'audience_help.dart';
 
 class QuestionScreen extends StatefulWidget {
   QuestionScreen({Key? key, required this.user}) : super(key: key);
-  User? user;
+  User user;
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  int _point = 0;
+
+  void getcost() async {
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // _point = prefs.getInt('point')!;
+    _point = this.widget.user.point;
+  }
+
   int seconds = 30;
   Timer? timer;
   var currentQuestionIndex = 0;
@@ -51,8 +60,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
   void initState() {
     super.initState();
     quizz = getQuiz();
-    pointuser = this.widget.user!.point;
+    //pointuser = this.widget.user!.point;
     startTimer();
+    getcost();
+    print(this.widget.user);
   }
 
   @override
@@ -173,7 +184,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                   Padding(
                                     padding: const EdgeInsets.only(right: 15),
                                     child: Text(
-                                      ('${this.widget.user!.point}'),
+                                      _point.toString(),
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
@@ -385,9 +396,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                     onPressed: () {
                                       setState(() {
                                         if (muadapan > 0 &&
-                                            pointuser >= brain &&
+                                            _point >= brain &&
                                             indexbuyone == 1) {
-                                          pointuser -= brain;
+                                          _point -= brain;
                                           for (int i = 0;
                                               i < optionsList.length;
                                               i++) {
@@ -403,7 +414,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                           muadapan--;
                                           indexbuyone = 0;
                                           //gotoNextQuestion();
-                                        } else if (pointuser < brain &&
+                                        } else if (_point < brain &&
                                             muadapan > 0 &&
                                             indexbuyone == 1) {
                                           error(context, 'Brain bạn không đủ');
@@ -683,15 +694,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
       ),
     );
   }
-
-  // int getCorrectIndex() {
-  //   for (int j = 0; j < 4; j++) {
-  //     if (optionsList[j] == optionsList[j].indexanswer) {
-  //       return j;
-  //     }
-  //   }
-  //   return 0;
-  // }
 
   phoneCallBack(BuildContext context) {
     return showDialog<void>(
@@ -1059,17 +1061,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
                             child: TextButton(
                               onPressed: () {
                                 setState(() {
-                                  int pointuser = this.widget.user!.point;
-                                  if (heart == 0 &&
-                                      this.widget.user!.point >= addheart) {
+                                  if (heart == 0 && _point >= addheart) {
                                     heart = heart + 1;
                                     Navigator.pop(context);
                                     gotoNextQuestion();
-                                    pointuser = pointuser - addheart;
-                                  } else if (heart > 0 &&
-                                      pointuser >= addheart) {
+                                    _point = _point - addheart;
+                                  } else if (heart > 0 && _point >= addheart) {
                                     Navigator.pop(context);
-                                    pointuser -= addheart;
+                                    _point -= addheart;
                                   } else {
                                     error(context, 'Brain bạn không đủ');
                                   }
@@ -1154,13 +1153,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           ),
                           child: TextButton(
                             onPressed: () {
-                              Navigator.of(context).pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                    builder: (context) => HomeTab(
-                                      user: this.widget.user,
-                                    ),
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => HomeTab(
+                                    user: this.widget.user,
                                   ),
-                                  (route) => false);
+                                ),
+                              );
                             },
                             child: Center(
                               child: Row(

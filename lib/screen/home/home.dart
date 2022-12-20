@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:doan_didong/screen/field_screen/player.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
@@ -15,21 +16,35 @@ import 'guide.dart';
 
 class Home extends StatefulWidget {
   @override
-  User? user;
+  User user;
   Home({Key? key, required this.user}) : super(key: key);
   State<Home> createState() => _HomeState();
 }
 
-List<Widget> lsScreen = [
-  Text('Màn hình tin nhắn'),
-  Text('Màn hình tin nhắn'),
-];
+// List<Widget> lsScreen = [
+//   Text('Màn hình tin nhắn'),
+//   Text('Màn hình tin nhắn'),
+// ];
 
 class _HomeState extends State<Home> {
+  final audioplayer = AudioPlayer();
+  bool isPlaying = false;
+
   @override
   void initState() {
     super.initState();
   }
+
+  // Future setAudio() async {
+  //   audioplayer.setReleaseMode(ReleaseMode.loop);
+  //   final player = AudioCache(prefix: 'assets/');
+  //   final url = await player.load('musicgame.mp3');
+  //   audioplayer.setUrl(url.path, islocal: true);
+  // }
+
+  // void play() async {
+  //   audioplayers = await _audio.loop("audio/musicgame.mp3");
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +78,7 @@ class _HomeState extends State<Home> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              '${this.widget.user!.name}',
+                              ('${this.widget.user.name}'),
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -90,7 +105,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     Text(
-                                      ('${this.widget.user!.point}'),
+                                      ('${this.widget.user.point}'),
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 20,
@@ -139,7 +154,9 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FeildQuestion()),
+                                builder: (context) => FeildQuestion(
+                                      user: this.widget.user,
+                                    )),
                           );
                         },
                       ),
@@ -165,7 +182,10 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => TabRank()),
+                            MaterialPageRoute(
+                                builder: (context) => TabRank(
+                                      user: this.widget.user,
+                                    )),
                           );
                         },
                       ),
