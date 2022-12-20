@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:doan_didong/api/Services/auth_services.dart';
 import 'package:doan_didong/api/Services/globals.dart';
 import 'package:doan_didong/screen/error.dart';
-import 'package:doan_didong/screen/field_screen/player.dart';
+import 'package:doan_didong/screen/field_screen/field.dart';
 import 'package:doan_didong/screen/home/home.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/login_screen/login_register_email.dart';

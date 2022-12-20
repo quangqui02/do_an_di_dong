@@ -110,8 +110,21 @@ class _LoginEmailState extends State<LoginEmail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 50.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  //crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    Container(
+                      height: 250,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Image(
+                          image: AssetImage('images/logoapp.png'),
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 36, vertical: 8),
@@ -309,7 +322,7 @@ class _LoginEmailState extends State<LoginEmail> {
 
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 120, vertical: 15),
+                          horizontal: 100, vertical: 15),
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
@@ -317,7 +330,8 @@ class _LoginEmailState extends State<LoginEmail> {
                           });
                         },
                         style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 30),
                           shape: const StadiumBorder(),
                           primary: Colors.blue[900],
                           elevation: 8, // đổ bóng

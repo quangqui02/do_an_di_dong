@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   cached_network_image: ^3.2.2
   http: ^0.13.5
+  auto_size_text: ^3.0.0
   fl_chart: ^0.55.2
   email_validator: '^2.1.16'
   circular_countdown_timer: ^0.2.3

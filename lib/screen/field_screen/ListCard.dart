@@ -20,15 +20,7 @@ class _ListCardState extends State<ListCard> {
     return SizedBox(
       height: 200,
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => QuestionScreen(
-                      user: this.widget.user!,
-                    )),
-          );
-        },
+        onTap: () {},
         child: Stack(
           alignment: AlignmentDirectional.topEnd,
           children: [

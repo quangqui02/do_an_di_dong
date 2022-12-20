@@ -1,5 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:doan_didong/screen/field_screen/player.dart';
+import 'package:doan_didong/screen/field_screen/field.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
 import 'package:doan_didong/screen/player/tab_rank.dart';

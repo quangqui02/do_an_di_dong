@@ -1,5 +1,5 @@
 import 'package:doan_didong/screen/field_screen/ListCard.dart';
-import 'package:doan_didong/screen/field_screen/player.dart';
+import 'package:doan_didong/screen/field_screen/field.dart';
 import 'package:doan_didong/screen/home/guide.dart';
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:doan_didong/screen/login_screen/login_forget.dart';
