@@ -1,3 +1,4 @@
+import 'package:doan_didong/models/ranker_object.dart';
 import 'package:doan_didong/screen/attackfriend/attacktab.dart';
 import 'package:doan_didong/screen/friend/tabfriend.dart';
 import 'package:doan_didong/screen/home/home.dart';
@@ -13,6 +14,7 @@ import '../transaction/tab_brains.dart';
 class HomeTab extends StatefulWidget {
   @override
   User? user;
+
   HomeTab({Key? key, required this.user}) : super(key: key);
   State<StatefulWidget> createState() {
     return HomeTabState();

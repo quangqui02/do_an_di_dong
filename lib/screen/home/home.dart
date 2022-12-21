@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:doan_didong/screen/field_screen/field.dart';
 import 'package:doan_didong/screen/player/history.dart';
@@ -11,40 +13,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../../models/ranker_object.dart';
 import '../../models/user.dart';
 import 'guide.dart';
 
 class Home extends StatefulWidget {
   @override
   User user;
+
   Home({Key? key, required this.user}) : super(key: key);
   State<Home> createState() => _HomeState();
 }
 
-// List<Widget> lsScreen = [
-//   Text('Màn hình tin nhắn'),
-//   Text('Màn hình tin nhắn'),
-// ];
-
 class _HomeState extends State<Home> {
-  final audioplayer = AudioPlayer();
-  bool isPlaying = false;
-
+  final player = AudioPlayer();
   @override
   void initState() {
     super.initState();
+    music();
   }
 
-  // Future setAudio() async {
-  //   audioplayer.setReleaseMode(ReleaseMode.loop);
-  //   final player = AudioCache(prefix: 'assets/');
-  //   final url = await player.load('musicgame.mp3');
-  //   audioplayer.setUrl(url.path, islocal: true);
-  // }
+  int seconds = 110;
 
-  // void play() async {
-  //   audioplayers = await _audio.loop("audio/musicgame.mp3");
-  // }
+  void music() {
+    player.play(AssetSource('nhacnen.mp3'));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -182,10 +175,7 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => TabRank(
-                                      user: this.widget.user,
-                                    )),
+                            MaterialPageRoute(builder: (context) => Ranker()),
                           );
                         },
                       ),
@@ -233,136 +223,138 @@ class _HomeState extends State<Home> {
       ]),
     );
   }
-}
 
-Future<void> _dialogBuilder(BuildContext context) {
-  final player = AudioPlayer();
-  return showDialog<void>(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.blue,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(32.0))),
-        contentPadding: EdgeInsets.only(top: 10.0),
-        actions: <Widget>[
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 90),
-                    child: Text(
-                      'Cài Đặt',
-                      style: TextStyle(
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.blue,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(32.0))),
+          contentPadding: EdgeInsets.only(top: 10.0),
+          actions: <Widget>[
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 90),
+                      child: Text(
+                        'Cài Đặt',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Icon(
+                          Icons.close,
+                          size: 40,
                           color: Colors.white,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Icon(
-                        Icons.close,
-                        size: 40,
-                        color: Colors.white,
-                      ))
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 67,
-                    width: 67,
-                    child: TextButton(
-                      onPressed: () {
-                        player.play(AssetSource('nhacnen.mp3'));
-                      },
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.volume_up_rounded,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Bật nhạc',
-                            style: TextStyle(color: Colors.white, fontSize: 10),
-                          )
-                        ],
+                        ))
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 67,
+                      width: 67,
+                      child: TextButton(
+                        onPressed: () {
+                          player.resume();
+                        },
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.volume_up_rounded,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Bật nhạc',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 10),
+                            )
+                          ],
+                        ),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(139, 126, 114, 114),
+                          // border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(139, 126, 114, 114),
-                        // border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                  Container(
-                    height: 67,
-                    width: 67,
-                    child: TextButton(
-                      onPressed: () {
-                        //player.pause();
-                        player.stop();
-                      },
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.volume_off_rounded,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Tắt nhạc',
-                            style: TextStyle(color: Colors.white, fontSize: 10),
-                          )
-                        ],
+                    Container(
+                      height: 67,
+                      width: 67,
+                      child: TextButton(
+                        onPressed: () {
+                          //player.pause();
+                          player.pause();
+                        },
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.volume_off_rounded,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Tắt nhạc',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 10),
+                            )
+                          ],
+                        ),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(139, 126, 114, 114),
+                          // border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(139, 126, 114, 114),
-                        // border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                  Container(
-                    height: 67,
-                    width: 67,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Guide()),
-                        );
-                      },
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.book_outlined,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Hướng dẫn',
-                            style: TextStyle(color: Colors.white, fontSize: 10),
-                          )
-                        ],
+                    Container(
+                      height: 67,
+                      width: 67,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Guide()),
+                          );
+                        },
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.book_outlined,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              'Hướng dẫn',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 10),
+                            )
+                          ],
+                        ),
                       ),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(139, 126, 114, 114),
+                          //border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(40)),
                     ),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(139, 126, 114, 114),
-                        //border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(40)),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      );
-    },
-  );
+                  ],
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

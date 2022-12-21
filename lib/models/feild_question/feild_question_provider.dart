@@ -15,8 +15,8 @@ class FeildProvider {
 
   static Future<List<FeildQuestionObjecj>> fetchPackage() async {
     final response = await http.get(Uri.parse(
-        // 'https://9e74-2001-ee0-555b-f200-c1ca-f2eb-a337-3f0.ap.ngrok.io/api/linhvuc'));
-        "http://10.0.2.2:8000/api/linhvuc"));
+        'https://4bd0-2001-ee0-555b-f200-4666-398b-d8bc-bf26.ap.ngrok.io/api/linhvuc'));
+    // "http://10.0.2.2:8000/api/linhvuc"));
     print(response);
     return parsePackage(response.body);
   }
