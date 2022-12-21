@@ -64,54 +64,66 @@ class _AttackFriendState extends State<AttackFriend> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Color.fromARGB(200, 187, 222, 251),
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(32.0))),
-                            contentPadding: EdgeInsets.only(top: 10.0),
+                                    BorderRadius.all(Radius.circular(10.0))),
+                            // contentPadding: EdgeInsets.only(top: 10.0),
                             actions: <Widget>[
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 70),
-                                          child: Text(
-                                            'Thách đấu',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        TextButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            child: Icon(
-                                              Icons.close,
-                                              size: 20,
+                              Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 70),
+                                        child: Text(
+                                          'Thách đấu',
+                                          style: TextStyle(
                                               color: Colors.white,
-                                            ))
-                                      ],
-                                    ),
-                                    Text(
-                                      'Thời gian: ${lsFriends[index].time}',
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 255, 255, 255),
-                                          fontSize: 18),
-                                    ),
-                                    Row(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Icon(
+                                            Icons.close,
+                                            size: 20,
+                                            color: Colors.white,
+                                          ))
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10),
+                                    child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                          MainAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Trang Thái: ',
+                                          'Thời gian: ${lsFriends[index].time}',
+                                          style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255),
+                                              fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 10),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Trang thái: ',
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 255, 255, 255),
@@ -120,46 +132,57 @@ class _AttackFriendState extends State<AttackFriend> {
                                         Text(
                                           '${lsFriends[index].status}',
                                           style: TextStyle(
-                                              color: Colors.red, fontSize: 20),
+                                              color: Colors.black87,
+                                              fontSize: 18),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
-                                      height: 10,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
                                     ),
-                                    Text(
-                                      'Bạn muốn hủy thách đầu này?',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
+                                    child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                          MainAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                          child: TextButton(
-                                              onPressed: () {},
-                                              child: Text(
-                                                'Ok',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    fontSize: 20,
-                                                    color: Colors.black),
-                                              )),
+                                        Text(
+                                          'Bạn muốn hủy thách đầu này?',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white),
                                         ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                              )
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 100,
+                                        height: 45,
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue[600],
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: TextButton(
+                                            onPressed: () {},
+                                            child: Text(
+                                              'HỦY',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.white),
+                                            )),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ],
                           );
                         },
@@ -167,6 +190,7 @@ class _AttackFriendState extends State<AttackFriend> {
                     },
                     tileColor: Color.fromARGB(151, 128, 138, 145),
                     leading: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           textAlign: TextAlign.left,
@@ -193,28 +217,32 @@ class _AttackFriendState extends State<AttackFriend> {
                         image: AssetImage('images/flash.png'),
                         height: 40,
                         width: 30),
-                    trailing: Column(
-                      children: [
-                        Text(
-                          textAlign: TextAlign.right,
-                          '${lsFriends[index].name2}',
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 19,
+                    trailing: Container(
+                      height: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            textAlign: TextAlign.right,
+                            '${lsFriends[index].name2}',
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 19,
+                            ),
                           ),
-                        ),
-                        Text(
-                          '${lsFriends[index].point2}',
-                          textAlign: TextAlign.right,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            letterSpacing: 0,
+                          Text(
+                            '${lsFriends[index].point2}',
+                            textAlign: TextAlign.right,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                              letterSpacing: 0,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

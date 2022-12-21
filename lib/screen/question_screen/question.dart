@@ -1176,7 +1176,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 40),
+                                        horizontal: 30),
                                     child: Text(
                                       'TRANG CHỦ',
                                       style: TextStyle(
@@ -1243,6 +1243,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
+                        height: 67,
+                        width: 67,
                         child: TextButton(
                           onPressed: () {},
                           child: Column(
@@ -1255,17 +1257,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
                               Text(
                                 'Âm nhạc',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                    color: Colors.white, fontSize: 10),
                               )
                             ],
                           ),
                         ),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(139, 126, 114, 114),
-                            border: Border.all(color: Colors.black),
+                            // border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(40)),
                       ),
                       Container(
+                        height: 67,
+                        width: 67,
                         child: TextButton(
                           onPressed: () {},
                           child: Column(
@@ -1278,14 +1282,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
                               Text(
                                 'Âm lượng',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
+                                    color: Colors.white, fontSize: 10),
                               )
                             ],
                           ),
                         ),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(139, 126, 114, 114),
-                            border: Border.all(color: Colors.black),
+                            // border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(40)),
                       ),
                     ],

@@ -154,11 +154,7 @@ class _LoginForgetState extends State<LoginForget> {
                     children: [
                       TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginAccount()),
-                            );
+                            Navigator.pop(context);
                           },
                           child: Image(
                             width: 30,

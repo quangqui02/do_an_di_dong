@@ -236,6 +236,7 @@ class _HomeState extends State<Home> {
 }
 
 Future<void> _dialogBuilder(BuildContext context) {
+  final player = AudioPlayer();
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
@@ -275,17 +276,21 @@ Future<void> _dialogBuilder(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
+                    height: 67,
+                    width: 67,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        player.play(AssetSource('nhacnen.mp3'));
+                      },
                       child: Column(
                         children: [
                           Icon(
-                            Icons.music_note,
+                            Icons.volume_up_rounded,
                             size: 30,
                             color: Colors.white,
                           ),
                           Text(
-                            'Âm Nhạc',
+                            'Bật nhạc',
                             style: TextStyle(color: Colors.white, fontSize: 10),
                           )
                         ],
@@ -293,21 +298,26 @@ Future<void> _dialogBuilder(BuildContext context) {
                     ),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(139, 126, 114, 114),
-                        border: Border.all(color: Colors.black),
+                        // border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(40)),
                   ),
                   Container(
+                    height: 67,
+                    width: 67,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        //player.pause();
+                        player.stop();
+                      },
                       child: Column(
                         children: [
                           Icon(
-                            Icons.volume_down,
+                            Icons.volume_off_rounded,
                             size: 30,
                             color: Colors.white,
                           ),
                           Text(
-                            'Âm Lượng',
+                            'Tắt nhạc',
                             style: TextStyle(color: Colors.white, fontSize: 10),
                           )
                         ],
@@ -315,10 +325,12 @@ Future<void> _dialogBuilder(BuildContext context) {
                     ),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(139, 126, 114, 114),
-                        border: Border.all(color: Colors.black),
+                        // border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(40)),
                   ),
                   Container(
+                    height: 67,
+                    width: 67,
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -334,7 +346,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                             color: Colors.white,
                           ),
                           Text(
-                            'Hướng Dẫn',
+                            'Hướng dẫn',
                             style: TextStyle(color: Colors.white, fontSize: 10),
                           )
                         ],
@@ -342,7 +354,7 @@ Future<void> _dialogBuilder(BuildContext context) {
                     ),
                     decoration: BoxDecoration(
                         color: Color.fromARGB(139, 126, 114, 114),
-                        border: Border.all(color: Colors.black),
+                        //border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(40)),
                   ),
                 ],

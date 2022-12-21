@@ -1,7 +1,10 @@
+
 import 'package:doan_didong/screen/home/hometab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/friend/friend_object.dart';
+import '../../models/friend/friend_provider.dart';
 import '../home/home.dart';
 
 class Ranker extends StatefulWidget {
@@ -12,6 +15,20 @@ class Ranker extends StatefulWidget {
 }
 
 class _RankerState extends State<Ranker> {
+  int stt = 0;
+  List<FriendObject> lsFriends = [];
+  void loadDanhSach() async {
+    final data = await FriendProvider.getAllContacts();
+    setState(() {});
+    lsFriends = data;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadDanhSach();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,18 +48,66 @@ class _RankerState extends State<Ranker> {
               child: Padding(
                 padding:
                     const EdgeInsets.only(top: 15, right: 10.0, left: 10.0),
-                child: ListView(
-                  children: <Widget>[
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                    rank('1', 'Name', '3000'),
-                  ],
+                child: ListView.builder(
+                  itemCount: lsFriends.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(151, 128, 138, 145),
+                          border: Border.all(
+                              color: Colors.white,
+                              width: 2.0,
+                              style: BorderStyle.solid),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
+                        child: ListTile(
+                          leading: Text(
+                            '${stt = stt + 1}',
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                            ),
+                          ),
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image(
+                                width: 40,
+                                height: 40,
+                                image: AssetImage('images/user.png'),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(
+                                  '${lsFriends[index].name}',
+                                  //overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          subtitle: null,
+                          trailing: Padding(
+                            padding: const EdgeInsets.only(right: 30.0),
+                            child: Text(
+                              '${lsFriends[index].point}',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -106,63 +171,6 @@ class _RankerState extends State<Ranker> {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  Widget rank(String number, String name, String point) {
-    return Padding(
-      padding: const EdgeInsets.all(6.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Color.fromARGB(151, 128, 138, 145),
-          border: Border.all(
-              color: Colors.white, width: 2.0, style: BorderStyle.solid),
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-        ),
-        child: ListTile(
-          leading: Text(
-            number,
-            style: TextStyle(
-              fontSize: 25,
-              color: Colors.white,
-            ),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image(
-                width: 40,
-                height: 40,
-                image: AssetImage('images/user.png'),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Text(
-                  name,
-                  //overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          subtitle: null,
-          trailing: Padding(
-            padding: const EdgeInsets.only(right: 30.0),
-            child: Text(
-              point,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }

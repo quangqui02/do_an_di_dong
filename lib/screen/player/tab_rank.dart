@@ -69,7 +69,7 @@ class _TabLoginState extends State<TabRank> {
                 ),
                 Tab(
                   child: Text(
-                    'Cấp độ',
+                    'Thời gian',
                     style: TextStyle(
                         fontSize: 19,
                         color: Color.fromARGB(255, 255, 255, 255)),

@@ -81,13 +81,15 @@ class _FeildQuestionState extends State<FeildQuestion> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Chọn Lĩnh Vực',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 247, 255),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 50),
+                        child: Text(
+                          'CHỌN LĨNH VỰC',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
@@ -147,7 +149,7 @@ class _FeildQuestionState extends State<FeildQuestion> {
                                     AutoSizeText(
                                       lsProducts[index].namefield,
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),

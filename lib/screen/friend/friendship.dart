@@ -76,14 +76,14 @@ class _FriendShipState extends State<FriendShip> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 5),
                             child: Container(
-                              width: 87,
+                              width: 120,
                               child: Text(
                                 textAlign: TextAlign.left,
                                 '${lsFriends[index].name}',
                                 style: const TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20,
+                                  fontSize: 19,
                                 ),
                               ),
                             ),
@@ -142,21 +142,22 @@ class _FriendShipState extends State<FriendShip> {
                           //     // }),
                           //   ),
                           // ),
-
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: Colors.green),
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.add,
-                                color: Colors.white,
+                          if ('${lsFriends[index].status}' == "Thêm bạn?")
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: Colors.green),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {},
                               ),
-                              onPressed: () {},
                             ),
-                          ),
+
                           SizedBox(
                             width: 10,
                           ),

@@ -1,14 +1,28 @@
 [
     {
-        "id": 4,      
+        "id": 1,      
         "name": "Đức Minh",
         "avata": "user",
         "point": 1600,
         "status": "Đã gửi"
     },
     {
+        "id": 2,      
+        "name": "Công Duyễn",
+        "avata": "user",
+        "point": 1600,
+        "status": "Đã gửi"
+    },
+    {
+        "id": 3,      
+        "name": "Trọng Nghĩa",
+        "avata": "user",
+        "point": 1600,
+        "status": "Đã gửi"
+    },
+    {
         "id": 4,      
-        "name": "Phi Long",
+        "name": "Văn Tân",
         "avata": "user",
         "point": 1600,
         "status": "Thêm bạn?"

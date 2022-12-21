@@ -8,6 +8,48 @@
     },
     {
         "id": 2,      
+        "name": "Thế An",
+        "avata": "user",
+        "point": 1400,
+        "status": 1
+    },
+    {
+        "id": 3,      
+        "name": "Anh Tuấn",
+        "avata": "user",
+        "point": 1100,
+        "status": 1
+    },
+    {
+        "id": 5,      
+        "name": "Đức Minh",
+        "avata": "user",
+        "point": 1100,
+        "status": 1
+    },
+    {
+        "id": 6,      
+        "name": "Phi Long",
+        "avata": "user",
+        "point": 1500,
+        "status": 1
+    },
+    {
+        "id": 7,      
+        "name": "Anh Phi",
+        "avata": "user",
+        "point": 1600,
+        "status": 1
+    },
+    {
+        "id": 8,      
+        "name": "Gia Hùng",
+        "avata": "user",
+        "point": 1100,
+        "status": 1
+    },
+    {
+        "id": 2,      
         "name": "Quang Qui",
         "avata": "user",
         "point": 1400,
@@ -15,7 +57,7 @@
     },
     {
         "id": 3,      
-        "name": "Đức Trọng",
+        "name": "Văn Tân",
         "avata": "user",
         "point": 1100,
         "status": 1

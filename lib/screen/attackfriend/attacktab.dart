@@ -35,19 +35,19 @@ class _AttackTabState extends State<AttackTab> {
                 Tab(
                   child: Text(
                     'Danh Sách ',
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
                 Tab(
                   child: Text(
                     'Chiến Tích',
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
                 Tab(
                   child: Text(
                     'Lời Mời',
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ],

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:doan_didong/api/Services/auth_services.dart';
 import 'package:doan_didong/api/Services/globals.dart';
 import 'package:doan_didong/screen/error.dart';
@@ -124,7 +125,9 @@ class _LoginAccountState extends State<LoginAccount> {
     return Padding(
       padding: const EdgeInsets.only(left: 100, right: 100),
       child: ElevatedButton(
-        onPressed: () => loginPressed(),
+        onPressed: () {
+          loginPressed();
+        },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12),
           shape: const StadiumBorder(),

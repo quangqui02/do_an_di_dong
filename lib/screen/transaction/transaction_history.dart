@@ -62,7 +62,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
   Widget transactionHistoryState(
       String card, String status, String check, String time, String content) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Container(
         decoration: BoxDecoration(
           color: const Color.fromARGB(151, 128, 138, 145),

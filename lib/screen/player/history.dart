@@ -98,39 +98,30 @@ class _HistoryState extends State<HistoryScreen> {
       ),
       child: ListTile(
         leading: Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 his.time_start,
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 17,
+                  fontSize: 18,
                 ),
               ),
             ],
           ),
         ),
         title: Padding(
-          padding: const EdgeInsets.only(left: 1.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text(
-            his.totalscore,
+            his.totalscore + ' Điểm',
             style: TextStyle(
               color: Color.fromARGB(255, 255, 255, 255),
-              fontSize: 25,
+              fontSize: 23,
             ),
             textAlign: TextAlign.right,
-          ),
-        ),
-        trailing: Padding(
-          padding: const EdgeInsets.only(right: 1),
-          child: Text(
-            'Điểm',
-            style: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
-              fontSize: 20,
-            ),
           ),
         ),
       ),

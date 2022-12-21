@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/user.dart';
 import '../home/home.dart';
+import '../login_screen/login_forget.dart';
 import '../login_screen/login_sreen.dart';
 
 class Userr extends StatefulWidget {
@@ -105,7 +106,7 @@ class _UserrState extends State<Userr> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ChangePass()),
+                      MaterialPageRoute(builder: (context) => LoginForget()),
                     );
                   },
                   child: Row(
