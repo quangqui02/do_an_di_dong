@@ -65,7 +65,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
     super.initState();
     quizz = getQuiz(this.widget.category);
     startTimer();
-    // getcost();
+    getcost();
     // print(this.widget.user);
   }
 
@@ -638,11 +638,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          margin: const EdgeInsets.only(
-                                              bottom: 18.5),
+                                          margin:
+                                              const EdgeInsets.only(bottom: 10),
                                           alignment: Alignment.center,
                                           width: size.width - 20,
-                                          padding: const EdgeInsets.all(16),
+                                          padding: const EdgeInsets.all(13),
                                           decoration: BoxDecoration(
                                             color: optionsColor[index],
                                             borderRadius:
@@ -1069,6 +1069,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                                   if (heart == 0 && _point >= addheart) {
                                     heart = heart + 1;
                                     Navigator.pop(context);
+
                                     gotoNextQuestion();
                                     _point = _point - addheart;
                                   } else if (heart > 0 && _point >= addheart) {
@@ -1377,6 +1378,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   ),
                   TextButton(
                     onPressed: () {
+                      Navigator.pop(context);
                       setState(() {
                         getPoint();
                         quitGame(context);

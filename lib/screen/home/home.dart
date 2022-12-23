@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:doan_didong/screen/attackfriend/attacktab.dart';
 import 'package:doan_didong/screen/field_screen/field.dart';
 import 'package:doan_didong/screen/player/history.dart';
 import 'package:doan_didong/screen/player/ranker.dart';
@@ -9,6 +10,7 @@ import 'package:doan_didong/screen/player/user.dart';
 import 'package:doan_didong/screen/question_screen/level.dart';
 import 'package:doan_didong/screen/question_screen/question.dart';
 import 'package:doan_didong/screen/transaction/buybrains.dart';
+import 'package:doan_didong/screen/transaction/tab_brains.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -26,15 +28,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final player = AudioPlayer();
   @override
   void initState() {
     super.initState();
-    music();
   }
 
   int seconds = 110;
 
+  final player = AudioPlayer();
   void music() {
     player.play(AssetSource('nhacnen.mp3'));
   }
@@ -215,6 +216,62 @@ class _HomeState extends State<Home> {
                           border: Border.all(color: Colors.white)),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Container(
+                      child: TextButton(
+                        child: Text('THÁCH ĐẤU',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AttackTab(
+                                      user: this.widget.user,
+                                    )),
+                          );
+                        },
+                      ),
+                      width: 250,
+                      height: 45,
+                      decoration: BoxDecoration(
+                          color: Colors.yellow.shade800,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          border: Border.all(color: Colors.white)),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Container(
+                      child: TextButton(
+                        child: Text('MUA BRAIN',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TabBrains(
+                                      user: this.widget.user,
+                                    )),
+                          );
+                        },
+                      ),
+                      width: 250,
+                      height: 45,
+                      decoration: BoxDecoration(
+                          color: Colors.yellow.shade800,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          border: Border.all(color: Colors.white)),
+                    ),
+                  ),
                 ]),
               ],
             ),
@@ -268,7 +325,7 @@ class _HomeState extends State<Home> {
                       width: 67,
                       child: TextButton(
                         onPressed: () {
-                          player.resume();
+                          player.play(AssetSource('nhacnen.mp3'));
                         },
                         child: Column(
                           children: [

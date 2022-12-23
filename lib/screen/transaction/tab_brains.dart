@@ -28,6 +28,29 @@ class _TabBrainsState extends State<TabBrains> {
               children: [
                 Row(
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 1),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pop(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TabBrains(
+                                            user: this.widget.user,
+                                          )),
+                                );
+                              },
+                              child: Image(
+                                width: 30,
+                                height: 30,
+                                image: AssetImage('images/back.png'),
+                              )),
+                        ],
+                      ),
+                    ),
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.only(

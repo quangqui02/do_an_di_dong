@@ -33,7 +33,7 @@ class _LoginEmailState extends State<LoginEmail> {
         errorSnackBar(context, responseMap.values.first[0]);
       }
     } else {
-      errorSnackBar(context, 'Vui lòng nhập đầy đủ thông tin');
+      errorSnackBar(context, 'Sai định dạng email');
     }
   }
 
@@ -100,10 +100,6 @@ class _LoginEmailState extends State<LoginEmail> {
                 image: AssetImage('images/background.png'),
                 fit: BoxFit.cover,
               ),
-              // border: Border.all(
-              //   width: 50,
-              // ),
-              // borderRadius: BorderRadius.circular(12),
             ),
             child: Form(
               key: formKey, //key for form
@@ -154,7 +150,7 @@ class _LoginEmailState extends State<LoginEmail> {
                                 filled: true,
                                 fillColor: Color.fromARGB(255, 255, 255, 255),
 
-                                hintText: 'Tên đăng nhập',
+                                hintText: 'Tên Người Chơi',
                                 // hiển thị chữ
 
                                 prefixIcon: const Icon(
@@ -165,7 +161,7 @@ class _LoginEmailState extends State<LoginEmail> {
                               validator: (value) {
                                 if (value!.isEmpty ||
                                     !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
-                                  return "Nhập tên đăng nhập";
+                                  return "Nhập Tên Người Chơi";
                                 }
                                 return null;
                               }),
@@ -253,73 +249,14 @@ class _LoginEmailState extends State<LoginEmail> {
 
                               hintText: 'Mật khẩu',
 
-                              // hiển thị chữ
-
                               prefixIcon: const Icon(
                                 Icons.password_outlined,
-                                // color: Color.fromARGB(255, 38, 0, 255),
-                              ), //icon
+                              ),
                             ),
-                            // validator: (value) {
-                            //   if (value!.isEmpty ||
-                            //       !RegExp(r'^[\w-\.]+@([\w-$')
-                            //           .hasMatch(value!)) {
-                            //     return "Nhập mật khẩu";
-                            //   }
-                            //   return null;
-                            // }
                           ),
                         ),
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.symmetric(
-                    //       horizontal: 36, vertical: 8),
-                    //   child: SizedBox(
-                    //     height: 50,
-                    //     child: Material(
-                    //       elevation: 8, // góc đổ bóng
-                    //       shadowColor: Colors.black87,
-                    //       color: Colors.transparent,
-
-                    //       borderRadius:
-                    //           BorderRadius.circular(30), // bo tròn bóng
-                    //       child: TextFormField(
-
-                    //           textAlignVertical:
-                    //               TextAlignVertical.bottom, // gạch chân input
-
-                    //           decoration: InputDecoration(
-                    //             // tạo input
-
-                    //             border: OutlineInputBorder(
-                    //               borderRadius:
-                    //                   BorderRadius.circular(30), // bo tròn
-                    //               borderSide: BorderSide.none, // bỏ đường viền
-                    //             ),
-                    //             filled: true,
-                    //             fillColor: Color.fromARGB(255, 255, 255, 255),
-
-                    //             hintText: 'Xác nhận mật khẩu',
-                    //             // hiển thị chữ
-
-                    //             prefixIcon: const Icon(
-                    //               Icons.password_outlined,
-                    //               // color: Color.fromARGB(255, 38, 0, 255),
-                    //             ), //icon
-                    //           ),
-                    //           validator: (value) {
-                    //             if (value!.isEmpty ||
-                    //                 !RegExp(r'^[\w-\.]+@([\w-$')
-                    //                     .hasMatch(value!)) {
-                    //               return "Xác nhận mật khẩu";
-                    //             }
-                    //             return null;
-                    //           }),
-                    //     ),
-                    //   ),
-                    // ),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 100, vertical: 15),
@@ -346,22 +283,6 @@ class _LoginEmailState extends State<LoginEmail> {
                         ),
                       ),
                     ),
-                    // GestureDetector(
-                    //   onTap: () {
-                    //     Navigator.push(
-                    //         context,
-                    //         MaterialPageRoute(
-                    //           builder: (BuildContext context) =>
-                    //               const LoginAccount(),
-                    //         ));
-                    //   },
-                    //   child: const Text(
-                    //     'already have an account',
-                    //     style: TextStyle(
-                    //       decoration: TextDecoration.underline,
-                    //     ),
-                    //   ),
-                    // )
                   ],
                 ),
               ),
@@ -388,13 +309,8 @@ Future<void> _dialogRegister(BuildContext context) {
             height: 120,
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(5),
-                  // child: Text(
-                  //   'Đăng Ký',
-                  //   textAlign: TextAlign.center,
-                  //   style: TextStyle(color: Colors.white, fontSize: 20),
-                  // ),
+                SizedBox(
+                  height: 20,
                 ),
                 Text(
                   'Bạn Đăng Ký Thành Công',

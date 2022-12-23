@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 var link =
-    "https://4bd0-2001-ee0-555b-f200-4666-398b-d8bc-bf26.ap.ngrok.io/api/questions";
+    "https://fa63-2402-800-6346-cd38-5ca7-24d1-91ce-1a5f.ap.ngrok.io/api/questions";
 // "http://10.0.2.2:8000/api/questions";
 // nếu muốn load câu hoi api thì sử dụng cái này và comment cái var link trên
 // var link =

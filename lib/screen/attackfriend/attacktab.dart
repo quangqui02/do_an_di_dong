@@ -28,7 +28,26 @@ class _AttackTabState extends State<AttackTab> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.blue[900],
-            title: const TabBar(
+            title: Row(
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AttackTab(
+                                  user: this.widget.user,
+                                )),
+                      );
+                    },
+                    child: Image(
+                      width: 30,
+                      height: 30,
+                      image: AssetImage('images/back.png'),
+                    )),
+              ],
+            ),
+            bottom: const TabBar(
               indicatorColor: Colors.white,
               indicatorWeight: 2.5,
               tabs: <Tab>[

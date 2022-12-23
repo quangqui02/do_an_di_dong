@@ -249,7 +249,7 @@ class _LoginAccountState extends State<LoginAccount> {
                   ),
                 ),
               ),
-              inputField('Tên đăng nhập', Icons.person_outline),
+              inputField('Email', Icons.person_outline),
               InputBorder('Mật khẩu', Icons.password_outlined),
               Padding(
                 padding: const EdgeInsets.only(left: 210),
